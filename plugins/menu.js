@@ -208,7 +208,7 @@ let msg = generateWAMessageFromContent(
                   {                   
 
 header: proto.Message.InteractiveMessage.Header.create({
-          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/lazbax.jpg' } }, { upload: conn.waUploadToServer })),
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/u6ikiq.jpg' } }, { upload: conn.waUploadToServer })),
           title: menuc1,
           gifPlayback: true,
           subtitle: "DEWMINI-MD",
