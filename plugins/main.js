@@ -549,7 +549,7 @@ const config = require('../settings')
                     body: 'Touch here.',
                     renderLargerThumbnail: true,
                     thumbnailUrl: ``,
-                    thumbnail: `https://telegra.ph/file/b714e9a697c2fd0794985.jpg`,
+                    thumbnail: `https://files.catbox.moe/n5w10w.jpg`,
                     mediaType: 2,
                     mediaUrl: '',
                     sourceUrl: `https://wa.me/+` + owner[0] + '?text=Hii bro,I am ' + mek.pushName,
