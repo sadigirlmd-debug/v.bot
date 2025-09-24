@@ -47,7 +47,7 @@ else BOTOW = "*You are not bot\'s owner or moderator !*"
 //============================================================================
 
 cmd({
-  pattern: "menu3",
+  pattern: "menu",
   react: "👨‍💻",
   desc: "Get bot\'s command list.",
   category: "main",
@@ -76,7 +76,7 @@ var vajiralod = [
 "LOADING ●●○○○○",
 "LOADING ●●●●○○",
 "LOADING ●●●●●●",
-"`*🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️*`"	
+"`🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️`"	
 ]
 let { key } = await conn.sendMessage(from, {text: ''})
 
