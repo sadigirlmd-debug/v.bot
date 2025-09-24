@@ -87,7 +87,7 @@ await conn.sendMessage(from, {text: vajiralod[i], edit: key })
 
 const category = q.trim().toUpperCase();
 let menuc = `*◈╾──────${category} DOWNLOAD COMMAND LIST──────╼◈*\n\n> Select you want command type and enjoy Dewmini md whatsapp bot 👨‍💻\n\n`;
-        let wm = '*ᴅᴇᴡᴍɪɴɪ ᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴛʜᴇ ᴛᴇᴀᴍ • ᴋᴏᴅ*'	
+        let wm = '*ᴘᴏᴡᴇʀᴇᴅ ʙʏᴇ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ *'	
 
   for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'download'){
