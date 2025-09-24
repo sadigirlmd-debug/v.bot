@@ -1,3 +1,6 @@
+const axios = require("axios");
+const FormData = require('form-data');
+const path = require("path");
 const config = require('../settings')
 const os = require('os')
 const fs = require('fs')
