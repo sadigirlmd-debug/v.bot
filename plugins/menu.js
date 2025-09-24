@@ -76,7 +76,7 @@ var vajiralod = [
 "LOADING ●●○○○○",
 "LOADING ●●●●○○",
 "LOADING ●●●●●●",
-"`COMPLETED ✅`"	
+"`*🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️*`"	
 ]
 let { key } = await conn.sendMessage(from, {text: ''})
 
