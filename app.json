@@ -1,0 +1,23 @@
+{
+  "name": "VAJIRA-MD",
+  "description": "VAJIRA-MD has been designed to make things easier and fun while using WhatsApp. 👨‍💻❤️",
+  "logo": "https://pomf2.lain.la/f/aqi35mmg.jpg",
+  "keywords": ["vajiramd", "bot", "whatsapp bot", "multi device", "vajira-md"],
+  "success_url": "/",
+
+  "env": {
+    "SESSION_ID": {
+            "description": "Type the Session-ID you got from scaning QR",
+            "required": true,
+            "value": "put session id here"
+        }
+    },
+         "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+        }
+     ],
+  "stack": "heroku-24"
+  
+  
+}
