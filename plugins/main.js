@@ -65,32 +65,59 @@ async (conn, mek, m, { from, isOwner, args, reply }) => {
 });
 
 
+
 cmd({
     pattern: "ping",
-    react: "📟",
-    alias: ["speed","cyber_ping"],
-    desc: "To Check bot's ping",
+    alias: ["speed","pong"],use: '.ping',
+    desc: "Check bot's response time.",
     category: "main",
-    use: '.ping',
+    react: "⚡",
     filename: __filename
 },
-async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-const nima = require("@whiskeysockets/baileys")
-var inital = new Date().getTime();
-let ping = await conn.sendMessage(from , { text: '*_Pinging to Vajira Module..._* ❗'  } )
-var final = new Date().getTime();
-await conn.sendMessage(from, { text : '◍○○○○' , edit : ping.key })
-await conn.sendMessage(from, { text : '◍◍○○○' , edit : ping.key })
-await conn.sendMessage(from, { text : '◍◍◍○○' , edit : ping.key })
-await conn.sendMessage(from, { text : '◍◍◍◍○' , edit : ping.key })
-await conn.sendMessage(from, { text : '◍◍◍◍◍' , edit : ping.key })
-return await conn.sendMessage(from, { text : '📍️ *Pong ' + (final - inital) + ' Ms* ' , edit : ping.key })
-} catch (e) {
-reply('*Error !!*')
-l(e)
-}
-})
+async (conn, mek, m, { from, quoted, sender, reply }) => {
+    try {
+        const start = new Date().getTime();
+
+        const reactionEmojis = ['🔥', '⚡', '🚀', '💨', '🎯', '🎉', '🌟', '💥', '🕐', '🔹'];
+        const textEmojis = ['💎', '🏆', '⚡️', '🚀', '🎶', '🌠', '🌀', '🔱', '🛡️', '✨'];
+
+        const reactionEmoji = reactionEmojis[Math.floor(Math.random() * reactionEmojis.length)];
+        let textEmoji = textEmojis[Math.floor(Math.random() * textEmojis.length)];
+
+        // Ensure reaction and text emojis are different
+        while (textEmoji === reactionEmoji) {
+            textEmoji = textEmojis[Math.floor(Math.random() * textEmojis.length)];
+        }
+
+        // Send reaction using conn.sendMessage()
+        await conn.sendMessage(from, {
+            react: { text: textEmoji, key: mek.key }
+        });
+
+        const end = new Date().getTime();
+        const responseTime = (end - start) / 1000;
+
+        const text = `> *🎀 𝐙𝐀𝐍𝐓𝐀-𝐗𝐌𝐃 𝐔𝐋𝐓𝐑𝐀 𝐒𝐏𝐄𝐄𝐃: ${responseTime.toFixed(2)}ms ${reactionEmoji}*`;
+
+        await conn.sendMessage(from, {
+            text,
+            contextInfo: {
+                mentionedJid: [sender],
+                forwardingScore: 999,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363412075023554@newsletter',
+                    newsletterName: "🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️",
+                    serverMessageId: 143
+                }
+            }
+        }, { quoted: mek });
+
+    } catch (e) {
+        console.error("Error in ping command:", e);
+        reply(`An error occurred: ${e.message}`);
+    }
+});
 
 
 
