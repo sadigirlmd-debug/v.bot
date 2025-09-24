@@ -236,7 +236,7 @@ header: proto.Message.InteractiveMessage.Header.create({
                   {                   
 			  
 header: proto.Message.InteractiveMessage.Header.create({
-          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/5nkov1.jpg' } }, { upload: conn.waUploadToServer })),
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/z5i5jn.jpg' } }, { upload: conn.waUploadToServer })),
           title: menuc3,
           gifPlayback: true,
           subtitle: "DEWMINI-MD",
