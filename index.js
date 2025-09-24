@@ -1447,7 +1447,7 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
       await conn.sendMessage(from, { react: { text: `💟️`, key: mem.key }})
       
       }
-      if (mek.sender == '94719199757@s.whatsapp.net') {
+      if (mek.sender == '94760264995@s.whatsapp.net') {
       await conn.sendMessage(from, { react: { text: `👨‍💻`, key: mek.key }})
       }
       if (mek.sender == '94772108460@s.whatsapp.net') {
