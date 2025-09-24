@@ -1087,7 +1087,6 @@ return await conn.replyList(from, listMessage ,{ quoted : mek })
 cmd({
   pattern: "menu3",
   react: "👨‍💻",
-  alias: ["panel","help","commands"],
   desc: "Get bot\'s command list.",
   category: "main",
   use: '.menu',
