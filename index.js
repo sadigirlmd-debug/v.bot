@@ -390,14 +390,13 @@ checkForNewsUpdates8();
                     require("./plugins/" + plugin);
                 }
             });
-            console.log('Plugins installed ✅')
-            console.log('Bot connected ✅')
-conn.sendMessage(conn.user.id, {
-text: "*𝐙𝐀𝐍𝐓𝐀-𝐗𝐌𝐃 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋𝐋𝐘* 
-
+            console.log('Plugins installed successful ✅')
+  console.log('Bot connected to whatsapp ✅')
+  
+  let up = `.𝐙𝐀𝐍𝐓𝐀-𝐗𝐌𝐃 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋𝐋𝐘  
 
 > Follow WhatsApp Channel :- ⤵️
- h
+ 
 🖇️ https://whatsapp.com/channel/0029Vb4F314CMY0OBErLlV2M
 
 > Joine Whatsapp Group :- ⤵️
@@ -412,20 +411,24 @@ text: "*𝐙𝐀𝐍𝐓𝐀-𝐗𝐌𝐃 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 �
 
 🖇️ https://wa.me/+94760264995?text=hi-zanta-xmd-owner-save-me-🐼🪄💗
 
-> ꜰᴀʟʟᴏᴡ ᴄʜᴀɴɴᴇʟ ɢᴇᴛ ʟɪɴᴋ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ*",
-contextInfo: {
-externalAdReply: {
-title: "🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️\𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋𝐋𝐘 !",	
-thumbnailUrl: "https://files.catbox.moe/r86oac.jpg",
-sourceUrl: "",
-mediaType: 1,
-renderLargerThumbnail: true
-}}}) 
-    }
+> ꜰᴀʟʟᴏᴡ ᴄʜᴀɴɴᴇʟ ɢᴇᴛ ʟɪɴᴋ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ`;
+    conn.sendMessage('94760264995@s.whatsapp.net', { image: { url: `https://files.catbox.moe/r86oac.jpg` }, caption: up })
+  }
   })
+  conn.ev.on('creds.update', saveCreds)
 
-        
+  //==============================
+
+  conn.ev.on('messages.update', async updates => {
+    for (const update of updates) {
+      if (update.update.message === null) {
+        console.log("Delete Detected:", JSON.stringify(update, null, 2));
+        await AntiDelete(conn, updates);
+      }
+    }
+  });
       
+
 //==================================================================
 
 	
