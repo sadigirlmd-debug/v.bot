@@ -251,7 +251,7 @@ header: proto.Message.InteractiveMessage.Header.create({
                   {                   
 			  
 header: proto.Message.InteractiveMessage.Header.create({
-          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/w76ykx.jpg' } }, { upload: conn.waUploadToServer })),
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/z897oi.jpg' } }, { upload: conn.waUploadToServer })),
           title: menuc4,
           gifPlayback: true,
           subtitle: "DEWMINI-MD",
@@ -265,7 +265,7 @@ header: proto.Message.InteractiveMessage.Header.create({
                       {                   
 			  
 header: proto.Message.InteractiveMessage.Header.create({
-          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/bkii0v.jpg' } }, { upload: conn.waUploadToServer })),
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/a6xv9y.jpg' } }, { upload: conn.waUploadToServer })),
           title: menuc5,
           gifPlayback: true,
           subtitle: "DEWMINI-MD",
@@ -279,7 +279,7 @@ header: proto.Message.InteractiveMessage.Header.create({
 	                  {                   
 			  
 header: proto.Message.InteractiveMessage.Header.create({
-          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/i7rh4x.jpg' } }, { upload: conn.waUploadToServer })),
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/2cua5q.jpg' } }, { upload: conn.waUploadToServer })),
           title: menuc6,
           gifPlayback: true,
           subtitle: "DEWMINI-MD",
@@ -293,7 +293,7 @@ header: proto.Message.InteractiveMessage.Header.create({
 	                  {             
 	                  
 header: proto.Message.InteractiveMessage.Header.create({
-          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/u0ant7.jpg' } }, { upload: conn.waUploadToServer })),
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/60cfn1.jpg' } }, { upload: conn.waUploadToServer })),
           title: menuc8,
           gifPlayback: true,
           subtitle: "DEWMINI-MD",
@@ -307,7 +307,7 @@ header: proto.Message.InteractiveMessage.Header.create({
 	                  {                                                 
 			  			  
 header: proto.Message.InteractiveMessage.Header.create({
-          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/qw3o01.jpg' } }, { upload: conn.waUploadToServer })),
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/x73kfs.jpg' } }, { upload: conn.waUploadToServer })),
           title: menuc7,
           gifPlayback: true,
           subtitle: "DEWMINI-MD",
@@ -326,8 +326,8 @@ header: proto.Message.InteractiveMessage.Header.create({
                          forwardingScore: 999,
                          isForwarded: true,
                          forwardedNewsletterMessageInfo: {
-                         newsletterJid: '120363292101892024@newsletter',
-                         newsletterName: `⛅ 𝘋𝘌𝘞𝘔𝘐𝘕𝘐 𝘔𝘋 💙`,
+                         newsletterJid: '120363412075023554@newsletter',
+                         newsletterName: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️`,
                          serverMessageId: 143
                             }
                         }
