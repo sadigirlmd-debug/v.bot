@@ -537,7 +537,7 @@ try{
 const config = require('../settings')
         const vcard = 'BEGIN:VCARD\n' +
             'VERSION:3.0\n' +
-            'FN:' + 'Vajira' + '\n' +
+            'FN:' + 'zanta' + '\n' +
             'ORG:;\n' +
             'TEL;type=CELL;type=VOICE;waid=' + owner[0] + ':+' + owner[0] + '\n' +
             'END:VCARD'
@@ -545,7 +545,7 @@ const config = require('../settings')
             contacts: { displayName: 'Vajira', contacts: [{ vcard }] },
             contextInfo: {
                 externalAdReply: {
-                    title: 'Vajira',
+                    title: 'zanta',
                     body: 'Touch here.',
                     renderLargerThumbnail: true,
                     thumbnailUrl: ``,
