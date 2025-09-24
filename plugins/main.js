@@ -883,7 +883,7 @@ var izumilod = [
 "《 ███████▒▒▒▒▒》50%",
 "《 ██████████▒▒》80%",
 "《 ████████████》100%",
-"𝚁𝙴𝙿𝙾𝚁𝚃 𝚂𝙴𝙽𝙳 𝚃𝙾 𝚃𝙷𝙴 𝙾𝚆𝙽𝙴𝚁 🖥️..."
+"🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️"
 ]
 let { key } = await conn.sendMessage(from, {text: 'ꜱᴇɴᴅɪɴɢ...'})
 
@@ -1037,7 +1037,7 @@ if (config.MODE === 'nonbutton') {
 	title: "",
 	rows: [
 	    {title: "1", rowId: prefix + 'menu' , description: 'COMMANDS MENU'},
-	    {title: "2", rowId: prefix + 'ping' , description: 'VAJIRA-MD SPEED'} ,
+	    {title: "2", rowId: prefix + 'ping' , description: 'ZANTA-XMD SPEED'} ,
 
 	]
     } 
@@ -1765,7 +1765,7 @@ if (config.MODE === 'nonbutton') {
 	title: "",
 	rows: [
 	    {title: "1", rowId: prefix + 'menu' , description: 'COMMANDS MENU'},
-	    {title: "2", rowId: prefix + 'ping' , description: 'VAJIRA-MD SPEED'} ,
+	    {title: "2", rowId: prefix + 'ping' , description: 'ZANTA-XMD SPEED'} ,
 
 	]
     } 
