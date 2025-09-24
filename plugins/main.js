@@ -1124,8 +1124,6 @@ await conn.sendMessage(from, {text: vajiralod[i], edit: key })
 }	
 
 
-if (config.MODE === 'nonbutton') {
-
 const category = q.trim().toUpperCase();
 let menuc = `*◈╾──────${category} DOWNLOAD COMMAND LIST──────╼◈*\n\n> Select you want command type and enjoy Dewmini md whatsapp bot 👨‍💻\n\n`;
         let wm = '*ᴅᴇᴡᴍɪɴɪ ᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴛʜᴇ ᴛᴇᴀᴍ • ᴋᴏᴅ*'	
@@ -1381,102 +1379,7 @@ header: proto.Message.InteractiveMessage.Header.create({
             await conn.relayMessage(msg.key.remoteJid, msg.message, {
       messageId: msg.key.id,
     });
-    
 
-} if (config.MODE === 'button') {
-
-
-        let sections = [{
-                title: '🔑 Select menu type',
-                rows: [{
-                        title: 'DOWNLOAD MENU',
-                        description: `Download commands`,
-                        id: `${prefix}downmenu`
-                    },
-                    {
-                        title: `SEARCH MENU`,
-                        description: 'Search commands',
-                        id: `${prefix}searchmenu`
-                    },
-		    {
-                        title: `CONVERT MENU`,
-                        description: 'Convert commands',
-                        id: `${prefix}convertmenu`
-                    },
-                    {
-                        title: `MAIN MENU`,
-                        description: 'Convert commands',
-                        id: `${prefix}mainmenu`
-                    },
-		    {
-                        title: `GROUP MENU`,
-                        description: 'Group commands',
-                        id: `${prefix}groupmenu`
-                    },
-                    {
-                        title: `LOGO MENU`,
-                        description: 'Logo commands',
-                        id: `${prefix}logomenu`
-                    },
-		    {
-                        title: `BUG MENU`,
-                        description: 'Bug commands',
-                        id: `${prefix}bugmenu`
-                    },
-                    {
-                        title: `MOVIE MENU`,
-                        description: 'Movie commands',
-                        id: `${prefix}moviemenu`
-                    },   
-		    {
-                        title: `OTHER MENU`,
-                        description: 'Other commands',
-                        id: `${prefix}othermenu`
-                    },      
-                ]
-            }
-        ]
-
-        let listMessage = {
-            title: 'Click Here⎙',
-            sections
-        };
-        conn.sendMessage(from, {
-            image: { url: config.LOGO },
-    caption: cap,
-    footer: config.FOOTER,
-                buttons: [
-			{
-                    buttonId: `${prefix}alive`,
-                    buttonText: {
-                        displayText: 'ALIVE'
-                    },
-                },
-		{
-                    buttonId: `${prefix}ping`,
-                    buttonText: {
-                        displayText: 'PING'
-                    },
-                },	
-                {
-                    buttonId: 'action',
-                    buttonText: {
-                        displayText: 'ini pesan interactiveMeta'
-                    },
-                    type: 4,
-                    nativeFlowInfo: {
-                        name: 'single_select',
-                        paramsJson: JSON.stringify(listMessage),
-                    },
-                },
-            ],
-            headerType: 1,
-            viewOnce: true
-        }, {
-            quoted: m
-        });
-	
-}
 	
 } catch (e) {
 reply()
