@@ -1000,6 +1000,7 @@ else hostname = os.hostname()
 let monspace ='```'
 let monspacenew ='`'
 const cap = `${monspace}😚 කොහොමද ${pushname} I'm alive now${monspace}
+
 *🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️*
 
 *🚀Version:* ${require("../package.json").version}
@@ -1739,7 +1740,7 @@ await conn.sendMessage(from, {text: vajiralod[i], edit: key })
 
 const cap = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
-   > Follow WhatsApp Channel :- ⤵️
+> Follow WhatsApp Channel :- ⤵️
  
 🖇️ https://whatsapp.com/channel/0029Vb4F314CMY0OBErLlV2M
 
