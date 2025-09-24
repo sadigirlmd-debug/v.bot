@@ -1730,31 +1730,23 @@ for (let i = 0; i < vajiralod.length; i++) {
 await conn.sendMessage(from, {text: vajiralod[i], edit: key })
 }	
 
-const cap = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+const cap = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
-   *VAJIRA MD WHATSAPP USER BOT* 💫
+   > Follow WhatsApp Channel :- ⤵️
+ 
+🖇️ https://whatsapp.com/channel/0029Vb4F314CMY0OBErLlV2M
 
-                     *OUR MISSION*
+> Joine Whatsapp Group :- ⤵️
 
-🐼This is the result of our teams hard work and our technical cybers team owns the bots rights and code rights. Therefore, you have no chance to change and submit our bot under any circumstances And 100 Commands And logo, thumbnail,banner Maker Commands Ai Chatbot feathers On Our Bot
+🖇️ https://chat.whatsapp.com/DXQOFlfOnOt5AQsWSaGZqT?mode=ems_copy_c
 
+> Follow Tiktok Page :- ⤵️
 
-🐼 The main hope of creating this bot is to take full advantage of the WhatsApp app and make its work easier
+🖇️ tiktok.com/@_zanta_vibe_
 
+> owner :- ⤵️
 
-💡 Various things can be downloaded from this bot.  Also, managing groups, making logos & edit-images in different ways, searching for different things and getting information and more futures included.
-
-
-⚠️ Also, if your Whatsapp account gets damaged or banned by using this, we are not responsible and you should take responsibility for it.
-
-
-👨‍💻 OWNER VAJIRA
-
-🎡 *GITHUB:*  https://github.com/VajiraOfficial/VAJIRA_MD
-
-🪩 *OUR CHANNEL:* https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z
-
-*ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀ ᴛʜᴇ ʀᴇᴘᴏ ᴀɴᴅ ꜰᴏʟʟᴏᴡ ᴍᴇ ᴏɴ ɢɪᴛʜᴜʙ* 
+🖇️ https://wa.me/+94760264995?text=hi-zanta-xmd-owner-save-me-🐼🪄💖 
 `
 	
 if (config.MODE === 'nonbutton') {
