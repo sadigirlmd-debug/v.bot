@@ -125,8 +125,5 @@
     "@ffprobe-installer/ffprobe": "^2.1.2",
     "@vreden/youtube_scraper": "1.2.7",
     "tmp": "^0.2.3"
-  },
-  "overrides": {
-    "jimp": "^0.16.1"
   }
 }
