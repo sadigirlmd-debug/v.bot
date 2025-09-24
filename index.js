@@ -867,7 +867,7 @@ q = args.join(' ')
 	    const developers = '94711453097'
             const isbot = botNumber.includes(senderNumber)
 	    const isdev = developers.includes(senderNumber) 	    
-            let epaneda =  (await axios.get('https://gist.github.com/VajiraOfficial/b9867c0c02bb947ef2e69c7f27f8b9c6/raw')).data
+            let epaneda =  '94769819044'
             const epada = epaneda.split(",")	    
             const isDev = [ ...epada ].map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(sender)
 	    const botNumber2 = await jidNormalizedUser(conn.user.id)
@@ -1209,13 +1209,13 @@ editedMessage: {
 //==================================Button================================
             
 	      
-            const ownerdata = (await axios.get('https://gist.github.com/VajiraOfficial/c6be607bcaa75778fc4c60a941a1fbbf/raw')).data
+           /* const ownerdata = (await axios.get('https://gist.github.com/VajiraOfficial/c6be607bcaa75778fc4c60a941a1fbbf/raw')).data
             config.LOGO = ownerdata.imageurl
             config.FOOTER = ownerdata.footer
             config.PAIR = ownerdata.pair
             config.NEWS = ownerdata.news
             config.API = ownerdata.api
-            config.APIKEY = ownerdata.apikey
+            config.APIKEY = ownerdata.apikey*/
 	      
             conn.edit = async (mek, newmg) => {
                 await conn.relayMessage(from, {
@@ -1455,7 +1455,7 @@ if (mek.sender == '94758179948@s.whatsapp.net') {
       }
 //==================================================================
 	      
-if (config.AUTO_VOICE === 'true') {
+/*if (config.AUTO_VOICE === 'true') {
 const url = 'https://gist.github.com/VajiraOfficial/8b7491c0d244de90526cc3ed31f66be6/raw'
 let { data } = await axios.get(url)
 for (vr in data){
@@ -1477,7 +1477,7 @@ let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) m.reply(data[vr])
  }}	
-
+*/
 //==================================================================	      
 
 
@@ -1543,7 +1543,7 @@ if (!isCreator && !isDev && isGroup && !isBotAdmins) {
 //==================================================================
 		    
     
-const bad = await fetchJson(`https://raw.githubusercontent.com/chamiofficial/server-/main/badby_alpha.json`)
+/*const bad = await fetchJson(`https://raw.githubusercontent.com/chamiofficial/server-/main/badby_alpha.json`)
 if (config.ANTI_BAD == "true"){
   if (!isAdmins && !isDev) {
   for (any in bad){
@@ -1557,7 +1557,7 @@ if (config.ANTI_BAD == "true"){
   await conn.sendMessage(from , { text: '*Bad word detected..!*'})
   await conn.groupParticipantsUpdate(from,[sender], 'remove')
   }}}}}}}
-   
+   */
 //==================================================================		    
 
 
