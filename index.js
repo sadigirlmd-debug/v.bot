@@ -383,7 +383,7 @@ checkForNewsUpdates8();
 //──────────────────────────────────────────────────────────────────   
 		
 		
-            console.log('Installing plugins 🔌... ')
+           console.log('Installing plugins 🔌... ')
             const path = require('path');
             fs.readdirSync("./plugins/").forEach((plugin) => {
                 if (path.extname(plugin).toLowerCase() == ".js") {
@@ -393,29 +393,17 @@ checkForNewsUpdates8();
             console.log('Plugins installed ✅')
             console.log('Bot connected ✅')
 conn.sendMessage(conn.user.id, {
-text: "𝐙𝐀𝐍𝐓𝐀-𝐗𝐌𝐃 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋𝐋𝐘  
-
-> Follow WhatsApp Channel :- ⤵️
- 
-🖇️ https://whatsapp.com/channel/0029Vb4F314CMY0OBErLlV2M
-
-> Joine Whatsapp Group :- ⤵️
-
-🖇️ https://chat.whatsapp.com/DXQOFlfOnOt5AQsWSaGZqT?mode=ems_copy_c
-
-> Follow Tiktok Page :- ⤵️
-
-🖇️ tiktok.com/@_zanta_vibe_
-
-> owner :- ⤵️
-
-🖇️ https://wa.me/+94760264995?text=hi-zanta-xmd-owner-save-me-🐼🪄💗
-
-> ꜰᴀʟʟᴏᴡ ᴄʜᴀɴɴᴇʟ ɢᴇᴛ ʟɪɴᴋ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ`;
-    conn.sendMessage('94760264995@s.whatsapp.net', { image: { url: `https://files.catbox.moe/r86oac.jpg` }, caption: up })
-  }
+text: "*👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ 👨‍💻 successfully connected* ✓\n\n Use .Update command to see Vajira md new update news \n\n> ◦ *Official GitHub* - ```https://github.com/VajiraTech```\n> ◦ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴠɪᴀ ᴛʏᴘᴇ: .joinsup\n*👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ 👨‍💻 ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴄʀᴇᴀᴛᴇᴅ ʙʏ • ᴠᴀᴊɪʀᴀ ʀᴀᴛʜɴᴀʏᴀᴋᴀ*",
+contextInfo: {
+externalAdReply: {
+title: "👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ 👨‍💻\nSuccessfully Connected !",	
+thumbnailUrl: "https://files.catbox.moe/r86oac.jpg",
+sourceUrl: "",
+mediaType: 1,
+renderLargerThumbnail: true
+}}}) 
+    }
   })
-  conn.ev.on('creds.update', saveCreds)
 
         
       
