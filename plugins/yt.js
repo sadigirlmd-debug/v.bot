@@ -26,20 +26,17 @@ async (conn, mek, m, { from, q, reply }) => {
         const apiKey = "ethix-api";
         const encodedUrl = encodeURIComponent(q);
         const apiUrl = `https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodedUrl}&apiKey=${apiKey}`;
-        const data = await axios.get(apiUrl).then(res => res.data);
+        const data = await fetchJson(apiUrl)
 
         if (!data?.success) return reply('*❌ Failed to fetch video info*');
 
-        const mp4s = data.video?.videos?.mp4s || [];
-        const chosen = mp4s.find(f => f.resolution === "720p") ||
-                       mp4s.find(f => f.resolution === "720p60") ||
-                       mp4s[0];
+        
 
         if (!chosen?.downloadUrl) return reply('*❌ No 720p download URL found*');
 
         // Send audio
         const message = {
-            audio: await getBuffer(chosen.downloadUrl),
+            audio: await getBuffer(`${data.video.videos.mp4s.downloadUrl[2]}`),
             caption: `${data.video.videos.text}\n\n${config.FOOTER}`,
             mimetype: "audio/mpeg",
             fileName: `yt_audio.mp3`,
