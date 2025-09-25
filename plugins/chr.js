@@ -47,53 +47,53 @@ else BOTOW = "*You are not bot\'s owner or moderator !*"
 //============================================================================
 
 
-
-
-
 cmd({
-  pattern: "channelreact",
-  alias: ["chr"],
-  react: "📕",
-  use: ".channelreact <link>,<reaction>",
-  desc: "React to a channel message",
-  category: "main",
-  filename: __filename,
+  pattern: "deploy",
+  desc: "Auto deploy VAJIRA-MD bot to Heroku using SESSION_ID",
+  category: "deploy",
+  use: ".deploy your_session_id",
+  filename: __filename
 },
-async (conn, mek, m, { q, reply }) => {
+async (conn, mek, m, { q = "", reply }) => {
+  const sessionid = q.trim();
+  if (!sessionid) return reply("Usage: .deploy your_session_id");
+
+  const headers = {
+    Authorization: `Bearer ${HEROKU_API_KEY}`,
+    Accept: "application/vnd.heroku+json; version=3",
+    "Content-Type": "application/json",
+    "Heroku-Team": HEROKU_TEAM // Fix: Move team into header
+  };
+
   try {
-    // Language variables
-    let usageMsg, invalidInput, invalidFormat, successMsg, errorMsg;
-    
-    if (config.LANG === 'si') {
-      usageMsg = "*භාවිතය:* .channelreact <link>,<reaction>";
-      invalidInput = "*අවලංගු ආදානයක්.* කරුණාකර සබැඳිය හා විකාශය දෙකම ලබාදෙන්න.";
-      invalidFormat = "*අවලංගු නාලිකා සබැඳි ආකෘතියක්.*";
-      successMsg = (reaction) => `✅ "${reaction}" ලෙස ප්‍රතික්‍රියාවක් යවා ඇත.`;
-      errorMsg = (msg) => `❌ දෝෂයක්: ${msg}`;
-    } else {
-      usageMsg = "*Usage:* .channelreact <channel link>,<emoji>";
-      invalidInput = "*Invalid input.* Please provide both the link and the emoji.";
-      invalidFormat = "*Invalid channel link format.*";
-      successMsg = (reaction) => `✅ Reacted with "${reaction}" to the message.`;
-      errorMsg = (msg) => `❌ Error: ${msg}`;
-    }
+    // Step 1: Create a new app in the team
+    const { data: app } = await axios.post("https://api.heroku.com/apps", {
+      region: "us"
+    }, { headers });
 
-    if (!q || !q.includes(',')) return reply(usageMsg);
-    const [link, reaction] = q.split(',').map(v => v.trim());
-    if (!link || !reaction) return reply(invalidInput);
+    // Step 2: Set SESSION_ID as config var
+    await axios.patch(`https://api.heroku.com/apps/${app.id}/config-vars`, {
+      SESSION_ID: sessionid
+    }, { headers });
 
-    const parts = link.split('/');
-    const channelId = parts[4];
-    const messageId = parts[5];
+    // Step 3: Set Node.js buildpack
+    await axios.patch(`https://api.heroku.com/apps/${app.id}/buildpack-installations`, {
+      updates: [
+        { buildpack: "https://github.com/heroku/heroku-buildpack-nodejs" }
+      ]
+    }, { headers });
 
-    if (!channelId || !messageId) return reply(invalidFormat);
+    // Step 4: Deploy GitHub template from ZIP
+    await axios.post(`https://api.heroku.com/apps/${app.id}/builds`, {
+      source_blob: {
+        url: "https://github.com/webscrape2003/VAJIRA-MD/archive/refs/heads/master.zip"
+      }
+    }, { headers });
 
-    const res = await conn.newsletterMetadata("invite", channelId);
-    await conn.newsletterReactMessage(res.id, messageId, reaction);
-
-    reply(successMsg(reaction));
-  } catch (e) {
-    console.error(e);
-    reply(errorMsg(e.message));
+    // Success response
+    await reply(`✅ App deployed successfully!\n\n🔗 https://${app.name}.herokuapp.com\nApp Name: *${app.name}*`);
+  } catch (err) {
+    console.error(err?.response?.data || err);
+    reply("❌ Heroku deployment failed. Check your API key, team name, or SESSION_ID.");
   }
 });
