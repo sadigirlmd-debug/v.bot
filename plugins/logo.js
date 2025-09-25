@@ -24,20 +24,20 @@ var imgmsg =''
 if(config.LANG === 'SI') imgmsg = "```කරුණාකර නමක් දෙන්න !```"
 else imgmsg = "```Please give me a name !```"
 var imgmsg2 =''
-if(config.LANG === 'SI') imgmsg2 = "*උදා: .banner vajira+rathnayaka*"
-else imgmsg2 = "*Ex: .banner vajira+rathnayaka*"
+if(config.LANG === 'SI') imgmsg2 = "*උදා: .banner suranga+chamith*"
+else imgmsg2 = "*Ex: .banner suranga+chamith*"
 var imgmsg3 =''
-if(config.LANG === 'SI') imgmsg3 = "*උදා: .banner2 vajira+rathnayaka*"
-else imgmsg3 = "*Ex: .banner2 vajira+rathnayaka*"
+if(config.LANG === 'SI') imgmsg3 = "*උදා: .banner2 suranga+chamith*"
+else imgmsg3 = "*Ex: .banner2 suranga+chamith*"
 var imgmsg4 =''
-if(config.LANG === 'SI') imgmsg4 = "*උදා: .banner3 vajira+rathnayaka*"
-else imgmsg4 = "*Ex: .banner3 vajira+rathnayaka*"
+if(config.LANG === 'SI') imgmsg4 = "*උදා: .banner3 suranga+chamith*"
+else imgmsg4 = "*Ex: .banner3 suranga+chamith*"
 var imgmsg5 =''
-if(config.LANG === 'SI') imgmsg5 = "*උදා: .banner3 vajira+rathnayaka*"
-else imgmsg5 = "*Ex: .banner3 vajira+rathnayaka*"
+if(config.LANG === 'SI') imgmsg5 = "*උදා: .banner3 suranga+chamith*"
+else imgmsg5 = "*Ex: .banner3 suranga+chamith*"
 var imgmsg6 =''
-if(config.LANG === 'SI') imgmsg6 = "*උදා: .banner3 vajira+rathnayaka*"
-else imgmsg6 = "*Ex: .banner3 vajira+rathnayaka*"
+if(config.LANG === 'SI') imgmsg6 = "*උදා: .banner3 suranga+chamith*"
+else imgmsg6 = "*Ex: .banner3 suranga+chamith*"
 var desc =''
 if(config.LANG === 'SI') desc = "එය වචන 1කින් ephoto360 logos නිර්මාණය කරයි.."
 else desc = "It creates ephoto360 logos using 1 word.."
@@ -48,8 +48,8 @@ var errt =''
 if(config.LANG === 'SI') errt = "*මට මෙම ලාංඡනය නිර්මාණය කළ නොහැක. :(*"
 else errt = "*I cant create this logo :(*"
 var imgmsg7 =''
-if(config.LANG === 'SI') imgmsg7 = "*උදා: .photooxy2 Vajira+rathnayaka*"
-else imgmsg7 = "*Ex: .photooxy2 Vajira+rathnayaka*"
+if(config.LANG === 'SI') imgmsg7 = "*උදා: .photooxy2 suranga+chamith*"
+else imgmsg7 = "*Ex: .photooxy2 suranga+chamith*"
 var desc1 =''
 if(config.LANG === 'SI') desc1 = "එය වචන 1කින් photooxy logos නිර්මාණය කරයි.."
 else desc1 = "It creates photooxy logos using 1 word.."
@@ -62,8 +62,8 @@ else imgmsgeew = "*Reply to a photo !*"
 
 
 var imgmsg8 =''
-if(config.LANG === 'SI') imgmsg8 = "*උදා: .textpro2 vajira+rathnayaka*"
-else imgmsg8 = "*Ex: .textpro2 vajira+rathnayaka*"
+if(config.LANG === 'SI') imgmsg8 = "*උදා: .textpro2 suranga+chamith*"
+else imgmsg8 = "*Ex: .textpro2 suranga+chamith*"
 
 var desc4 =''
 if(config.LANG === 'SI') desc4 = "එය වචන 1කින් textpro logos නිර්මාණය කරයි.."
@@ -108,7 +108,7 @@ title: "Result from textpro. 📲",
 rows: srh
 }]
 const listMessage = { 
-text: `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *TEXTPRO LOGO 01*
 
@@ -132,7 +132,7 @@ cmd({
     alias: ["logo2"],
     desc: desc5,
     category: "logo",
-    use: '.textpro2 vihanga+ashinshana',
+    use: '.textpro2 suranga+chamith',
     filename: __filename
 },
 async(conn, mek, m,{from, l, prefix, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -156,7 +156,7 @@ title: "Result from textpro. 📲",
 rows: srh
 }]
 const listMessage = { 
-text: `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *TEXTPRO LOGO 02*
 
@@ -226,7 +226,7 @@ cmd({
     alias: ["logo6","ephoto360","ephoto"],
     desc: desc,
     category: "logo",
-    use: '.ephoto360 VajiraTech',
+    use: '.ephoto360 surangachamith',
     filename: __filename
 },
 async(conn, mek, m,{from, l, prefix, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -411,7 +411,7 @@ description: 'Multicolored neon light signatures'
     }
 ]
 const listMessage = { 
-text: `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *EPHOTO360 LOGO*
 
@@ -457,7 +457,7 @@ cmd({
     alias: ["ytbanner2","cover2","channelbanner2"],
     desc: desc2,
     category: "logo",
-    use: '.banner2 VajiraTech+yt',
+    use: '.banner2 suranga+chamith',
     filename: __filename
 },
 async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -480,7 +480,7 @@ cmd({
     alias: ["ytbanner3","cover3","channelbanner3"],
     desc: desc2,
     category: "logo",
-    use: '.banner3 VajiraTech+yt',
+    use: '.banner3 suranga+chamith',
     filename: __filename
 },
 async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -503,7 +503,7 @@ cmd({
     alias: ["ytbanner4","cover4","channelbanner4"],
     desc: desc2,
     category: "logo",
-    use: '.banner4 VajiraTech+yt',
+    use: '.banner4 suranga+chamith',
     filename: __filename
 },
 async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -526,7 +526,7 @@ cmd({
     alias: ["ytbanner5","cover5","channelbanner5"],
     desc: desc2,
     category: "logo",
-    use: '.banner5 VajiraTech+yt',
+    use: '.banner5 suranga+chamith',
     filename: __filename
 },
 async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -576,7 +576,7 @@ cmd({
     alias: ["logo3","photooxy"],
     desc: desc1,
     category: "logo",
-    use: '.photooxy1 vihanga yt',
+    use: '.photooxy1 suranga chamith',
     filename: __filename
 },
 async(conn, mek, m,{from, l, prefix, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -599,7 +599,7 @@ title: "Result from photooxy. 📲",
 rows: srh
 }]
 const listMessage = { 
-text: `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *PHOTOOXY LOGO 01*
 
@@ -623,7 +623,7 @@ cmd({
     alias: ["logo4"],
     desc: desc3,
     category: "logo",
-    use: '.photooxy2 vihanga+ashinshana',
+    use: '.photooxy2 suranga+chamith',
     filename: __filename
 },
 async(conn, mek, m,{from, l, prefix, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -646,7 +646,7 @@ title: "Result from photooxy. 📲",
 rows: srh
 }]
 const listMessage = { 
-text: `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *PHOTOOXY LOGO 02*
 
@@ -699,7 +699,7 @@ title: "Result from photooxy. 📲",
 rows: srh
 }]
 const listMessage = { 
-text: `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *PHOTOOXY LOGO 03*
 
