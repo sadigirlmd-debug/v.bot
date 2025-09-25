@@ -11,47 +11,31 @@ const axios = require("axios");
 
 cmd({
   pattern: "song",
-  desc: "Download YouTube audio",
-  react: "🎶",
-  category: "download",
-  filename: __filename
-}, async (conn, mek, m, { from, q, reply }) => {
+  desc: "Download YouTube video",
+  react: "🎬",
+  use: "<url>",
+  category: "download"
+}, async (conn, mek, m, { q }) => {
   try {
-    if (!q) return reply("📌 Example: *.yta https://youtu.be/xxxxxxx*");
+    if (!q) return await m.reply("Give me a YouTube link!");
 
-    let url = `https://infinity-apis.vercel.app/api/youtubedl2?videoUrl=${encodeURIComponent(q)}&apiKey=INF~v0cig1jd`;
-    let { data } = await axios.get(url);
+    let url = q[0];
+    let res = await axios.get(`https://your-api.com/api/yt?url=${encodeURIComponent(url)}`);
 
-    if (!data.success) return reply("❌ Failed to fetch audio, try again later.");
+    let data = res.data?.data?.res_data?.res_data;  // ✅ Correct path
 
-    let result = data.data.res_data.res_data;
-    let audioFormat = result.formats.find(f => f.ext === "m4a" || f.ext === "weba" || f.ext === "webm");
+    if (!data || !data.formats) return await m.reply("No formats found!");
 
-    if (!audioFormat) return reply("⚠️ No audio format found for this video.");
+    let video = data.formats.find(f => f.quality === "360p"); // pick 360p
+    if (!video) video = data.formats[0]; // fallback
 
-    let audioUrl = audioFormat.url;
-
-    let caption =
-      `🎧 *VAJIRA YT AUDIO DOWNLOADER*\n\n` +
-      `🎼 Title: *${result.title}*\n` +
-      `📅 Uploaded: ${result.uploadDate || "N/A"}\n` +
-      `⏱️ Duration: ${result.duration || "N/A"}\n` +
-      `👁️ Views: ${result.viewCount || "N/A"}\n` +
-      `🔗 URL: ${q}\n\n` +
-      `● *VAJIRA MINI BOT* ●`;
-
-    await conn.sendMessage(from, {
-      audio: { url: audioUrl },
-      mimetype: "audio/mpeg",  // ✅ normal audio type
-      fileName: `${result.title}.mp3`,
-      ptt: false,
-      jpegThumbnail: (await axios.get(result.thumbnail, { responseType: "arraybuffer" })).data, // ✅ image preview
-      caption: caption
+    await conn.sendMessage(m.chat, {
+      video: { url: video.url },
+      caption: `🎶 *${data.title}*\n\n📺 Quality: ${video.quality}`
     }, { quoted: mek });
 
   } catch (e) {
     console.error(e);
-    reply("❌ Error while processing your request.");
+    await m.reply("❌ Error fetching video.");
   }
 });
-
