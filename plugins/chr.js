@@ -145,3 +145,31 @@ async (conn, mek, m, { q, reply }) => {
     reply(errorMsg(e.message));
   }
 });
+
+
+const { cmd } = require('../command');
+
+cmd({
+    pattern: "channeljid",
+    react: "📡",
+    desc: "Get JID from WhatsApp channel link",
+    category: "tools",
+    filename: __filename
+}, async (conn, mek, m, { from, q, reply }) => {
+    try {
+        if (!q) return reply("❌ කරුණාකර channel link එක දාන්න.\n\nඋදා: *.channeljid https://whatsapp.com/channel/0029VaJRCY0Hj8XkZqv1u1a*");
+
+        // extract channel code
+        const match = q.match(/whatsapp\.com\/channel\/([0-9A-Za-z]+)/);
+        if (!match) return reply("❌ වැරදි channel link එකක්.");
+
+        const code = match[1];
+        const jid = `invite.${code}@newsletter`;
+
+        await reply(`✅ Channel JID:\n\n\`\`\`${jid}\`\`\``);
+
+    } catch (e) {
+        console.error("channeljid error:", e);
+        reply(`⚠️ Error: ${e.message || e}`);
+    }
+});
