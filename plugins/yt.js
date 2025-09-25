@@ -25,12 +25,11 @@ async (conn, mek, m, { from, q, reply }) => {
         
         const data = await fetchJson(`https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodeURIComponent(q)}&apiKey=ethix-api`);
 
-        
-        const mediaUrl = data.video.videos.mp4s[1].downloadUrl;
+        const mediaUrl = 
 
     
 await conn.sendMessage(from, {
-      audio: { url: mediaUrl },
+      audio: { url: `${data.video.videos.mp4s[1].downloadUrl}`,
       caption: config.FOOTER,
       mimetype: "video/mp4",
       fileName: `${data.video.videos.text}.mp3`
@@ -44,6 +43,7 @@ await conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
 
