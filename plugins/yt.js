@@ -141,7 +141,7 @@ return await conn.replyList(from, listMessage ,{ quoted : mek })
   reply('*ERROR !!*')
   l(e)
 }
-})*/
+})
 
 
 
@@ -328,6 +328,7 @@ conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
 
