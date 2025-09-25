@@ -25,12 +25,8 @@ async (conn, mek, m, { from, q, reply }) => {
         
         const data = await fetchJson(`https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodeURIComponent(q)}&apiKey=ethix-api`);
 
-        if (!data?.success) return reply('*❌ Failed to fetch video info*');
-
-        const mp4s = data.video.videos.mp4s.downloadUrl;
-        if (!mp4s || mp4s.length === 0) return reply('*❌ No video URLs found*');
-
-        const mediaUrl = mp4s[2];
+        
+        const mediaUrl = data.video.videos.mp4s[1].downloadUrl;
 
     
 await conn.sendMessage(from, {
@@ -48,6 +44,7 @@ await conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
 
