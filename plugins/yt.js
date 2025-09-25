@@ -7,77 +7,51 @@ const ddownr = require("denethdev-ytmp3");
 
 
 
+const axios = require("axios");
 
 cmd({
-  pattern: "song",
-  dontAddCommandList: true,
+  pattern: "yta",
+  desc: "Download YouTube audio",
+  react: "🎶",
+  category: "download",
   filename: __filename
-},
-async (conn, mek, m, { from, q, reply, l}) => {
-        try {
-await conn.sendMessage(from, { react: { text: '📥', key: mek.key }})
-if(!q) return await conn.sendMessage(from , { text: '*Need link...*' }, { quoted: mek } ) 
+}, async (conn, mek, m, { from, q, reply }) => {
+  try {
+    if (!q) return reply("📌 Example: *.yta https://youtu.be/xxxxxxx*");
 
+    let url = `https://infinity-apis.vercel.app/api/youtubedl2?videoUrl=${encodeURIComponent(q)}&apiKey=INF~v0cig1jd`;
+    let { data } = await axios.get(url);
 
+    if (!data.success) return reply("❌ Failed to fetch audio, try again later.");
 
-function extractYouTubeId(url) {
-    const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/|playlist\?list=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-    const match = url.match(regex);
-    return match ? match[1] : null;
-}
+    let result = data.data.res_data.res_data;
+    let audioFormat = result.formats.find(f => f.ext === "m4a" || f.ext === "weba" || f.ext === "webm");
 
-			
+    if (!audioFormat) return reply("⚠️ No audio format found for this video.");
 
-function convertYouTubeLink(q) {
-    const videoId = extractYouTubeId(q);
-    if (videoId) {
-        return `https://www.youtube.com/watch?v=${videoId}`;
-    }
-    return q;
-}
-			
-/*const fixedQuery = convertYouTubeLink(q)(input);
-      const search = await yts(fixedQuery);
-      const data = search.videos[0];
-*/
+    let audioUrl = audioFormat.url;
 
-q = convertYouTubeLink(q);
-        const search = await yts(q);
-        const data = search.videos[0];
-        
-			
-      const result = await ddownr.download(data.url, 'mp3');
-      const downloadLink = result.downloadUrl;
-
-
-			
-    // Caption
-    const caption =
-      `🎧 *VAJIRA SONG DOWNLOADER*\n\n` +
-      `🎼 Title: *${data.title}*\n` +
-      `📅 Uploaded: ${data.ago}\n` +
-      `⏱ Duration: ${data.timestamp}\n` +
-      `👁 Views: ${data.views}\n` +
-      `🔗 URL: ${data.url}\n\n` +
+    let caption =
+      `🎧 *VAJIRA YT AUDIO DOWNLOADER*\n\n` +
+      `🎼 Title: *${result.title}*\n` +
+      `📅 Uploaded: ${result.uploadDate || "N/A"}\n` +
+      `⏱️ Duration: ${result.duration || "N/A"}\n` +
+      `👁️ Views: ${result.viewCount || "N/A"}\n` +
+      `🔗 URL: ${q}\n\n` +
       `● *VAJIRA MINI BOT* ●`;
-await conn.sendMessage(from, {
-        image: { url: data.thumbnail },
-        caption
-      }, { quoted: mek });
-    
-		
-const message = {
-            audio: { url: downloadLink },
-	        mimetype: "audio/mpeg",
-            ptt: false,
-        };	    
-        await conn.sendMessage(from, message );
-        
-    
-		
-await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
-} catch (e) {
-  reply('*ERROR !!*')
-l(e)
-}
-})
+
+    await conn.sendMessage(from, {
+      audio: { url: audioUrl },
+      mimetype: "audio/mpeg",  // ✅ normal audio type
+      fileName: `${result.title}.mp3`,
+      ptt: false,
+      jpegThumbnail: (await axios.get(result.thumbnail, { responseType: "arraybuffer" })).data, // ✅ image preview
+      caption: caption
+    }, { quoted: mek });
+
+  } catch (e) {
+    console.error(e);
+    reply("❌ Error while processing your request.");
+  }
+});
+
