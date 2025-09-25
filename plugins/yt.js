@@ -1,4 +1,4 @@
-2const config = require('../settings')
+const config = require('../settings')
 const { cmd, commands } = require('../lib/command')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson,clockString, jsonformat} = require('../lib/functions')
 var { updateCMDStore,isbtnID,getCMDStore,getCmdForCmdId,connectdb,input,get, updb,updfb } = require("../lib/database")
@@ -48,5 +48,6 @@ await conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
