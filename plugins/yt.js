@@ -1,4 +1,4 @@
-const config = require('../settings')
+2const config = require('../settings')
 const { cmd, commands } = require('../lib/command')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson,clockString, jsonformat} = require('../lib/functions')
 var { updateCMDStore,isbtnID,getCMDStore,getCmdForCmdId,connectdb,input,get, updb,updfb } = require("../lib/database")
@@ -32,7 +32,6 @@ async (conn, mek, m, { from, q, reply }) => {
 
         
 
-        if (!chosen?.downloadUrl) return reply('*❌ No 720p download URL found*');
 
         // Send audio
         const message = {
