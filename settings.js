@@ -15,7 +15,7 @@ MAX_SIZE: 500,
 FOOTER: process.env.FOOTER || '> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ' ,    
 LOGO: process.env.LOGO || 'https://files.catbox.moe/r86oac.jpg' ,
 MODE: process.env.MODE === undefined ? '' : process.env.MODE,
-STATUS_REPLY_MESSAGE: '𝐘𝐎𝐔𝐑 𝐒𝐓𝐀𝐓𝐔𝐒 𝐒𝐄𝐄𝐍 𝐉𝐔𝐒𝐓 𝐍𝐎𝐖 𝐁𝐘 𝐕𝐀𝐉𝐈𝐑𝐀 𝐌𝐃 ✅',    
-ALIVE:  process.env.ALIVE  || '> VAJIRA MD'  ,    
+STATUS_REPLY_MESSAGE: '𝐘𝐎𝐔𝐑 𝐒𝐓𝐀𝐓𝐔𝐒 𝐒𝐄𝐄𝐍 𝐉𝐔𝐒𝐓 𝐍𝐎𝐖 𝐁𝐘 𝐙𝐀𝐍𝐓𝐀-𝐗𝐌𝐃 ✅',    
+ALIVE:  process.env.ALIVE  || '> ZANTA-XMD'  ,    
 DELETEMSGSENDTO : process.env.DELETEMSGSENDTO === undefined ? '' : process.env.DELETEMSGSENDTO        
 };
