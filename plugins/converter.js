@@ -374,7 +374,7 @@ try{
       },
     });
 await pipeline(rbg, fs.createWriteStream(namePng + ".png"));
-let dat = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let dat = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *🌆 BACKGROUND REMOVER*
 
@@ -673,7 +673,7 @@ const targetMsg = quoted ? quoted : m;
 
 	  
     reply(
-      `✅ *Image uploaded successfully!*\n\n✅ *Image Uploaded Successfully 📸*\n📏 *Size:* ${imageBuffer.length} Bytes\n🔗 *URL:* ${imageUrl}\n\n> ⚖️ *Uploaded via VAJIRA-MD*`
+      `✅ *Image uploaded successfully!*\n\n✅ *Image Uploaded Successfully 📸*\n📏 *Size:* ${imageBuffer.length} Bytes\n🔗 *URL:* ${imageUrl}\n\n> ⚖️ *🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️*`
     );
   } catch (err) {
     console.error(err);
@@ -792,7 +792,7 @@ title: "_[Result from ginisisila.]_",
 rows: srh
 }]	
 let listMessage = {
-text: `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *ANIME SEARCH*
    
