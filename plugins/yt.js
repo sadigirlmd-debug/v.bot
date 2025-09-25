@@ -13,7 +13,7 @@ cmd({
   pattern: "song",
   fromMe: true,
   desc: "Download YouTube videos in 720p via Infinity API",
-}, async (conn, text, mek) => {
+}, async (conn, mek, m, { from, q, reply }) => { 
   try {
     const match = q?.trim(); // safely get the URL
     if (!match) return conn.sendMessage(mek.chat, "❌ Please provide a YouTube link.", { quoted: mek });
