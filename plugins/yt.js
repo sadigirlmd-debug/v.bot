@@ -7,40 +7,55 @@ const ddownr = require("denethdev-ytmp3");
 
 
 
+const savetube = require("../lib/savetube") // save the code you gave in /lib/savetube.js
+
 cmd({
-  pattern: "ytmp3",
-  dontAddCommandList: true,
+  pattern: "song",
+  react: "📥",
+  desc: "Download YouTube video or audio using SaveTube",
+  category: "download",
+  use: "<url> | <format>",
   filename: __filename
 },
-async (conn, mek, m, { from, q, reply, l }) => {
+async (conn, mek, m, { from, q, reply }) => {
   try {
-    await conn.sendMessage(from, { react: { text: '📥', key: mek.key } })
+    if (!q) return reply("*Usage:* .ytstube <url> | <format>\n\nExample: .ytstube https://youtu.be/abc123 | mp3")
 
-    if (!q) return await conn.sendMessage(from, { text: '*Need YouTube link...*' }, { quoted: mek })
+    const args = q.split("|").map(a => a.trim())
+    const url = args[0]
+    const format = args[1] || "mp3"
 
+    // Call savetube
+    const result = await savetube.download(url, format)
+    if (!result.status) return reply(`❌ ${result.error || "Failed to download"}`)
 
-    const apiKey = "INF~v0cig1jd" // your Infinity API key
-    const res = await fetchJson(`https://infinity-apis.vercel.app/api/youtubedl2?videoUrl=${encodeURIComponent(q)}&apiKey=${apiKey}`)
+    const { title, thumbnail, download, type, quality, duration } = result.response
 
-    if (!res.success) return reply("*Failed to fetch audio!*")
+    // send preview
+    await conn.sendMessage(from, {
+      image: { url: thumbnail },
+      caption: `🎶 *Title:* ${title}\n📀 *Format:* ${quality}\n⏱️ *Duration:* ${duration || "N/A"}\n\n_⬇ Sending ${type}..._`
+    }, { quoted: mek })
 
-    const info = res.data.res_data.res_data
-    const firstUrl = info.formats && info.formats[0] ? info.formats[0].url : null
-
-    if (!firstUrl) return reply("*No download URL found!*")
-
-    const message = {
-      audio: { url: firstUrl },
-      caption: `${info.title}\n\n${config.FOOTER}`,
-      mimetype: "audio/mpeg",
-      fileName: `${info.title}.mp3`,
+    // send media
+    if (type === "audio") {
+      await conn.sendMessage(from, {
+        audio: { url: download },
+        mimetype: "audio/mpeg",
+        fileName: `${title}.mp3`
+      }, { quoted: mek })
+    } else {
+      await conn.sendMessage(from, {
+        video: { url: download },
+        mimetype: "video/mp4",
+        fileName: `${title}.mp4`
+      }, { quoted: mek })
     }
 
-    await conn.sendMessage(from, message, { quoted: mek })
     await conn.sendMessage(from, { react: { text: '✔', key: mek.key } })
 
   } catch (e) {
-    reply('*ERROR !!*')
-    l(e)
+    console.log(e)
+    reply("*ERROR while fetching from SaveTube !!*")
   }
 })
