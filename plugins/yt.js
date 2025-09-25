@@ -10,7 +10,7 @@ const ddownr = require("denethdev-ytmp3");
 const axios = require("axios");
 
 cmd({
-  pattern: "yta",
+  pattern: "song",
   desc: "Download YouTube audio",
   react: "🎶",
   category: "download",
