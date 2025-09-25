@@ -5,16 +5,6 @@ var { updateCMDStore,isbtnID,getCMDStore,getCmdForCmdId,connectdb,input,get, upd
 const yts = require("yt-search");
 const ddownr = require("denethdev-ytmp3");
 
-const extractYouTubeId = (url) => {
-      const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-      const match = url.match(regex);
-      return match ? match[1] : null;
-    };
-
-    const convertToYoutubeLink = (query) => {
-      const id = extractYouTubeId(query);
-      return id ? `https://www.youtube.com/watch?v=${id}` : query;
-    };
 
 
 
@@ -29,6 +19,20 @@ await conn.sendMessage(from, { react: { text: '📥', key: mek.key }})
 if(!q) return await conn.sendMessage(from , { text: '*Need link...*' }, { quoted: mek } ) 
 
 
+
+const extractYouTubeId = (url) => {
+      const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+      const match = url.match(regex);
+      return match ? match[1] : null;
+    };
+
+    const convertToYoutubeLink = (query) => {
+      const id = extractYouTubeId(query);
+      return id ? `https://www.youtube.com/watch?v=${id}` : query;
+    };
+
+
+			
 const fixedQuery = convertToYoutubeLink(input);
       const search = await yts(fixedQuery);
       const data = search.videos[0];
