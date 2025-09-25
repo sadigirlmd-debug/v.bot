@@ -143,7 +143,7 @@ l(e)
 cmd({
     pattern: "tempnumber",
     category: "other",
-    react: "🎬",
+    react: "📲",
     desc: "temp number taker",
     use: ".temp number",
     filename: __filename   
@@ -193,7 +193,7 @@ rows: srh
 
     const listMessage = {
 image: { url: 'https://i.ibb.co/fN62gHg/unnamed.png' },
-caption: `VAJIRA MD TEMP-NUMBER\n`,	    
+caption: `ZANTA-XMD TEMP-NUMBER\n`,	    
 footer: config.FOOTER,
 title: '',
 buttonText: '*🔢 Reply below number*',
@@ -233,7 +233,7 @@ cmd({
 
 
 
-    let cap = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗧𝗘𝗠𝗣𝗡𝗨𝗠𝗕𝗘𝗥 👨‍💻\n\nName: ${name}\nNumber: ${number}\n\n`;
+    let cap = `👨‍💻 𝗭𝗔𝗡𝗧𝗔-𝗫𝗠𝗗 𝗧𝗘𝗠𝗣𝗡𝗨𝗠𝗕𝗘𝗥 👨‍💻\n\nName: ${name}\nNumber: ${number}\n\n`;
 for (var i = 0; i < result.length; i++) {
   cap +=`- *Message:* ${result[i].message}\n`
   cap +=`- *Sender:* ${result[i].sender}\n`	
