@@ -6,20 +6,12 @@ const yts = require("yt-search");
 
 
 
-const fetch = require('node-fetch');
 
-async function fetchJson(url) {
-    const res = await fetch(url);
-    return res.json();
-}
 
-async function getBuffer(url) {
-    const res = await fetch(url);
-    return Buffer.from(await res.arrayBuffer());
-}
+
 
 cmd({
-  pattern: "song",
+  pattern: "songs",
   dontAddCommandList: true,
   filename: __filename
 },
@@ -29,10 +21,9 @@ async (conn, mek, m, { from, q, reply }) => {
 
         if (!q) return await conn.sendMessage(from, { text: '*Need link...*' }, { quoted: mek });
 
-        const apiKey = "ethix-api";
-        const encodedUrl = encodeURIComponent(q);
-        const apiUrl = `https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodedUrl}&apiKey=${apiKey}`;
-        const data = await fetchJson(apiUrl);
+        
+        
+        const data = await fetchJson(`https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodeURIComponent(q)}&apiKey=ethix-api`);
 
         if (!data?.success) return reply('*❌ Failed to fetch video info*');
 
@@ -41,14 +32,14 @@ async (conn, mek, m, { from, q, reply }) => {
 
         const mediaUrl = mp4s[2];
 
-        const message = {
-            audio: await getBuffer(mediaUrl),
-            caption: `${data.video.videos.text || "No title"}\n\n${config.FOOTER}`,
-            mimetype: "audio/mpeg",
-            fileName: `yt_audio.mp3`,
-        };
-
-        await conn.sendMessage(from, message);
+    
+await conn.sendMessage(from, {
+      audio: { url: mediaUrl },
+      caption: config.FOOTER,
+      mimetype: "video/mp4",
+      fileName: `${data.video.videos.text}.mp3`
+    }, { quoted: mek });
+        
 
         await conn.sendMessage(from, { react: { text: '✔', key: mek.key } });
 
@@ -57,4 +48,5 @@ async (conn, mek, m, { from, q, reply }) => {
         console.error(e);
     }
 });
+
 
