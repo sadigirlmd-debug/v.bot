@@ -32,12 +32,12 @@ const formatViews = views => views >= 1_000_000_000 ? `${(views / 1_000_000_000)
 
         
 
-/*
+
 cmd({
     pattern: "song",
     use: '.song [song name or link]',
     react: "🎬",
-    desc: descyt,
+    desc: '',
     category: "download",
     filename: __filename
 
@@ -46,8 +46,8 @@ cmd({
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
-if (!q) return await reply(imgmsg)
-if(isUrl(q) && !ytreg(q)) return await reply(imgmsg)
+//if (!q) return await reply(imgmsg)
+//if(isUrl(q) && !ytreg(q)) return await reply(imgmsg)
 
 q = convertYouTubeLink(q);
         const search = await yts(q);
@@ -328,6 +328,7 @@ conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
 
