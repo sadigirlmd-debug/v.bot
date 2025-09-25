@@ -30,11 +30,12 @@ async (conn, mek, m, { from, q, reply }) => {
         if (!data?.success) return reply('*❌ Failed to fetch video info*');
 
         const mp4s = data.video.videos.mp4s;
-        if (!mp4s || mp4s.length === 0) return reply('*❌ No downloadable video found*');
+if (!mp4s || mp4s.length === 0) return reply('*❌ No video URLs found*');
 
-        // Pick the first available downloadable video (or filter by desired resolution)
-        const media = mp4s.find(v => v.downloadUrl && v.canDownload !== false) || mp4s[0];
-        const mediaUrl = media.downloadUrl;
+// Pick the first video (ignore canDownload)
+const media = mp4s[0];
+const mediaUrl = media.downloadUrl;
+
 
 
 
@@ -52,6 +53,7 @@ await conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
 
