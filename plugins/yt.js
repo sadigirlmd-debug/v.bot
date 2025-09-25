@@ -14,39 +14,31 @@ cmd({
 },
 async (conn, mek, m, { from, q, reply, l }) => {
   try {
-    await conn.sendMessage(from, { react: { text: '📥', key: mek.key }})
-    
-    if (!q) return await conn.sendMessage(from, { text: '*Need link...*' }, { quoted: mek })
+    await conn.sendMessage(from, { react: { text: '📥', key: mek.key } })
 
-    
+    if (!q) return await conn.sendMessage(from, { text: '*Need YouTube link...*' }, { quoted: mek })
 
-    // Fetch from Infinity API
-    const apiKey = "INF~v0cig1jd" // keep your apiKey here
+
+    const apiKey = "INF~v0cig1jd" // your Infinity API key
     const res = await fetchJson(`https://infinity-apis.vercel.app/api/youtubedl2?videoUrl=${encodeURIComponent(q)}&apiKey=${apiKey}`)
 
     if (!res.success) return reply("*Failed to fetch audio!*")
 
     const info = res.data.res_data.res_data
-    const formats = info.formats || []
+    const firstUrl = info.formats && info.formats[0] ? info.formats[0].url : null
 
-    // Find best audio format (itag 140 preferred, else 251/250/249)
-    let audioFormat = formats.find(f => f.itag == 140) ||
-                      formats.find(f => f.itag == 251) ||
-                      formats.find(f => f.itag == 250) ||
-                      formats.find(f => f.itag == 249)
-
-    if (!audioFormat) return reply("*No audio format found!*")
+    if (!firstUrl) return reply("*No download URL found!*")
 
     const message = {
-      audio: { url: audioFormat.url },
+      audio: { url: firstUrl },
       caption: `${info.title}\n\n${config.FOOTER}`,
       mimetype: "audio/mpeg",
       fileName: `${info.title}.mp3`,
     }
 
     await conn.sendMessage(from, message, { quoted: mek })
-    await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
-    
+    await conn.sendMessage(from, { react: { text: '✔', key: mek.key } })
+
   } catch (e) {
     reply('*ERROR !!*')
     l(e)
