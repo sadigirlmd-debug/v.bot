@@ -7,55 +7,75 @@ const ddownr = require("denethdev-ytmp3");
 
 
 
-const savetube = require("../lib/savetube") // save the code you gave in /lib/savetube.js
-
 cmd({
   pattern: "song",
-  react: "📥",
-  desc: "Download YouTube video or audio using SaveTube",
+  react: "🎬",
+  desc: "Download YouTube video using Infinity API",
   category: "download",
-  use: "<url> | <format>",
+  use: "<url>",
   filename: __filename
 },
 async (conn, mek, m, { from, q, reply }) => {
   try {
-    if (!q) return reply("*Usage:* .ytstube <url> | <format>\n\nExample: .ytstube https://youtu.be/abc123 | mp3")
+    if (!q) return reply("*Usage:* .ytinfinity <youtube-url>")
 
-    const args = q.split("|").map(a => a.trim())
-    const url = args[0]
-    const format = args[1] || "mp3"
+    const apiKey = "ethix-api" // put your Infinity API key
+    const apiUrl = `https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodeURIComponent(q)}&apiKey=${apiKey}`
 
-    // Call savetube
-    const result = await savetube.download(url, format)
-    if (!result.status) return reply(`❌ ${result.error || "Failed to download"}`)
+    const res = await fetchJson(apiUrl)
+    if (!res.success) return reply(`❌ ${res.message || "Failed to fetch video info"}`)
 
-    const { title, thumbnail, download, type, quality, duration } = result.response
+    const video = res.video
+    const { text, durationText, imgUrl, mp4s } = video.videos
 
-    // send preview
+    // Build details message
+    let caption = `🎬 *YouTube Video Info*\n\n`
+    caption += `📝 *Title:* ${text}\n`
+    caption += `⏱️ *Duration:* ${durationText} sec\n\n`
+    caption += `📥 *Available Qualities:*\n`
+
+    mp4s.forEach((v, i) => {
+      caption += `\n${i + 1}. ${v.resolution} (${v.size})`
+    })
+
+    caption += `\n\n_Reply with format number to download._`
+
+    // send thumbnail + details
     await conn.sendMessage(from, {
-      image: { url: thumbnail },
-      caption: `🎶 *Title:* ${title}\n📀 *Format:* ${quality}\n⏱️ *Duration:* ${duration || "N/A"}\n\n_⬇ Sending ${type}..._`
+      image: { url: imgUrl },
+      caption
     }, { quoted: mek })
 
-    // send media
-    if (type === "audio") {
-      await conn.sendMessage(from, {
-        audio: { url: download },
-        mimetype: "audio/mpeg",
-        fileName: `${title}.mp3`
-      }, { quoted: mek })
-    } else {
-      await conn.sendMessage(from, {
-        video: { url: download },
-        mimetype: "video/mp4",
-        fileName: `${title}.mp4`
-      }, { quoted: mek })
-    }
+    // collect user reply (format number)
+    const collector = conn.ev.on("messages.upsert", async (msg) => {
+      try {
+        const quoted = msg.messages[0]
+        if (!quoted.message?.extendedTextMessage?.text) return
+        if (quoted.key.remoteJid !== from) return
+        if (!quoted.message.extendedTextMessage?.contextInfo?.stanzaId) return
+        if (quoted.message.extendedTextMessage.contextInfo.stanzaId !== mek.key.id) return
 
-    await conn.sendMessage(from, { react: { text: '✔', key: mek.key } })
+        const num = parseInt(quoted.message.extendedTextMessage.text.trim())
+        if (isNaN(num) || num < 1 || num > mp4s.length) {
+          return conn.sendMessage(from, { text: "❌ Invalid number, try again." }, { quoted: quoted })
+        }
+
+        const chosen = mp4s[num - 1]
+        await conn.sendMessage(from, {
+          video: { url: chosen.downloadUrl },
+          mimetype: "video/mp4",
+          fileName: `${text}.mp4`,
+          caption: `🎬 *${text}*\n📀 ${chosen.resolution} (${chosen.size})`
+        }, { quoted: quoted })
+
+        conn.ev.off("messages.upsert", collector)
+      } catch (err) {
+        console.error(err)
+      }
+    })
 
   } catch (e) {
-    console.log(e)
-    reply("*ERROR while fetching from SaveTube !!*")
+    console.error(e)
+    reply("*Error fetching video !!*")
   }
 })
