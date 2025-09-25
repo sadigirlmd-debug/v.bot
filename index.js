@@ -502,12 +502,12 @@ for (let num of participants) {
 try {
 ppuser = await conn.profilePictureUrl(num, 'image')
 } catch (err) {
-ppuser = 'https://telegra.ph/file/b11123c61f6b970118a46.jpg'
+ppuser = 'https://files.catbox.moe/r86oac.jpg'
 }
 try {
 ppgroup = await conn.profilePictureUrl(anu.id, 'image')
 } catch (e) {
-ppgroup = 'https://telegra.ph/file/b11123c61f6b970118a46.jpg'
+ppgroup = 'https://files.catbox.moe/r86oac.jpg'
 }
 //welcome\\
 memb = metadata.participants.length
@@ -531,15 +531,15 @@ connLft = await getBuffer(ppuser)
    └───────────────┈ ⳹
    DESCRIPTION
 
-   OWNER NAME = Vajira Rathnayaka
+   OWNER NAME = MR SURANGA MOD-Z
 
-   TEAM = Technical Cybers (T.C)
+   TEAM = ZANTA GANZ
 
-   JOIN MY WHATSAPP CHANNEL = https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z
+   JOIN MY WHATSAPP CHANNEL = https://whatsapp.com/channel/0029Vb4F314CMY0OBErLlV2M
 
-   SUBSCRIBE MY YT CHANNEL = https://youtube.com/@gamingewingyt6216?si=fTgQw094lJrXWQlg
+   JOIN MY WHATSAPP GROUP = https://chat.whatsapp.com/JoltaFphfPBBJlKhClUR9s?mode=ems_copy_t
 
-👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ ʙʏ ᴛᴄ ᴛᴇᴀᴍ 👨‍💻
+🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 			    
    `
 conn.sendMessage(anu.id,
@@ -549,7 +549,7 @@ mentionedJid:[num],
 "externalAdReply": {
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
-"title": ` 👨‍💻 ＶＡＪＩＲＡ ＭＤ 👨‍💻`, 
+"title": `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️`, 
 "body": `${metadata.subject}`,	
 "containsAutoReply": true,
 "mediaType": 1, 
@@ -576,15 +576,15 @@ mentionedJid:[num],
    └───────────────┈ ⳹
    DESCRIPTION
 
-   OWNER NAME = Vajira Rathnayaka
+   OWNER NAME = MR SURANGA MOD-Z
 
-   TEAM = Technical Cybers (T.C)
+   TEAM = ZANTA GANZ
 
-   JOIN MY WHATSAPP CHANNEL = https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z
+   JOIN MY WHATSAPP CHANNEL = https://whatsapp.com/channel/0029Vb4F314CMY0OBErLlV2M
 
-   SUBSCRIBE MY YT CHANNEL = https://youtube.com/@gamingewingyt6216?si=fTgQw094lJrXWQlg
+   JOIN MY WHATSAPP GROUP = https://chat.whatsapp.com/JoltaFphfPBBJlKhClUR9s?mode=ems_copy_t
 
-👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ ʙʏ ᴛᴄ ᴛᴇᴀᴍ 👨‍💻
+🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 			    `
 conn.sendMessage(anu.id,
  { text: connbody,
@@ -593,7 +593,7 @@ mentionedJid:[num],
 "externalAdReply": {
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
-"title": ` 👨‍💻 ＶＡＪＩＲＡ ＭＤ 👨‍💻`, 
+"title": `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️`, 
 "body": `${metadata.subject}`,	
 "containsAutoReply": true,
 "mediaType": 1, 
