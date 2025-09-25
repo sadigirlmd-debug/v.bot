@@ -9,58 +9,49 @@ const ddownr = require("denethdev-ytmp3");
 
 const axios = require("axios");
 
+
 cmd({
   pattern: "song",
-  fromMe: true,
-  desc: "Download YouTube videos in 720p via Infinity API",
-}, async (conn, mek, m, { from, q, reply }) => { 
-  try {
-    const match = q?.trim(); // safely get the URL
-    if (!match) return conn.sendMessage(mek.chat, "❌ Please provide a YouTube link.", { quoted: mek });
+  dontAddCommandList: true,
+  filename: __filename
+},
+async (conn, mek, m, { from, q, reply }) => {
+    try {
+        // React to show downloading
+        await conn.sendMessage(from, { react: { text: '📥', key: mek.key } });
 
-    const apiKey = "ethix-api"; // Infinity API key
-    const encodedUrl = encodeURIComponent(match);
-    const apiUrl = `https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodedUrl}&apiKey=${apiKey}`;
+        if (!q) return await conn.sendMessage(from, { text: '*Need link...*' }, { quoted: mek });
 
-    // Fetch video info
-    const { data } = await axios.get(apiUrl);
+        // Fetch video info from Infinity API
+        const apiKey = "ethix-api";
+        const encodedUrl = encodeURIComponent(q);
+        const apiUrl = `https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodedUrl}&apiKey=${apiKey}`;
+        const data = await axios.get(apiUrl).then(res => res.data);
 
-    if (!data?.success) return conn.sendMessage(mek.chat, "❌ Failed to fetch video info.", { quoted: mek });
+        if (!data?.success) return reply('*❌ Failed to fetch video info*');
 
-    const video = data.video?.videos;
-    if (!video) return conn.sendMessage(mek.chat, "❌ Video info not found.", { quoted: mek });
+        const mp4s = data.video?.videos?.mp4s || [];
+        const chosen = mp4s.find(f => f.resolution === "720p") ||
+                       mp4s.find(f => f.resolution === "720p60") ||
+                       mp4s[0];
 
-    const mp4s = video.mp4s || [];
-    if (mp4s.length === 0) return conn.sendMessage(mek.chat, "❌ No downloadable formats available.", { quoted: mek });
+        if (!chosen?.downloadUrl) return reply('*❌ No 720p download URL found*');
 
-    // Pick 720p first, fallback to first available
-    const chosen = mp4s.find(f => f.resolution.startsWith("720p") && f.downloadUrl) || mp4s[0];
+        // Send audio
+        const message = {
+            audio: await getBuffer(chosen.downloadUrl),
+            caption: `${data.video.videos.text}\n\n${config.FOOTER}`,
+            mimetype: "audio/mpeg",
+            fileName: `yt_audio.mp3`,
+        };
 
-    if (!chosen?.downloadUrl) return conn.sendMessage(mek.chat, "❌ Download URL not available.", { quoted: mek });
+        await conn.sendMessage(from, message);
 
-    const caption = `🎬 *${video.text || "Unknown Title"}*\n📀 Resolution: ${chosen.resolution}\n💾 Size: ${chosen.size}\n⏱ Duration: ${video.durationText || "Unknown"} sec`;
+        // React to show finished
+        await conn.sendMessage(from, { react: { text: '✔', key: mek.key } });
 
-    // Send thumbnail if available
-    if (video.imgUrl) {
-      await conn.sendMessage(from, {
-        image: { url: video.imgUrl },
-        caption
-      }, { quoted: mek });
-    } else {
-      await conn.sendMessage(mek.chat, caption, { quoted: mek });
+    } catch (e) {
+        reply('*ERROR !!*');
+        console.error(e);
     }
-
-    // Send the video
-    await conn.sendMessage(from, {
-      video: { url: chosen.downloadUrl },
-      mimetype: "video/mp4",
-      fileName: `${video.text || "video"}.mp4`,
-      caption: `🎬 *${video.text || "Video"}*`
-    }, { quoted: mek });
-
-  } catch (err) {
-    console.error(err);
-    const errMsg = typeof err === "object" ? (err.message || JSON.stringify(err)) : String(err);
-    await conn.sendMessage(mek.chat, "❌ Error fetching or sending video.\n" + errMsg, { quoted: mek });
-  }
 });
