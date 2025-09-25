@@ -532,7 +532,7 @@ cmd({ on: "text" },
         if (config.LEVEL_UP_MESSAGE === 'false') {
             await conn.sendMessage(from, {
                 image: {
-                    url: `https://telegra.ph/file/03f1eccdcb525a5e1a6ad.jpg`,
+                    url: `https://files.catbox.moe/r86oac.jpg`,
                 },
                 caption: `
 ━━━━━༺❃༻━━━━━◇
@@ -752,7 +752,7 @@ cmd({
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{       
-if (!q) return mek.reply(`Example: ${prefix + command} hi vajira play command is not working`)
+if (!q) return mek.reply(`Example: ${prefix + command} hi zanta-xmd play command is not working`)
 
 var izumilod = [
 "《 █▒▒▒▒▒▒▒▒▒▒▒》10%",
@@ -825,7 +825,7 @@ for (let i = 0; i < xeonlod.length; i++) {
 await conn.sendMessage(from, {text: xeonlod[i], edit: key })
 }
 
-                  await conn.sendMessage(`94719199757@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${mek.sender.split("@")[0]}\n\n*Bug Report*\n${q ? q : 'blank'}` })
+                  await conn.sendMessage(`94760264995@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${mek.sender.split("@")[0]}\n\n*Bug Report*\n${q ? q : 'blank'}` })
                   const repo = await conn.sendMessage(`*『 𝙱𝚄𝙶 𝚁𝙴𝙿𝙾𝚁𝚃 』*`)
                   await conn.sendMessage(from, { react: { text: `✅`, key: mek.key }}) 
 } catch (e) {
@@ -846,7 +846,7 @@ async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGr
 try{                   
    
   if (!isMe) return await reply(BOTOW)
-                if (!q) return reply(`Where is the text?\nExample: ${prefix + command} izumi Bot`)
+                if (!q) return reply(`Where is the text?\nExample: ${prefix + command} zanta-xmd Bot`)
     await conn.updateProfileStatus(q)
     reply(`Success in changing the bio of bot's number`)
             await conn.sendMessage(from, { react: { text: `✅`, key: mek.key }}) 
