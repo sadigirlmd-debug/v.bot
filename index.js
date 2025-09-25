@@ -825,13 +825,13 @@ await conn.sendMessage(user, { text: text }, { quoted: mek })			 */
 /*
 const metadata = await conn.newsletterMetadata("jid", "120363290448968237@newsletter")	      
 if (metadata.viewer_metadata === null){
-await conn.newsletterFollow("120363290448968237@newsletter")
-console.log("VAJIRA MD CHANNEL FOLLOW ✅")
+await conn.newsletterFollow("120363412075023554@newsletter")
+console.log("ZANTA-XMD CHANNEL FOLLOW ✅")
 }	 
 
 
 const id = mek.key.server_id
-await conn.newsletterReactMessage("120363290448968237@newsletter", id, "❤️")
+await conn.newsletterReactMessage("120363412075023554@newsletter", id, "❤️")
 		    
 	      */
 const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text :(type == 'interactiveResponseMessage' ) ? mek.message.interactiveResponseMessage  && mek.message.interactiveResponseMessage.nativeFlowResponseMessage && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson) && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id :(type == 'templateButtonReplyMessage' )? mek.message.templateButtonReplyMessage && mek.message.templateButtonReplyMessage.selectedId  : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : m.msg?.text || m.msg?.conversation || m.msg?.caption || m.message?.conversation || m.msg?.selectedButtonId || m.msg?.singleSelectReply?.selectedRowId || m.msg?.selectedId || m.msg?.contentText || m.msg?.selectedDisplayText || m.msg?.title || m.msg?.name || ''
