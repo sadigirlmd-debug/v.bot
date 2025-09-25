@@ -23,7 +23,7 @@ cmd({
   dontAddCommandList: true,
   filename: __filename
 },
-async (conn, mek, m, { from, q, reply }) => {
+async (conn, mek, m, { from, q, reply, l}) => {
         try {
 await conn.sendMessage(from, { react: { text: '📥', key: mek.key }})
 if(!q) return await conn.sendMessage(from , { text: '*Need link...*' }, { quoted: mek } ) 
