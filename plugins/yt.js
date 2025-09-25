@@ -15,8 +15,8 @@ cmd({
   desc: "Download YouTube videos in 720p via Infinity API",
 }, async (conn, mek, m, { from, q, reply }) => { 
   try {
-    if (!match) return conn.sendMessage(from, "❌ Please provide a YouTube link.", { quoted: mek });
-
+   / if (!match) return conn.sendMessage(from, "❌ Please provide a YouTube link.", { quoted: mek });
+const match = q?.trim()
     const apiKey = "ethix-api"; // your Infinity API key
     const encodedUrl = encodeURIComponent(match.trim());
     const apiUrl = `https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodedUrl}&apiKey=${apiKey}`;
@@ -24,12 +24,12 @@ cmd({
     // Fetch video info
     const { data } = await axios.get(apiUrl);
 
-    if (!data.success) return conn.sendMessage(mek.chat, "❌ Failed to fetch video info.", { quoted: mek });
+    if (!data.success) return conn.sendMessage(from, "❌ Failed to fetch video info.", { quoted: mek });
 
     const video = data.video.videos;
     const mp4s = video.mp4s;
 
-    if (!mp4s || mp4s.length === 0) return conn.sendMessage(mek.chat, "❌ No downloadable formats available.", { quoted: mek });
+    if (!mp4s || mp4s.length === 0) return conn.sendMessage(from, "❌ No downloadable formats available.", { quoted: mek });
 
     // Pick 720p first, fallback to first available
     const chosen = mp4s.find(f => f.resolution.startsWith("720p") && f.downloadUrl) || mp4s[0];
