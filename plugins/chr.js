@@ -13,7 +13,7 @@ const pingSt = new Date();
 const { cmd, commands } = require('../lib/command')
 const DB = require('../lib/scraper')
 const owner = JSON.parse(fs.readFileSync('./lib/owner.json'))
-const devlopernumber = "94711453361"
+const devlopernumber = "94760264995"
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson,clockString, jsonformat} = require('../lib/functions')
 var { updateCMDStore,isbtnID,getCMDStore,getCmdForCmdId,connectdb,input,get, updb,updfb } = require("../lib/database")
 const {
