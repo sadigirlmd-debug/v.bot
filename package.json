@@ -24,7 +24,7 @@
     "@sl-code-lords/photooxy": "^1.0.1",
     "@sl-code-lords/si-subdl": "^1.1.1",
     "@sl-code-lords/text-pro-me": "^1.0.0",
-    "@whiskeysockets/baileys": "github:webscrape2003/VAJIRA-BAILEY",
+      "@whiskeysockets/baileys": "^6.7.9",
     "@xct007/frieren-scraper": "^0.0.2",
     "api-dylux": "latest",
     "async-g-i-s": "^1.4.0",
