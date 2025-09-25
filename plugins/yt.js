@@ -20,29 +20,37 @@ if(!q) return await conn.sendMessage(from , { text: '*Need link...*' }, { quoted
 
 
 
-const extractYouTubeId = (url) => {
-      const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-      const match = url.match(regex);
-      return match ? match[1] : null;
-    };
-
-    const convertToYoutubeLink = (q) => {
-      const id = extractYouTubeId(q);
-      return id ? `https://www.youtube.com/watch?v=${id}` : query;
-    };
-
+function extractYouTubeId(url) {
+    const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/|playlist\?list=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+}
 
 			
-const fixedQuery = convertToYoutubeLink(input);
+
+function convertYouTubeLink(q) {
+    const videoId = extractYouTubeId(q);
+    if (videoId) {
+        return `https://www.youtube.com/watch?v=${videoId}`;
+    }
+    return q;
+}
+			
+/*const fixedQuery = convertYouTubeLink(q)(input);
       const search = await yts(fixedQuery);
       const data = search.videos[0];
+*/
 
-      
+q = convertYouTubeLink(q);
+        const search = await yts(q);
+        const data = search.videos[0];
+        
+			
       const result = await ddownr.download(data.url, 'mp3');
       const downloadLink = result.downloadUrl;
 
 
-      
+			
     // Caption
     const caption =
       `🎧 *VAJIRA SONG DOWNLOADER*\n\n` +
