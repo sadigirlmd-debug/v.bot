@@ -33,7 +33,7 @@ async (conn, mek, m, { from, q, reply }) => {
 if (!mp4s || mp4s.length === 0) return reply('*❌ No video URLs found*');
 
 // Pick the first video (ignore canDownload)
-const media = mp4s[0];
+const media = mp4s[2];
 const mediaUrl = media.downloadUrl;
 
 
@@ -53,6 +53,7 @@ await conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
 
