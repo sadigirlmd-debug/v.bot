@@ -145,8 +145,8 @@ return await conn.replyList(from, listMessage ,{ quoted : mek })
 
 
 cmd({
-    pattern: "song",
-    use: '.song [song name or link]',
+    pattern: "video",
+    use: '.video [song name or link]',
     react: "🎬",
     desc: '',
     category: "download",
@@ -437,6 +437,7 @@ conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
 
