@@ -32,7 +32,7 @@ const formatViews = views => views >= 1_000_000_000 ? `${(views / 1_000_000_000)
 
         
 
-
+/*
 cmd({
     pattern: "song",
     use: '.song [song name or link]',
@@ -141,7 +141,7 @@ return await conn.replyList(from, listMessage ,{ quoted : mek })
   reply('*ERROR !!*')
   l(e)
 }
-})
+})*/
 
 
 
@@ -310,12 +310,16 @@ const media = mp4s[2];
 const mediaUrl = media.downloadUrl;
 
       
-await conn.sendMessage(from, {
-          document: await getBuffer(mediaUrl),
-          mimetype: "video/mp4",
-          fileName: `${data.video.videos.text}.mp3`,
-          caption: `${data.video.videos.text}\n\n${config.FOOTER}`
-        }, { quoted: mek });
+conn.sendMessage(from, {
+                        document: {
+                            url: mediaUrl
+                        },
+                        mimetype: 'video/mp4',
+                        fileName: data.video.videos.text + '.mp4',
+                        caption: `${data.video.videos.text}\n\n${config.FOOTER}`
+                    }, {
+                        quoted: m
+                    })
         // React to show finished
         await conn.sendMessage(from, { react: { text: '✔', key: mek.key } });
 
@@ -324,6 +328,7 @@ await conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
 
