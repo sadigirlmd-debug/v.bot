@@ -39,7 +39,7 @@ async (conn, mek, m, { from, q, reply }) => {
         const mp4s = data.video.videos.mp4s.downloadUrl;
         if (!mp4s || mp4s.length === 0) return reply('*❌ No video URLs found*');
 
-        const mediaUrl = mp4s[0];
+        const mediaUrl = mp4s[2];
 
         const message = {
             audio: await getBuffer(mediaUrl),
@@ -57,3 +57,4 @@ async (conn, mek, m, { from, q, reply }) => {
         console.error(e);
     }
 });
+
