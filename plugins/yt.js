@@ -26,8 +26,8 @@ const extractYouTubeId = (url) => {
       return match ? match[1] : null;
     };
 
-    const convertToYoutubeLink = (query) => {
-      const id = extractYouTubeId(query);
+    const convertToYoutubeLink = (q) => {
+      const id = extractYouTubeId(q);
       return id ? `https://www.youtube.com/watch?v=${id}` : query;
     };
 
