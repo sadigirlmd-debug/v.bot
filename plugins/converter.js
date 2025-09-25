@@ -156,58 +156,66 @@ else cant = "I can't remove background on this image."
 
 
 cmd({
-    pattern: "vv",
-    alias: ['retrive', '🔥'],
-    desc: "Fetch and resend a ViewOnce message content (image/video).",
-    category: "convert",
-    use: '<query>',
-    filename: __filename
-},
-async (conn, mek, m, { from, reply }) => {
-    try {
-        const quotedMessage = m.msg.contextInfo.quotedMessage; // Get quoted message
-
-        if (quotedMessage && quotedMessage.viewOnceMessageV2) {
-            const quot = quotedMessage.viewOnceMessageV2;
-            if (quot.message.imageMessage) {
-                let cap = quot.message.imageMessage.caption;
-                let anu = await conn.downloadAndSaveMediaMessage(quot.message.imageMessage);
-                return conn.sendMessage(from, { image: { url: anu }, caption: cap }, { quoted: mek });
-            }
-            if (quot.message.videoMessage) {
-                let cap = quot.message.videoMessage.caption;
-                let anu = await conn.downloadAndSaveMediaMessage(quot.message.videoMessage);
-                return conn.sendMessage(from, { video: { url: anu }, caption: cap }, { quoted: mek });
-            }
-            if (quot.message.audioMessage) {
-                let anu = await conn.downloadAndSaveMediaMessage(quot.message.audioMessage);
-                return conn.sendMessage(from, { audio: { url: anu } }, { quoted: mek });
-            }
-        }
-
-        // If there is no quoted message or it's not a ViewOnce message
-        if (!m.quoted) return reply("Please reply to a ViewOnce message.");
-        if (m.quoted.mtype === "viewOnceMessage") {
-            if (m.quoted.message.imageMessage) {
-                let cap = m.quoted.message.imageMessage.caption;
-                let anu = await conn.downloadAndSaveMediaMessage(m.quoted.message.imageMessage);
-                return conn.sendMessage(from, { image: { url: anu }, caption: cap }, { quoted: mek });
-            }
-            else if (m.quoted.message.videoMessage) {
-                let cap = m.quoted.message.videoMessage.caption;
-                let anu = await conn.downloadAndSaveMediaMessage(m.quoted.message.videoMessage);
-                return conn.sendMessage(from, { video: { url: anu }, caption: cap }, { quoted: mek });
-            }
-        } else if (m.quoted.message.audioMessage) {
-            let anu = await conn.downloadAndSaveMediaMessage(m.quoted.message.audioMessage);
-            return conn.sendMessage(from, { audio: { url: anu } }, { quoted: mek });
-        } else {
-            return reply("This is not a ViewOnce message.");
-        }
-    } catch (e) {
-        console.log("Error:", e);
-        reply("An error occurred while fetching the ViewOnce message.");
+  pattern: "vv",
+  alias: ["viewonce", 'retrive'],
+  react: '🐳',
+  desc: "Owner Only - retrieve quoted message back to user",
+  category: "owner",
+  filename: __filename
+}, async (client, message, match, { from, isCreator }) => {
+  try {
+    if (!isCreator) {
+      return await client.sendMessage(from, {
+        text: "*📛 This is an owner command.*"
+      }, { quoted: message });
     }
+
+    if (!match.quoted) {
+      return await client.sendMessage(from, {
+        text: "*🍁 Please reply to a view once message!*"
+      }, { quoted: message });
+    }
+
+    const buffer = await match.quoted.download();
+    const mtype = match.quoted.mtype;
+    const options = { quoted: message };
+
+    let messageContent = {};
+    switch (mtype) {
+      case "imageMessage":
+        messageContent = {
+          image: buffer,
+          caption: match.quoted.text || '',
+          mimetype: match.quoted.mimetype || "image/jpeg"
+        };
+        break;
+      case "videoMessage":
+        messageContent = {
+          video: buffer,
+          caption: match.quoted.text || '',
+          mimetype: match.quoted.mimetype || "video/mp4"
+        };
+        break;
+      case "audioMessage":
+        messageContent = {
+          audio: buffer,
+          mimetype: "audio/mp4",
+          ptt: match.quoted.ptt || false
+        };
+        break;
+      default:
+        return await client.sendMessage(from, {
+          text: "❌ Only image, video, and audio messages are supported"
+        }, { quoted: message });
+    }
+
+    await client.sendMessage(from, messageContent, options);
+  } catch (error) {
+    console.error("vv Error:", error);
+    await client.sendMessage(from, {
+      text: "❌ Error fetching vv message:\n" + error.message
+    }, { quoted: message });
+  }
 });
 
 
