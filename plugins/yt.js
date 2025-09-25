@@ -181,14 +181,14 @@ q = convertYouTubeLink(q);
 	
 if(isUrl(q) && q.includes('/shorts')){let dat = `[👨‍💻 පුක සුදුද 👨‍💻]
 
-   *SELECT SONG TYPE*`
+   *SELECT VIDEO TYPE*`
 				      
 const sections = [
     {
 	title: "",
 	rows: [
-	    {title: "1", rowId: prefix + `ytv ${q}` , description: 'Normal type song 🎶'},
-	    {title: "2", rowId: prefix + `ytvdoc ${q}` , description: 'Document type song 📂'},
+	    {title: "1", rowId: prefix + `ytv ${q}` , description: 'Normal type Video 🎶'},
+	    {title: "2", rowId: prefix + `ytvdoc ${q}` , description: 'Document type video 📂'},
 
 	]
     } 
@@ -209,8 +209,8 @@ const sections = [
     {
 	title: "",
 	rows: [
-	    {title: "1", rowId: prefix + `ytv ${q}` , description: 'Normal type song 🎶'},
-	    {title: "2", rowId: prefix + `ytvdoc ${q}` , description: 'Document type song 📂'},
+	    {title: "1", rowId: prefix + `ytv ${q}` , description: 'Normal type video 🎶'},
+	    {title: "2", rowId: prefix + `ytvdoc ${q}` , description: 'Document type video 📂'},
 
 	]
     } 
@@ -230,8 +230,8 @@ const sections = [
     {
 	title: "",
 	rows: [
-	    {title: "1", rowId: prefix + `ytv ${data.url}` , description: 'Normal type song 🎶'},
-	    {title: "2", rowId: prefix + `ytvdoc ${data.url}` , description: 'Document type song 📂'},
+	    {title: "1", rowId: prefix + `ytv ${data.url}` , description: 'Normal type video 🎶'},
+	    {title: "2", rowId: prefix + `ytvdoc ${data.url}` , description: 'Document type video 📂'},
 
 	]
     } 
