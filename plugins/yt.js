@@ -144,6 +144,115 @@ return await conn.replyList(from, listMessage ,{ quoted : mek })
 })
 
 
+cmd({
+    pattern: "song",
+    use: '.song [song name or link]',
+    react: "🎬",
+    desc: '',
+    category: "download",
+    filename: __filename
+
+},
+
+async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+
+//if (!q) return await reply(imgmsg)
+//if(isUrl(q) && !ytreg(q)) return await reply(imgmsg)
+
+q = convertYouTubeLink(q);
+        const search = await yts(q);
+        const data = search.videos[0];
+        const url = data.url;	
+
+	const cap = `📽️ *ᴠᴀᴊɪʀᴀ-ᴍᴅ ᴠɪᴅᴇᴏ-ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*📽️
+
+┌──────────────────
+
+*ℹ️ Title:* ${data.title}
+*👁️‍🗨️ Views:* ${data.views}
+*🕘 Duration:* ${data.timestamp}
+*📌 Ago :* ${data.ago}
+*🔗 Url:* ${data.url} 
+
+└──────────────────`
+
+
+	
+if(isUrl(q) && q.includes('/shorts')){let dat = `[👨‍💻 පුක සුදුද 👨‍💻]
+
+   *SELECT SONG TYPE*`
+				      
+const sections = [
+    {
+	title: "",
+	rows: [
+	    {title: "1", rowId: prefix + `ytv ${q}` , description: 'Normal type song 🎶'},
+	    {title: "2", rowId: prefix + `ytvdoc ${q}` , description: 'Document type song 📂'},
+
+	]
+    } 
+]
+const listMessage = {
+  text: cap,
+  footer: `*ᴠᴀᴊɪʀᴀ ᴍᴅ ᴍᴜʟᴛɪ-ᴅᴇᴠɪᴄᴇ ʙᴏᴛ:ᴠ-ɪ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*`,
+  buttonText: "```🔢 Reply below number you need song type,```",
+  sections
+}
+
+return await conn.replyList(from, listMessage ,{ quoted : mek }) 				      
+				     }
+if(ytreg(q)){let dat = `[👨‍💻 පුක සුදුද 👨‍💻]
+
+*SELECT SONG TYPE*`
+const sections = [
+    {
+	title: "",
+	rows: [
+	    {title: "1", rowId: prefix + `ytv ${q}` , description: 'Normal type song 🎶'},
+	    {title: "2", rowId: prefix + `ytvdoc ${q}` , description: 'Document type song 📂'},
+
+	]
+    } 
+]
+const listMessage = {
+  text: cap,
+  footer: `*ᴠᴀᴊɪʀᴀ-ᴍᴅ ᴍᴜʟᴛɪ-ᴅᴇᴠɪᴄᴇ ʙᴏᴛ:ᴠ-ɪ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*`,
+  buttonText: "```🔢 Reply below number you need song type,```",
+  sections }	
+
+	     
+return await conn.replyList(from, listMessage ,{ quoted : mek }) 
+	    }
+        
+
+const sections = [
+    {
+	title: "",
+	rows: [
+	    {title: "1", rowId: prefix + `ytv ${data.url}` , description: 'Normal type song 🎶'},
+	    {title: "2", rowId: prefix + `ytvdoc ${data.url}` , description: 'Document type song 📂'},
+
+	]
+    } 
+]
+const listMessage = {
+  image: {url: data.thumbnail},
+  caption: cap,
+footer: config.FOOTER,
+title: '',
+buttonText: '*🔢 Reply below number*',
+sections
+}
+return await conn.replyList(from, listMessage ,{ quoted : mek })
+
+
+	
+} catch (e) {
+  reply('*ERROR !!*')
+  l(e)
+}
+})
 
 
 cmd({
@@ -328,6 +437,7 @@ conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
 
