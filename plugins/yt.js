@@ -15,7 +15,7 @@ cmd({
   desc: "Download YouTube videos in 720p via Infinity API",
 }, async (conn, text, mek) => {
   try {
-    const match = text?.trim(); // safely get the URL
+    const match = q?.trim(); // safely get the URL
     if (!match) return conn.sendMessage(mek.chat, "❌ Please provide a YouTube link.", { quoted: mek });
 
     const apiKey = "ethix-api"; // Infinity API key
