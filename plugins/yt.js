@@ -22,7 +22,7 @@ async (conn, mek, m, { from, q, reply, l }) => {
 
     // Fetch from Infinity API
     const apiKey = "INF~v0cig1jd" // keep your apiKey here
-    const res = await fetchJson(`https://infinity-apis.vercel.app/api/youtubedl2?videoUrl=${encodeURIComponent(mediaUrl)}&apiKey=${apiKey}`)
+    const res = await fetchJson(`https://infinity-apis.vercel.app/api/youtubedl2?videoUrl=${encodeURIComponent(q)}&apiKey=${apiKey}`)
 
     if (!res.success) return reply("*Failed to fetch audio!*")
 
