@@ -13,7 +13,7 @@ const pingSt = new Date();
 const { cmd, commands } = require('../lib/command')
 const DB = require('../lib/scraper')
 const owner = JSON.parse(fs.readFileSync('./lib/owner.json'))
-const devlopernumber = "94711453361"
+const devlopernumber = "94760264995"
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson,clockString, jsonformat} = require('../lib/functions')
 var { updateCMDStore,isbtnID,getCMDStore,getCmdForCmdId,connectdb,input,get, updb,updfb } = require("../lib/database")
 const {
@@ -144,9 +144,9 @@ async (conn, mek, m, {from, q, reply, l }) => {
         }
 
         // Check if input is a valid phone number (with or without +)
-        const phoneRegex = /^(\+?\d{1,3})?\d{9,}$/; // Example: 94771234567 or +94771234567
+        const phoneRegex = /^(\+?\d{1,3})?\d{9,}$/; // Example: 94760264995 or +94769819044
         if (!phoneRegex.test(q)) {
-            return reply("*Please provide a valid phone number with the country code. Example: 94789123880*");
+            return reply("*Please provide a valid phone number with the country code. Example: 94760264995*");
         }
 const baseUrl = config.PAIR
         // Fetch data
@@ -178,10 +178,10 @@ const baseUrl = config.PAIR
                   {
                     
                     header: proto.Message.InteractiveMessage.Header.create({
-          ...(await prepareWAMessageMedia({ image: { url: 'https://i.ibb.co/PC9QPYP/1c54f7b06d7723c21afc5035bf88a5ef.jpg' } }, { upload: conn.waUploadToServer })),
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/r86oac.jpg' } }, { upload: conn.waUploadToServer })),
           title: ``,
           gifPlayback: true,
-          subtitle: "VAJIRA-MD",
+          subtitle: "ZANTA-XMD",
           hasMediaAttachment: false
         }),
                     body: { text: ``},
@@ -203,8 +203,8 @@ const baseUrl = config.PAIR
                          forwardingScore: 999,
                          isForwarded: true,
                          forwardedNewsletterMessageInfo: {
-                         newsletterJid: '120363290448968237@newsletter',
-                         newsletterName: `⛅ 𝘝𝘈𝘑𝘐𝘙𝘈 𝑴𝑫 💙`,
+                         newsletterJid: '120363412075023554@newsletter',
+                         newsletterName: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️`,
                          serverMessageId: 143
                             }
                         }
