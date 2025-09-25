@@ -149,6 +149,8 @@ async (conn, mek, m, { q, reply }) => {
 
 const { cmd } = require('../command');
 
+const { cmd, commands } = require('../lib/command')
+const config = require('../settings')
 cmd({
     pattern: "channeljid",
     react: "📡",
