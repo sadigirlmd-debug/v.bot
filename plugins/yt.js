@@ -40,7 +40,7 @@ const mediaUrl = media.downloadUrl;
 
 
 await conn.sendMessage(from, {
-          audio: { url: mediaUrl },
+          audio: await getBuffer(mediaUrl),
           mimetype: "audio/mpeg"
         }, { quoted: mek });
       
@@ -53,6 +53,7 @@ await conn.sendMessage(from, {
         console.error(e);
     }
 });
+
 
 
 
