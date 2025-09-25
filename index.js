@@ -130,35 +130,35 @@ let storedLink7 = null;
 let storedLink8 = null;    		
     
 async function sendNews(title, desc, date, link, img) {
-    const message = `ＶＡＪＩＲＡ-ＭＤ ＨＩＲＵ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message = `ＺＡＮＴＡ-ＸＭＤ ＨＩＲＵ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: img} , caption: message })  
 }
 async function sendNews1(title, desc, date, url, image) {
-    const message1 = `ＶＡＪＩＲＡ-ＭＤ ＬＡＮＫＡＤＥＥＰＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message1 = `ＺＡＮＴＡ-ＸＭＤ ＬＡＮＫＡＤＥＥＰＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message1 })  
 }
 async function sendNews2(title, desc, url, image) {
-    const message2 = `ＶＡＪＩＲＡ-ＭＤ ＢＢＣ - ＮＥＷＳ\n\n*${title}*\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message2 = `ＺＡＮＴＡ-ＸＭＤ ＢＢＣ - ＮＥＷＳ\n\n*${title}*\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message2 })  
 }
 async function sendNews3(title, desc, date, link, image) {
-    const message3 = `ＶＡＪＩＲＡ-ＭＤ ＩＴＮ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message3 = `ＺＡＮＴＡ-ＸＭＤ ＩＴＮ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message3 })  
 }
 async function sendNews4(title, desc, date, link, image) {
-    const message4 = `ＶＡＪＩＲＡ-ＭＤ ＧＯＳＳＩＰＬＡＮＫＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message4 = `ＺＡＮＴＡ-ＸＭＤ ＧＯＳＳＩＰＬＡＮＫＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message4 })  
 }
 async function sendNews5(title, desc, date, link, image) {
-    const message5 = `ＶＡＪＩＲＡ-ＭＤ ＳＩＹＡＴＨＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message5 = `ＺＡＮＴＡ-ＸＭＤ ＳＩＹＡＴＨＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message5 })  
 }
 async function sendNews6(title, desc, date, url, image) {
-    const message6 = `ＶＡＪＩＲＡ-ＭＤ ＤＥＲＡＮＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message6 = `ＺＡＮＴＡ-ＸＭＤ ＤＥＲＡＮＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message6 })  
 }
 async function sendNews7(title, desc, date, link, image) {
-    const message7 = `ＶＡＪＩＲＡ-ＭＤ ＤＡＳＡＴＨＡＬＡＮＫＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message7 = `ＺＡＮＴＡ-ＸＭＤ ＤＡＳＡＴＨＡＬＡＮＫＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message7 })  
 }
 async function sendNews8(details, image) {
@@ -823,7 +823,7 @@ await conn.sendMessage(user, { text: text }, { quoted: mek })			 */
                     const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
 
 /*
-const metadata = await conn.newsletterMetadata("jid", "120363290448968237@newsletter")	      
+const metadata = await conn.newsletterMetadata("jid", "120363412075023554@newsletter")	      
 if (metadata.viewer_metadata === null){
 await conn.newsletterFollow("120363412075023554@newsletter")
 console.log("ZANTA-XMD CHANNEL FOLLOW ✅")
@@ -1863,7 +1863,7 @@ if(!isOwner) {	//!isOwner) {
     })
 }
 app.get("/", (req, res) => {
-res.send("📟 Vajira-Md Working successfully!");
+res.send("📟 Zanta-Xmd Working successfully!");
 });
 app.listen(port, () => console.log(`Vajira-Md Server listening on port http://localhost:${port}`));
 setTimeout(() => {
