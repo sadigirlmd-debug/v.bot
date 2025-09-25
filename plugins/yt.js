@@ -7,75 +7,57 @@ const ddownr = require("denethdev-ytmp3");
 
 
 
+const axios = require("axios");
+
 cmd({
   pattern: "song",
-  react: "🎬",
-  desc: "Download YouTube video using Infinity API",
-  category: "download",
-  use: "<url>",
-  filename: __filename
-},
-async (conn, mek, m, { from, q, reply }) => {
+  fromMe: true,
+  desc: "Download YouTube videos in 720p via Infinity API",
+}, async (conn, mek, m, { from, q, reply }) => { 
   try {
-    if (!q) return reply("*Usage:* .ytinfinity <youtube-url>")
+    if (!match) return conn.sendMessage(from, "❌ Please provide a YouTube link.", { quoted: mek });
 
-    const apiKey = "ethix-api" // put your Infinity API key
-    const apiUrl = `https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodeURIComponent(q)}&apiKey=${apiKey}`
+    const apiKey = "ethix-api"; // your Infinity API key
+    const encodedUrl = encodeURIComponent(match.trim());
+    const apiUrl = `https://infinity-apis.vercel.app/api/youtubedl?videoUrl=${encodedUrl}&apiKey=${apiKey}`;
 
-    const res = await fetchJson(apiUrl)
-    if (!res.success) return reply(`❌ ${res.message || "Failed to fetch video info"}`)
+    // Fetch video info
+    const { data } = await axios.get(apiUrl);
 
-    const video = res.video
-    const { text, durationText, imgUrl, mp4s } = video.videos
+    if (!data.success) return conn.sendMessage(mek.chat, "❌ Failed to fetch video info.", { quoted: mek });
 
-    // Build details message
-    let caption = `🎬 *YouTube Video Info*\n\n`
-    caption += `📝 *Title:* ${text}\n`
-    caption += `⏱️ *Duration:* ${durationText} sec\n\n`
-    caption += `📥 *Available Qualities:*\n`
+    const video = data.video.videos;
+    const mp4s = video.mp4s;
 
-    mp4s.forEach((v, i) => {
-      caption += `\n${i + 1}. ${v.resolution} (${v.size})`
-    })
+    if (!mp4s || mp4s.length === 0) return conn.sendMessage(mek.chat, "❌ No downloadable formats available.", { quoted: mek });
 
-    caption += `\n\n_Reply with format number to download._`
+    // Pick 720p first, fallback to first available
+    const chosen = mp4s.find(f => f.resolution.startsWith("720p") && f.downloadUrl) || mp4s[0];
 
-    // send thumbnail + details
+    if (!chosen?.downloadUrl) return conn.sendMessage(from, "❌ Download URL not available.", { quoted: mek });
+
+    const caption = `🎬 *${video.text || "Unknown Title"}*\n📀 Resolution: ${chosen.resolution}\n💾 Size: ${chosen.size}\n⏱ Duration: ${video.durationText || "Unknown"} sec`;
+
+    // Send thumbnail if available
+    if (video.imgUrl) {
+      await conn.sendMessage(from, {
+        image: { url: video.imgUrl },
+        caption
+      }, { quoted: mek });
+    } else {
+      await conn.sendMessage(from, caption, { quoted: mek });
+    }
+
+    // Send the video
     await conn.sendMessage(from, {
-      image: { url: imgUrl },
-      caption
-    }, { quoted: mek })
+      video: { url: chosen.downloadUrl },
+      mimetype: "video/mp4",
+      fileName: `${video.text || "video"}.mp4`,
+      caption: `🎬 *${video.text || "Video"}*`
+    }, { quoted: mek });
 
-    // collect user reply (format number)
-    const collector = conn.ev.on("messages.upsert", async (msg) => {
-      try {
-        const quoted = msg.messages[0]
-        if (!quoted.message?.extendedTextMessage?.text) return
-        if (quoted.key.remoteJid !== from) return
-        if (!quoted.message.extendedTextMessage?.contextInfo?.stanzaId) return
-        if (quoted.message.extendedTextMessage.contextInfo.stanzaId !== mek.key.id) return
-
-        const num = parseInt(quoted.message.extendedTextMessage.text.trim())
-        if (isNaN(num) || num < 1 || num > mp4s.length) {
-          return conn.sendMessage(from, { text: "❌ Invalid number, try again." }, { quoted: quoted })
-        }
-
-        const chosen = mp4s[num - 1]
-        await conn.sendMessage(from, {
-          video: { url: chosen.downloadUrl },
-          mimetype: "video/mp4",
-          fileName: `${text}.mp4`,
-          caption: `🎬 *${text}*\n📀 ${chosen.resolution} (${chosen.size})`
-        }, { quoted: quoted })
-
-        conn.ev.off("messages.upsert", collector)
-      } catch (err) {
-        console.error(err)
-      }
-    })
-
-  } catch (e) {
-    console.error(e)
-    reply("*Error fetching video !!*")
+  } catch (err) {
+    console.error(err);
+    await conn.sendMessage(mek.chat, "❌ Error fetching or sending video.\n" + err.message, { quoted: mek });
   }
-})
+});
