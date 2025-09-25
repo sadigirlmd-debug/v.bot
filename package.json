@@ -125,6 +125,8 @@
     "fluent-ffmpeg": "^2.1.3",
     "@ffprobe-installer/ffprobe": "^2.1.2",
     "@vreden/youtube_scraper": "1.2.7",
+    "user-agents": "latest",
+    "crypto": "latest",
     "tmp": "^0.2.3"
   },
   "overrides": {
