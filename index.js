@@ -1,9 +1,4 @@
-const config = require('../settings')
-const { cmd, commands } = require('../lib/command')
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson, jsonformat} = require('../lib/functions')
-const fs = require('fs');
-const bugres = '𝙋𝙧𝙤𝙘𝙘𝙚𝙨 👾'
-const { beta1, beta2, buk1 } = require("../lib/hconst {
+const {
     default: makeWASocket,
     getAggregateVotesInPollMessage, 
     useMultiFileAuthState,
@@ -360,38 +355,80 @@ checkForNewsUpdates7();
 
 
 
+//──────────────────────────────────────────────────────────────────   
+
+
+async function checkForNewsUpdates8() {
+    try {
+        const data = await fetchJson(`${config.NEWS}server`)
+        const { details, image } = data.result;
+
+        if (storedLink8 !== image) {  
+            await sendNews8(details, image);
+            
+            storedLink8 = image;
+        } 
+    } catch (error) {
+        console.error(jidko);
+    }
+
+    // Re-run the function after a 5-minute delay
+    setTimeout(checkForNewsUpdates8, 5 * 60 * 1000); // 5 minutes in milliseconds
+}
+ 
+checkForNewsUpdates8();
+
 
 
 //──────────────────────────────────────────────────────────────────   
 		
 		
-            console.log('Installing plugins 🔌... ')
+           console.log('Installing plugins 🔌... ')
             const path = require('path');
             fs.readdirSync("./plugins/").forEach((plugin) => {
                 if (path.extname(plugin).toLowerCase() == ".js") {
                     require("./plugins/" + plugin);
                 }
             });
-            console.log('Plugins installed ✅')
-            console.log('Bot connected ✅')
-conn.sendMessage(conn.user.id, {
-text: "*👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ 👨‍💻 successfully connected* ✓\n\n Use .Update command to see Vajira md new update news \n\n> ◦ *Official GitHub* - ```https://github.com/VajiraTech```\n> ◦ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴠɪᴀ ᴛʏᴘᴇ: .joinsup\n*👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ 👨‍💻 ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴄʀᴇᴀᴛᴇᴅ ʙʏ • ᴠᴀᴊɪʀᴀ ʀᴀᴛʜɴᴀʏᴀᴋᴀ*",
-contextInfo: {
-externalAdReply: {
-title: "👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ 👨‍💻\nSuccessfully Connected !",	
-thumbnailUrl: "https://cdn.dribbble.com/users/15468/screenshots/2450252/logo.jpg",
-sourceUrl: "",
-mediaType: 1,
-renderLargerThumbnail: true
-}}}) 
-    }
+            console.log('Plugins installed successful ✅')
+  console.log('Bot connected to whatsapp ✅')
+  
+  let up = `.𝐙𝐀𝐍𝐓𝐀-𝐗𝐌𝐃 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋𝐋𝐘  
+
+> Follow WhatsApp Channel :- ⤵️
+ 
+🖇️ https://whatsapp.com/channel/0029Vb4F314CMY0OBErLlV2M
+
+> Joine Whatsapp Group :- ⤵️
+
+🖇️ https://chat.whatsapp.com/DXQOFlfOnOt5AQsWSaGZqT?mode=ems_copy_c
+
+> Follow Tiktok Page :- ⤵️
+
+🖇️ tiktok.com/@_zanta_vibe_
+
+> owner :- ⤵️
+
+🖇️ https://wa.me/+94760264995?text=hi-zanta-xmd-owner-save-me-🐼🪄💗
+
+> ꜰᴀʟʟᴏᴡ ᴄʜᴀɴɴᴇʟ ɢᴇᴛ ʟɪɴᴋ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ`;
+    conn.sendMessage('94760264995@s.whatsapp.net', { image: { url: `https://files.catbox.moe/r86oac.jpg` }, caption: up })
+  }
   })
+  conn.ev.on('creds.update', saveCreds)
 
+  //==============================
 
-
-
-        
+  conn.ev.on('messages.update', async updates => {
+    for (const update of updates) {
+      if (update.update.message === null) {
+        console.log("Delete Detected:", JSON.stringify(update, null, 2));
+        await AntiDelete(conn, updates);
+      }
+    }
+  });
       
+
 //==================================================================
 
 	
@@ -465,12 +502,12 @@ for (let num of participants) {
 try {
 ppuser = await conn.profilePictureUrl(num, 'image')
 } catch (err) {
-ppuser = 'https://telegra.ph/file/b11123c61f6b970118a46.jpg'
+ppuser = 'https://files.catbox.moe/r86oac.jpg'
 }
 try {
 ppgroup = await conn.profilePictureUrl(anu.id, 'image')
 } catch (e) {
-ppgroup = 'https://telegra.ph/file/b11123c61f6b970118a46.jpg'
+ppgroup = 'https://files.catbox.moe/r86oac.jpg'
 }
 //welcome\\
 memb = metadata.participants.length
@@ -494,15 +531,15 @@ connLft = await getBuffer(ppuser)
    └───────────────┈ ⳹
    DESCRIPTION
 
-   OWNER NAME = Vajira Rathnayaka
+   OWNER NAME = MR SURANGA MOD-Z
 
-   TEAM = Technical Cybers (T.C)
+   TEAM = ZANTA GANZ
 
-   JOIN MY WHATSAPP CHANNEL = https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z
+   JOIN MY WHATSAPP CHANNEL = https://whatsapp.com/channel/0029Vb4F314CMY0OBErLlV2M
 
-   SUBSCRIBE MY YT CHANNEL = https://youtube.com/@gamingewingyt6216?si=fTgQw094lJrXWQlg
+   JOIN MY WHATSAPP GROUP = https://chat.whatsapp.com/JoltaFphfPBBJlKhClUR9s?mode=ems_copy_t
 
-👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ ʙʏ ᴛᴄ ᴛᴇᴀᴍ 👨‍💻
+🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 			    
    `
 conn.sendMessage(anu.id,
@@ -512,7 +549,7 @@ mentionedJid:[num],
 "externalAdReply": {
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
-"title": ` 👨‍💻 ＶＡＪＩＲＡ ＭＤ 👨‍💻`, 
+"title": `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️`, 
 "body": `${metadata.subject}`,	
 "containsAutoReply": true,
 "mediaType": 1, 
@@ -539,15 +576,15 @@ mentionedJid:[num],
    └───────────────┈ ⳹
    DESCRIPTION
 
-   OWNER NAME = Vajira Rathnayaka
+   OWNER NAME = MR SURANGA MOD-Z
 
-   TEAM = Technical Cybers (T.C)
+   TEAM = ZANTA GANZ
 
-   JOIN MY WHATSAPP CHANNEL = https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z
+   JOIN MY WHATSAPP CHANNEL = https://whatsapp.com/channel/0029Vb4F314CMY0OBErLlV2M
 
-   SUBSCRIBE MY YT CHANNEL = https://youtube.com/@gamingewingyt6216?si=fTgQw094lJrXWQlg
+   JOIN MY WHATSAPP GROUP = https://chat.whatsapp.com/JoltaFphfPBBJlKhClUR9s?mode=ems_copy_t
 
-👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ ʙʏ ᴛᴄ ᴛᴇᴀᴍ 👨‍💻
+🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 			    `
 conn.sendMessage(anu.id,
  { text: connbody,
@@ -556,7 +593,7 @@ mentionedJid:[num],
 "externalAdReply": {
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
-"title": ` 👨‍💻 ＶＡＪＩＲＡ ＭＤ 👨‍💻`, 
+"title": `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️`, 
 "body": `${metadata.subject}`,	
 "containsAutoReply": true,
 "mediaType": 1, 
@@ -604,8 +641,8 @@ xeonbody = ` 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘀🎉 @${xeonName.split("@")[0]}, yo
  mentionedJid:[num],
  "externalAdReply": {"showAdAttribution": true,
  "containsAutoReply": true,
- "title": "VAJIRA MD",
-"body": "Vajira Rathnayaka",
+ "title": "🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️",
+"body": "mr suranga mod-z",
  "previewType": "PHOTO",
 "thumbnailUrl": ``,
 "thumbnail": XeonWlcm,
@@ -621,8 +658,8 @@ conn.sendMessage(anu.id,
  mentionedJid:[num],
  "externalAdReply": {"showAdAttribution": true,
  "containsAutoReply": true,
- "title": "VAJIRA MD",
-"body": "Vajira Rathnayaka",
+ "title": "🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️",
+"body": "mr suranga mod-z",
  "previewType": "PHOTO",
 "thumbnailUrl": ``,
 "thumbnail": XeonLft,
@@ -786,15 +823,15 @@ await conn.sendMessage(user, { text: text }, { quoted: mek })			 */
                     const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
 
 /*
-const metadata = await conn.newsletterMetadata("jid", "120363290448968237@newsletter")	      
+const metadata = await conn.newsletterMetadata("jid", "120363412075023554@newsletter")	      
 if (metadata.viewer_metadata === null){
-await conn.newsletterFollow("120363290448968237@newsletter")
-console.log("VAJIRA MD CHANNEL FOLLOW ✅")
+await conn.newsletterFollow("120363412075023554@newsletter")
+console.log("ZANTA-XMD CHANNEL FOLLOW ✅")
 }	 
 
 
 const id = mek.key.server_id
-await conn.newsletterReactMessage("120363290448968237@newsletter", id, "❤️")
+await conn.newsletterReactMessage("120363412075023554@newsletter", id, "❤️")
 		    
 	      */
 const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text :(type == 'interactiveResponseMessage' ) ? mek.message.interactiveResponseMessage  && mek.message.interactiveResponseMessage.nativeFlowResponseMessage && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson) && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id :(type == 'templateButtonReplyMessage' )? mek.message.templateButtonReplyMessage && mek.message.templateButtonReplyMessage.selectedId  : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : m.msg?.text || m.msg?.conversation || m.msg?.caption || m.message?.conversation || m.msg?.selectedButtonId || m.msg?.singleSelectReply?.selectedRowId || m.msg?.selectedId || m.msg?.contentText || m.msg?.selectedDisplayText || m.msg?.title || m.msg?.name || ''
@@ -849,7 +886,7 @@ q = args.join(' ')
 	    const developers = '94711453097'
             const isbot = botNumber.includes(senderNumber)
 	    const isdev = developers.includes(senderNumber) 	    
-            let epaneda =  (await axios.get('https://gist.github.com/VajiraOfficial/b9867c0c02bb947ef2e69c7f27f8b9c6/raw')).data
+            let epaneda =  '94769819044'
             const epada = epaneda.split(",")	    
             const isDev = [ ...epada ].map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(sender)
 	    const botNumber2 = await jidNormalizedUser(conn.user.id)
@@ -1191,13 +1228,13 @@ editedMessage: {
 //==================================Button================================
             
 	      
-            const ownerdata = (await axios.get('https://gist.github.com/VajiraOfficial/c6be607bcaa75778fc4c60a941a1fbbf/raw')).data
+           /* const ownerdata = (await axios.get('https://gist.github.com/VajiraOfficial/c6be607bcaa75778fc4c60a941a1fbbf/raw')).data
             config.LOGO = ownerdata.imageurl
             config.FOOTER = ownerdata.footer
             config.PAIR = ownerdata.pair
             config.NEWS = ownerdata.news
             config.API = ownerdata.api
-            config.APIKEY = ownerdata.apikey
+            config.APIKEY = ownerdata.apikey*/
 	      
             conn.edit = async (mek, newmg) => {
                 await conn.relayMessage(from, {
@@ -1403,14 +1440,14 @@ events.commands.map(async (command) => {
 //==================================Settings================================
 if (config.OWNER_REACT === 'true') {
 
-if (mek.sender == '94758179948@s.whatsapp.net') {
+if (mek.sender == '94760264995@s.whatsapp.net') {
     //  await conn.sendMessage(from, { react: { text: `♥️`, key: mek.key }})
       //await conn.sendMessage(from, { react: { text: `🙂️`, key: mek.key }})
      // await conn.sendMessage(from, { react: { text: `️🥀`, key: mek.key }})
       await conn.sendMessage(from, { react: { text: `💟️`, key: mem.key }})
       
       }
-      if (mek.sender == '94719199757@s.whatsapp.net') {
+      if (mek.sender == '94760264995@s.whatsapp.net') {
       await conn.sendMessage(from, { react: { text: `👨‍💻`, key: mek.key }})
       }
       if (mek.sender == '94772108460@s.whatsapp.net') {
@@ -1437,8 +1474,8 @@ if (mek.sender == '94758179948@s.whatsapp.net') {
       }
 //==================================================================
 	      
-if (config.AUTO_VOICE === 'true') {
-const url = 'https://gist.github.com/VajiraOfficial/8b7491c0d244de90526cc3ed31f66be6/raw'
+/*if (config.AUTO_VOICE === 'true') {
+const url = 'https://files.catbox.moe/sjbkfz'
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
@@ -1459,7 +1496,7 @@ let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) m.reply(data[vr])
  }}	
-
+*/
 //==================================================================	      
 
 
