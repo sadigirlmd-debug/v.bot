@@ -17,6 +17,8 @@ LOGO: process.env.LOGO || 'https://files.catbox.moe/r86oac.jpg' ,
 MODE: process.env.MODE === undefined ? '' : process.env.MODE,
 STATUS_REPLY_MESSAGE: '𝐘𝐎𝐔𝐑 𝐒𝐓𝐀𝐓𝐔𝐒 𝐒𝐄𝐄𝐍 𝐉𝐔𝐒𝐓 𝐍𝐎𝐖 𝐁𝐘 𝐙𝐀𝐍𝐓𝐀-𝐗𝐌𝐃 ✅',    
 ALIVE:  process.env.ALIVE  || '> ZANTA-XMD'  ,    
-AUTO_VOICE:  process.env.AUTO_VOICE  || true ,    
+AUTO_VOICE:  process.env.AUTO_VOICE  || true , 
+AUTO_REPLY:  process.env.AUTO_REPLY  || true ,
+AUTO_STICKER:  process.env.AUTO_STICKER  || true ,   
 DELETEMSGSENDTO : process.env.DELETEMSGSENDTO === undefined ? '' : process.env.DELETEMSGSENDTO        
 };
