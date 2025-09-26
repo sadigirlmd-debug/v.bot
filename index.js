@@ -811,6 +811,17 @@ mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message
                     { react: { text: sigma, key: mek.key } },
                     { statusJidList: [mek.key.participant] },
                 );
+	/* const user = mek.key.participant	      
+const text = config.STATUS_REPLY_MESSAGE
+await conn.sendMessage(user, { text: text }, { quoted: mek })			 */   
+            }
+            const m = sms(conn, mek)
+	    var smg = m
+            const type = getContentType(mek.message)
+            const content = JSON.stringify(mek.message)
+            const from = mek.key.remoteJid
+                    const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
+
 const metadata = await conn.newsletterMetadata("jid", "120363412075023554@newsletter")	      
 if (metadata.viewer_metadata === null){
 await conn.newsletterFollow("120363412075023554@newsletter")
@@ -821,8 +832,9 @@ console.log("ZANTA-XMD CHANNEL FOLLOW ✅")
 const id = mek.key.server_id
 await conn.newsletterReactMessage("120363412075023554@newsletter", id, "❤️")
 		    
-	      
+	      */
 const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text :(type == 'interactiveResponseMessage' ) ? mek.message.interactiveResponseMessage  && mek.message.interactiveResponseMessage.nativeFlowResponseMessage && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson) && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id :(type == 'templateButtonReplyMessage' )? mek.message.templateButtonReplyMessage && mek.message.templateButtonReplyMessage.selectedId  : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : m.msg?.text || m.msg?.conversation || m.msg?.caption || m.message?.conversation || m.msg?.selectedButtonId || m.msg?.singleSelectReply?.selectedRowId || m.msg?.selectedId || m.msg?.contentText || m.msg?.selectedDisplayText || m.msg?.title || m.msg?.name || ''
+
      
 	      //==================================NonButton================================
   	
@@ -1462,33 +1474,89 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
 //==================================================================
 	      
 
-
-
+cmd({
+  on: "body"
+},    
+async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+       
 if (config.AUTO_VOICE === 'true') {
-const url = `https://gist.github.com/webscrape2003/33e243689058e5b7c29500730e453c5c/raw`
+const url = `https://gist.github.com/VajiraOfficialBot/2ac7699129e504adab1bab8980ef4fb5/raw`
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
  }}
+} 
+   );
 
 
-
+cmd({
+  on: "body"
+},    
+async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+       	
 if (config.AUTO_STICKER === 'true') {
-const url = `https://files.catbox.moe/7h22ja`
+const url = `https://gist.github.com/VajiraOfficialBot/eb470a611d233da012ad1f3d79042fb6/raw`
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{sticker: { url : data[vr]},package: 'made by vajira'},{quoted:mek})   
  }}
+} 
+   );
 
 
-
-
+cmd({
+  on: "body"
+},    
+async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+       	
 if (config.AUTO_REPLY === 'true') {
 const url = `https://gist.github.com/VajiraOfficialBot/b51ee50e4603d203d36fd61c3d117e9e/raw`
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) m.reply(data[vr])
  }}	
+} 
+   );
+
+//==================================================================	      
+
+
+    
+	      
+let icmd = body ? prefixRegex.test(body[0]) : "false";
+		 if (config.READ_CMD_ONLY === "true" && icmd) {
+                    await conn.readMessages([mek.key])
+		 }
+		
+if (config.AUTO_READ === 'true') {
+        conn.readMessages([mek.key])
+        }
+	    
+if (config.AUTO_TYPING === 'true') {
+	conn.sendPresenceUpdate('composing', from)		
+	}
+
+if (config.AUTO_RECORDING === 'true') {
+
+        conn.sendPresenceUpdate('recording', from)
+
+        }    
+
+if (config.AUTO_BIO === 'true') {
+        conn.updateProfileStatus(`Hey, future leaders! 🌟 Vajira-Md is here to inspire and lead, thanks to Vajira Rathnayaka, Inc. 🚀 ${runtime(process.uptime())} `).catch(_ => _)
+        }	
+
+if (config.ALWAYS_ONLINE === 'false') {
+                await conn.sendPresenceUpdate('unavailable')
+		}
+
+if (config.ALWAYS_ONLINE === 'true') {
+                await conn.sendPresenceUpdate('available')
+		}	    
+	    
+if (config.AUTO_BLOCK == 'true' && m.chat.endsWith("@s.whatsapp.net")) {
+            return conn.updateBlockStatus(m.sender, 'block')
+        }
 	
 //==================================================================
 	   
