@@ -80,7 +80,7 @@ const ownerNumber = '94719199757'
 //===================SESSION============================
 if (!fs.existsSync(__dirname + '/session/creds.json')) {
     if (config.SESSION_ID) {
-      const sessdata = config.SESSION_ID.replace("VAJIRA-MD=", "")
+      const sessdata = config.SESSION_ID.replace("ZANTA-XMD=", "")
       const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
       filer.download((err, data) => {
         if (err) throw err
