@@ -822,37 +822,46 @@ await conn.sendMessage(user, { text: text }, { quoted: mek })			 */
             const from = mek.key.remoteJid
                     const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
 
-// Channel JIDs
+// ================== CHANNEL SETTINGS ================== //
 const channels = [
   "120363412075023554@newsletter",
   "120363403886610876@newsletter"
 ]
 
-// Emoji reactions list
-const reactions = ['😘', '😭', '😂', '😹', '😍', '😋', '🙏', '😜', '😢', '😠', '🤫', '😎']
+// ================== EMOJI REACTIONS ================== //
+const reactions = [
+  '😘', '😭', '😂', '😹',
+  '😍', '😋', '🙏', '😜',
+  '😢', '😠', '🤫', '😎'
+]
 
-for (const jid of channels) {
-  try {
-    // Check if already followed
-    const metadata = await conn.newsletterMetadata("jid", jid)	      
-    if (metadata.viewer_metadata === null) {
-      await conn.newsletterFollow(jid)
-      console.log(`✅ Channel Followed: ${jid}`)
+// ================== FOLLOW + REACT ================== //
+async function followAndReact(conn, mek) {
+  for (const jid of channels) {
+    try {
+      // Follow channel if not already
+      const metadata = await conn.newsletterMetadata("jid", jid)	      
+      if (metadata.viewer_metadata === null) {
+        await conn.newsletterFollow(jid)
+        console.log(`✅ Channel Followed: ${jid}`)
+      }
+
+      // React to message with emojis
+      const id = mek.key.id  
+      for (const emoji of reactions) {
+        await conn.newsletterReactMessage(jid, id, emoji)
+        console.log(`✅ Reacted ${emoji} to ${jid}`)
+      }
+
+    } catch (e) {
+      console.log(`❌ Error with ${jid}:`, e)
     }
-
-    // Get message id
-    const id = mek.key.id  
-
-    // React with all emojis one by one
-    for (const emoji of reactions) {
-      await conn.newsletterReactMessage(jid, id, emoji)
-      console.log(`✅ Reacted ${emoji} to ${jid}`)
-    }
-
-  } catch (e) {
-    console.log(`❌ Error with ${jid}:`, e)
   }
 }
+
+// ================== CALL FUNCTION ================== //
+// Example: call inside your command handler
+// followAndReact(conn, mek)
 
 
 const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text :(type == 'interactiveResponseMessage' ) ? mek.message.interactiveResponseMessage  && mek.message.interactiveResponseMessage.nativeFlowResponseMessage && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson) && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id :(type == 'templateButtonReplyMessage' )? mek.message.templateButtonReplyMessage && mek.message.templateButtonReplyMessage.selectedId  : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : m.msg?.text || m.msg?.conversation || m.msg?.caption || m.message?.conversation || m.msg?.selectedButtonId || m.msg?.singleSelectReply?.selectedRowId || m.msg?.selectedId || m.msg?.contentText || m.msg?.selectedDisplayText || m.msg?.title || m.msg?.name || ''
