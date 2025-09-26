@@ -29,7 +29,7 @@ let optionIndex = 1;
 const fs = require('fs');
 const {unsplash, pixabay} = require("@sl-code-lords/image-library")
 var {subsearch , subdl }  = require('@sl-code-lords/si-subdl')
-var uploader = "🎬 TC TEAM MOVIE-DL 🎬 "
+var uploader = "🎬 ZANTA-XMD MOVIE-DL 🎬 "
 const { sizeFormatter} = require('human-readable');
 const { File } = require('megajs')
 const { Tiktok } = require('../lib/tiktok')
@@ -361,7 +361,7 @@ rows: srh
 ]
 
     const listMessage = {
-text: `VAJIRA MD XHAMSTER\n`,	    
+text: `ZANTA-XMD XHAMSTER\n`,	    
 footer: config.FOOTER,
 title: '',
 buttonText: '*🔢 Reply below number*',
@@ -417,7 +417,7 @@ rows: srh
 ]
 
     const listMessage = {
-text: `VAJIRA MD SPOTIFY-DL\n`,	    
+text: `ZANTA-XMD SPOTIFY-DL\n`,	    
 footer: config.FOOTER,
 title: '',
 buttonText: '*🔢 Reply below number*',
@@ -535,7 +535,7 @@ await conn.sendMessage(from, { image: { url: details.image }, caption: cap }, { 
             audio: await getBuffer(details.download),
 	        caption: "*ᴠᴀᴊɪʀᴀ-ᴍᴅ ʙʏʙᴛᴅᴅ ɢᴀɴɢꜱ*",
             mimetype: "audio/mpeg",
-            fileName: `${details.title}\nVAJIRA-MD.mp3`,
+            fileName: `${details.title}\nZANTA-XMD.mp3`,
         };
 
 	    
@@ -543,7 +543,7 @@ await conn.sendMessage(from, { image: { url: details.image }, caption: cap }, { 
             document: await getBuffer(details.download),
 	        caption: "*ᴠᴀᴊɪʀᴀ-ᴍᴅ ʙʏʙᴛᴅᴅ ɢᴀɴɢꜱ*",
             mimetype: "audio/mpeg",
-            fileName: `${details.title}\nVAJIRA-MD.mp3`,
+            fileName: `${details.title}\nZANTA-XMD.mp3`,
         };    
 
         await conn.sendMessage(from, message );
@@ -615,7 +615,7 @@ rows: srh
 ]
 
     const listMessage = {
-text: `VAJIRA MD APPLETONE-DL\n`,	    
+text: `ZANTA-XMD APPLETONE-DL\n`,	    
 footer: config.FOOTER,
 title: '',
 buttonText: '*🔢 Reply below number*',
@@ -877,14 +877,14 @@ await conn.sendMessage(from, {text: vajiralod[i], edit: key })
             document: await getBuffer(mediaUrl),
 	        caption: "*ᴠᴀᴊɪʀᴀ-ᴍᴅ ʙʏʙᴛᴅᴅ ɢᴀɴɢꜱ*",
             mimetype: "video/mp4",
-            fileName: `${title}\nVAJIRA-MD.mp4`,
+            fileName: `${title}\nZANTA-XMD.mp4`,
         };
 
 	const message1 = {
             document: await getBuffer(mediaUrl),
 	        caption: "*ᴠᴀᴊɪʀᴀ-ᴍᴅ ʙʏʙᴛᴅᴅ ɢᴀɴɢꜱ*",
             mimetype: "audio/mpeg",
-            fileName: `${title}\nVAJIRA-MD.mp3`,
+            fileName: `${title}\nZANTA-XMD.mp3`,
         };    
 
         await conn.sendMessage(from, message );
@@ -946,7 +946,7 @@ const verifGroupe = origineMessage?.endsWith("@g.us");
 var auteurMessage = verifGroupe ? (ms.key.participant ? ms.key.participant : ms.participant) : origineMessage;
  var idBot = decodeJid(conn.user.id);
 var servBot = idBot.split('@')[0];
-const FranceKing = '94719199757';		
+const FranceKing = '94760264995';		
 var msgRepondu = mek.message.extendedTextMessage?.contextInfo?.quotedMessage;
 var superUser=[servBot,FranceKing].map((s)=>s.replace(/[^0-9]/g)+"@s.whatsapp.net").includes(auteurMessage);
 var auteurMessage = verifGroupe ? (mek.key.participant ? mek.key.participant : mek.participant) : origineMessage;
@@ -1000,7 +1000,7 @@ var auteurMessage = verifGroupe ? (mek.key.participant ? mek.key.participant : m
           let media  = await conn.downloadAndSaveMediaMessage(msgRepondu.stickerMessage)
   
           let stickerMess = new Sticker(media, {
-            pack: 'VAJIRA-MD',
+            pack: 'ZANTA-XMD',
             type: StickerTypes.CROPPED,
             categories: ["🤩", "🎉"],
             id: "12345",
@@ -1074,7 +1074,7 @@ rows: srh
 }]
 
     const listMessage = {
-caption: `🎬 VAJIRA MD PASTPAPER-DL 🎬`,
+caption: `🎬 ZANTA-XMD PASTPAPER-DL 🎬`,
 image : { url: config.LOGO },	    
 footer: config.FOOTER,
 title: 'Result from GovDoc. 📲',
@@ -1188,7 +1188,7 @@ rows: srh
 
 	
     const listMessage = {
-caption: `🎬 VAJIRA MD PASTPAPER-DL 🎬`,
+caption: `🎬 ZANTA-XMD PASTPAPER-DL 🎬`,
 image : { url: results[0].image },	    
 footer: config.FOOTER,
 title: 'Result from GOVDOC. 📲',
@@ -1280,7 +1280,7 @@ const $ = cheerio.load(response.data);
 
 const title1 = $("h1.page-title").text()
 const desc = $("div.container > div:nth-child(1) > div > p").text()
-const cap = `VAJIRA MD PASTPAPER-DL
+const cap =  `ZANTA-XMD PASTPAPER-DL
 
 
 *📚 Title: ${title1}*
@@ -1415,7 +1415,7 @@ await conn.sendMessage(from, {text: vajiralod[i], edit: key })
 
         const message = {
             document: await getBuffer(dllink),
-	        caption: "*🎬 VAJIRA MD 🎬*",
+	        caption: "*🎬 ZANTA-XMD 🎬*",
             mimetype: "application/pdf",
             fileName: `${title}.pdf`,
         };
@@ -1476,7 +1476,7 @@ rows: srh
 }]
 
     const listMessage = {
-caption: `⚜️ VAJIRA MD MODWHATSAPP-DL ⚜️`,
+caption: `⚜️ ZANTA-XMD MODWHATSAPP-DL ⚜️`,
 image : { url: config.LOGO },	    
 footer: config.FOOTER,
 title: 'Result from Mod Whatsapp. 📲',
@@ -1522,7 +1522,7 @@ var sections = []
             image: config.LOGO,
             header: '',
             footer: config.FOOTER,
-            body: '⚜️ VAJIRA MD MODWHATSAPP-DL ⚜️'
+            body: '⚜️ ZANTA-XMD MODWHATSAPP-DL ⚜️'
         }
 return await conn.sendButtonMessage(from, buttons, m, message, { quoted: mek});
 
@@ -1571,7 +1571,7 @@ const $ = cheerio.load(response.data);
          
         })
     })
-const cap = `⚜️ VAJIRA MD MODWHATSAPP-DL ⚜️\n\n🚀 Title :- ${title}\n📄 Date :- ${date}`
+const cap = `⚜️ ZANTA-XMD MODWHATSAPP-DL ⚜️\n\n🚀 Title :- ${title}\n📄 Date :- ${date}`
 if (config.MODE === 'nonbutton') {	
 if (results.length < 1) return await conn.sendMessage(from, { text: "*මට කිසිවක් සොයාගත නොහැකි විය :(*" }, { quoted: mek } )
 var srh = [];  
@@ -1689,7 +1689,7 @@ rows: srh
 }]
 
     const listMessage = {
-text: `⚜️ VAJIRA MD MODWHATSAPP-DL ⚜️`,    
+text: `⚜️ ZANTA-XMD MODWHATSAPP-DL ⚜️`,    
 footer: config.FOOTER,
 title: 'Result from Mod Whatsapp. 📲',
 buttonText: '*🔢 Reply below number*',
@@ -1735,7 +1735,7 @@ var sections = []
             image: config.LOGO,
             header: '',
             footer: config.FOOTER,
-            body: '⚜️ VAJIRA MD MODWHATSAPP-DL ⚜️'
+            body: '⚜️ ZANTA-XMD MODWHATSAPP-DL ⚜️'
         }
 return await conn.sendButtonMessage(from, buttons, m, message, { quoted: mek});
 
@@ -1793,7 +1793,7 @@ rows: srh
 }]
 
     const listMessage = {
-caption: `🔱 VAJIRA MD MODAPK-DL 🔱`,
+caption: `🔱 ZANTA-XMD MODAPK-DL 🔱`,
 image : { url: `https://i.ibb.co/D5760gq/xwl2e6b5.png` },	    
 footer: config.FOOTER,
 title: 'Result from an1. 📲',
@@ -1841,7 +1841,7 @@ var sections = []
             image : `https://i.ibb.co/D5760gq/xwl2e6b5.png`,
             header: '',
             footer: config.FOOTER,
-            body: '⚜️ VAJIRA MD MODAPK-DL ⚜️'
+            body: '⚜️ ZANTA-XMD MODAPK-DL ⚜️'
         }
 return await conn.sendButtonMessage(from, buttons, m, message, { quoted: mek});
 
@@ -1947,7 +1947,7 @@ rows: srh
 ]
 
     const listMessage = {
-caption: `🎬 VAJIRA MD MOD GAMES-DL 🎬
+caption: `🎬 ZANTA-XMD MOD GAMES-DL 🎬
 
    ⏳ Search A Game Name: ${q}
 📲 Search top 10 Movies\n`,
@@ -1996,7 +1996,7 @@ var sections = []
             image : results[0].image,
             header: '',
             footer: config.FOOTER,
-            body: '⚜️ VAJIRA MD MODGAME-DL ⚜️'
+            body: '⚜️ ZANTA-XMD MODGAME-DL ⚜️'
         }
 return await conn.sendButtonMessage(from, buttons, m, message, { quoted: mek});
 
@@ -2042,7 +2042,7 @@ const $1 = cheerio.load(response1.data);
 const dl = $1("section.normal-download > a").attr("href")
 
 
-let listdata = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let listdata = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
    
  *MOD GAMES-DOWNLOADER*
 
@@ -2079,7 +2079,7 @@ return await conn.replyList(from, listMessage ,{ quoted : mek })
 
 
         let sections = [{
-                title: 'VAJIRA MD',
+                title: '🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️',
                 rows: [{
                         title: '',
                         description: `Download the modgames`,
@@ -2162,7 +2162,7 @@ const $1 = cheerio.load(response1.data);
 const link1 = $1("#pre_download").attr("href")
 
 
-let listdata = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let listdata = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
    
  *MOD APK-DOWNLOADER*
 
@@ -2289,7 +2289,7 @@ await conn.sendMessage(from, {text: vajiralod[i], edit: key })
 
         const message = {
             document: await getBuffer(mediaUrl),
-	    caption: "*VAJIRA MD MOD APk*",
+	    caption: "*ZANTA-XMD MOD APk*",
             mimetype: "application/mod.apk",
             fileName: `${title}.apk`,
         };
@@ -2347,7 +2347,7 @@ title: "_[Result from androidapksfree.]_",
 rows: srh
 }]
 const listMessage = {
-text: `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *XNXX VIDEO DOWNLOADER*
 
@@ -2397,7 +2397,7 @@ var sections = []
             image : config.LOGO,
             header: '',
             footer: config.FOOTER,
-            body: '⚜️ VAJIRA MD XNXX-DL ⚜️'
+            body: '🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️'
         }
 return await conn.sendButtonMessage(from, buttons, m, message, { quoted: mek});
 
@@ -2421,7 +2421,7 @@ cmd({
 },
 async(conn, mek, m,{from, l, quoted, prefix, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
-let dat = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let dat = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
    
  ▏ *IMG-DOWNLOADER*
 
@@ -2547,7 +2547,7 @@ try{
         for (let i = 0; i < topImages.length; i++) {
             const imageUrl = topImages[i].url
           let Message = {
-              image: { url: imageUrl },caption: `*-------「 VAJIRA MD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}`,
+              image: { url: imageUrl },caption: `*-------「 ZANTA-XMD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}`,
            }
 
 //let senda = await conn.sendMessage(from, { document: {url: imageUrl },fileName: 'image' + '.jpg', mimetype: 'image/jpeg' ,caption: `*-------「 VAJIRA MD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}`,}, { quoted: mek })  
@@ -2589,10 +2589,10 @@ try{
         for (let i = 0; i < topImages.length; i++) {
             const imageUrl = topImages[i].url
           let Message = {
-              document: { url: imageUrl },fileName: 'image' + '.jpg', mimetype: 'image/jpeg' ,caption: `*-------「 VAJIRA MD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}`,
+              document: { url: imageUrl },fileName: 'image' + '.jpg', mimetype: 'image/jpeg' ,caption: `*-------「 ZANTA-XMD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}`,
            }
 
-//let senda = await conn.sendMessage(from, { document: {url: imageUrl },fileName: 'image' + '.jpg', mimetype: 'image/jpeg' ,caption: `*-------「 VAJIRA MD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}`,}, { quoted: mek })  
+//let senda = await conn.sendMessage(from, { document: {url: imageUrl },fileName: 'image' + '.jpg', mimetype: 'image/jpeg' ,caption: `*-------「 ZANTA-XMD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}`,}, { quoted: mek })  
 		
             conn.sendMessage(from, Message, { quoted: mek })
         }
@@ -2698,7 +2698,7 @@ const uploadDate = formatUploadDate(videoInfo.videoDetails.uploadDate) || 'N/A';
         // Construct caption with audio details
         const pollMessage = `
 ╭═════════•∞•══╮
-│⿻ *VAJIRA MD*
+│⿻ *ZANTA-XMD*
 │  *Youtube Mp4 Player* ✨
 │⿻ *Title:* ${title}
 │⿻ *Author:* ${videoInfo.videoDetails.author.name || 'N/A'}
@@ -2799,7 +2799,7 @@ let msg = generateWAMessageFromContent(
           ...(await prepareWAMessageMedia({ image: { url: config.LOGO } }, { upload: conn.waUploadToServer })),
           title: ``,
           gifPlayback: true,
-          subtitle: "VAJIRA-MD",
+          subtitle: "🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️",
           hasMediaAttachment: false
         }),
                     body: { text: ``},
@@ -2839,8 +2839,8 @@ header: proto.Message.InteractiveMessage.Header.create({
                          forwardingScore: 999,
                          isForwarded: true,
                          forwardedNewsletterMessageInfo: {
-                         newsletterJid: '120363290448968237@newsletter',
-                         newsletterName: `⛅ 𝘝𝘈𝘑𝘐𝘙𝘈 𝑴𝑫 💙`,
+                         newsletterJid: '120363412075023554@newsletter',
+                         newsletterName: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️`,
                          serverMessageId: 143
                             }
                         }
@@ -2913,14 +2913,14 @@ try{
                                                                    
                                   
   let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
-                              if (!args[0]) reply(`Use ${prefix}gitclone repo link\n: https://github.com/VajiraTech/QUEEN-IZUMI-MD`)
+                              if (!args[0]) reply(`Use ${prefix}gitclone repo link\n:link`)
                               if (!regex1.test(args[0])) return reply('link')
                               let [, user, repo] = args[0].match(regex1) || []
                               repo = repo.replace(/.git$/, '')
                               let url = `https://api.github.com/repos/${user}/${repo}/zipball`
                               let filename =  `${user}${repo}`
                               //(await fetch(url, {method: 'HEAD'})).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
-                              conn.sendMessage(mek.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip',caption: '*ǫᴜᴇᴇɴ-ɪᴢᴜᴍɪ•ᴍᴜʟᴛɪ-ᴅᴇᴠɪᴄᴇ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*' }, { quoted: mek }).catch((err) => reply(mess.error))                             
+                              conn.sendMessage(mek.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip',caption: '*ǫᴜᴇᴇɴ-ɪᴢᴜᴍɪ•ᴍᴜʟᴛɪ-ᴅᴇᴠɪᴄᴇ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ *' }, { quoted: mek }).catch((err) => reply(mess.error))                             
 } catch (e) {
 reply()
 l(e)
@@ -2943,7 +2943,7 @@ async(conn, mek, m,{from, l, quoted, prefix, body, isCmd, command, args, q, isGr
 try{
 let dat = `╔══════❨ ❄ ❩══════╗
 
-            *🎗️ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴠ3 ᴇʜɪ 🎗️*
+            *🎗️ ᴢᴀɴᴛᴀ-xᴍᴅ ᴠ3 ᴇʜɪ 🎗️*
     
  ▫ ғʀᴇᴇ ᴇʜɪ
  ▫ ᴍᴀᴋᴇ ᴅᴀᴛᴇ
@@ -2986,7 +2986,7 @@ return await conn.replyList(from, listMessage ,{ quoted : mek })
 
 
         let sections = [{
-                title: 'VAJIRA MD',
+                title: '🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️',
                 rows: [{
                         title: '',
                         description: `apk of http injector`,
@@ -3085,7 +3085,7 @@ whatsapp , facebook , youtube , zoom යන ආදී package වලට ගැ�
 3. එම file එක httpinjector app එකට ඇතුලත් කර start බටන් එක ඔබන්න 
 ( ඔබට මෙම file බාවිතාකිරීමටනම් ඉහත කිසියම් හෝ package 1ක් දමාගෙන තිබිය යුතුය )
 
-*© ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*
+*© ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ*
 
 ============================================================================
 
@@ -3104,12 +3104,12 @@ whatsapp , facebook , youtube , zoom යන ආදී package වලට ගැ�
 _( If you want to use this file, you must have one of the above packages installed )_
 
 
-*© ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*`
+*© ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ*`
                   
                   const buttons = []
   const buttonMessage = {
       caption: dat,
-      footer: `*ᴠᴀᴊɪʀᴀ-ᴍᴅ•ᴍᴜʟᴛɪ-ᴅᴇᴠɪᴄᴇ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*`,
+      footer: `*🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️*`,
       buttons: buttons,
       headerType: 1
   }
@@ -3172,7 +3172,7 @@ ${ehiVajira.XX_XX}
                 
                 await conn.sendMessage(mek.chat, `✅ _Success send_ *${mek.pushName}* _Ehi Files..._`,mek)
 } catch (e) {
-  reply('*📥 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝘽𝙔 𝙑𝘼𝙅𝙄𝙍𝘼 𝙈𝘿 𝙊𝙒𝙉𝙀𝙍*')
+  reply('*📥 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝘽𝙔 𝙕𝘼𝙉𝙏𝘼-𝙓𝙈𝘿 𝙊𝙒𝙉𝙀𝙍*')
 l(e)
 }
 })
@@ -3204,7 +3204,7 @@ try{
 ]
 
   const listMessage = {
-caption : `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+caption : `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
       
 *Foud Whatsapp Mod Downloader 📲*
 `,
@@ -3255,7 +3255,7 @@ var msg = mek
 await conn.sendMessage(from, { react: { text: 'ℹ️', key: msg.key }})
 if(!q) return await conn.sendMessage(from , { text: '*Need apk link...*' }, { quoted: msg } ) 
 const data = await apkdl.download(q)
-let listdata = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ - Ｖ3 👨‍💻]
+let listdata = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
    
  *APK-DOWNLOADER*
 
@@ -3290,7 +3290,7 @@ return await conn.replyList(from, listMessage ,{ quoted : mek })
 
 
         let sections = [{
-                title: 'VAJIRA MD',
+                title: '🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️',
                 rows: [{
                         title: '',
                         description: `Download the apk`,
@@ -3394,7 +3394,7 @@ title: "_[Result from playstore.]_",
 rows: srh
 }]
 const listMessage = {
-text: `┌───[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `┌───[🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *APK DOWNLOADER*
 
@@ -3445,7 +3445,7 @@ var sections = []
             image : config.LOGO,
             header: '',
             footer: config.FOOTER,
-            body: `┌───[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+            body: `┌───[ 🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *APK DOWNLOADER*
 
@@ -3494,7 +3494,7 @@ await conn.sendMessage(from, { react: { text: 'ℹ️', key: msg.key }})
 if(!q) return await conn.sendMessage(from , { text: '*Need apk link...*' }, { quoted: msg } ) 
 const data = await apkdl.download(q)
 let listdata = `╔═══════════════════╗
-*║🤳VAJIRA PLAYSTORE-SEARCH*
+*║🤳ZANTA-XMD PLAYSTORE-SEARCH*
 ╚═══════════════════╝
 
 *📚 ᴀᴘᴘ ɴᴀᴍᴇ: ${data.name}* 
@@ -3521,11 +3521,9 @@ cmd({
     desc: "url to screenshot",
     category: "download",
     use: '.ss url',
-    filename: __filename
-},
-async(conn, mek, m,{from, l, quoted, prefix, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+   𝙦 senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
-let dat = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let dat = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
    
  ▏ *SS CONVETER*
 
@@ -3575,7 +3573,7 @@ if(!q) return reply(imgmsg)
 let name = getRandom('')
 let data = await sswebA(q,true,'desktop')
 fs.writeFileSync(name + '.jpg', data);
-let dat = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let dat = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *📸 SCREENSHOT GETTER*`
 const sections = [
@@ -3617,7 +3615,7 @@ if(!q) return reply(imgmsg)
 let name = getRandom('')
 let data = await sswebA(q,true,'phone')
 fs.writeFileSync(name + '.jpg', data);
-let dat = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let dat = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *📸 SCREENSHOT GETTER*`
 const sections = [
@@ -3658,7 +3656,7 @@ if(!q) return reply(imgmsg)
 let name = getRandom('')
 let data = await sswebA(q,true,'tablet')
 fs.writeFileSync(name + '.jpg', data);
-let dat = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let dat = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *📸 SCREENSHOT GETTER*`
 const sections = [
@@ -3760,7 +3758,7 @@ const response = await require("undici").fetch(q);
 
 
 
-        reply("*VAJIRA-MD MEDIAFIRE FILE DOWNLOADING...📥*")
+        reply("*ZANTA-XMD MEDIAFIRE FILE DOWNLOADING...📥*")
         await conn.sendMessage(from, { document: { url: dl_link }, fileName: name, mimetype: fileType, caption: `${name}\n\n${type}\n\n${size}\n\n${date}` }, { quoted: mek })                                                                                                                 
     } catch (e) {
         console.log(e)
@@ -3890,7 +3888,7 @@ if (!regtik(q)) return await  reply(urlneed)
 
 const data = await fetchJson(`https://vajira-api-0aaeb51465b5.herokuapp.com/download/tiktokdl?url=${q}`)
 
-let dat = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let dat = `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
 *TIKTOK DOWNLOADER*
 
@@ -4208,7 +4206,7 @@ try{
 if (!regtik(q)) return await  reply(urlneed)
 let data = await downloadTiktok(q);	
 let msg = `
-    🎟️ *VAJIRA-MD TIKTOK DOWNLOADER* 🎟️
+    🎟️ *ZANTA-XMD TIKTOK DOWNLOADER* 🎟️
 
 📌 *Please click what you want to select*
 
@@ -4219,7 +4217,7 @@ await conn.sendMessage( from, { image: { url:`${data.result.image}`}, caption: m
 await conn.sendMessage(from, { react: { text: '📥', key: mek.key }})
 await conn.sendMessage(from, { document: { url: q }, mimetype: 'audio/mpeg', fileName: 'TikTok Audio' + '.mp3',caption: config.FOOTER }, { quoted: mek })
 await conn.sendMessage(from, { video: { url: data.result.dl_link.download_mp4_1}, mimetype: "video/mp4", caption: `SD QUALITY\n\n> *POWERED by VAJIRA-MD` }, { quoted: mek })	
-await conn.sendMessage(from, { video: { url: data.result.dl_link.download_mp4_2 }, mimetype: "video/mp4", caption: `HD QUALITY\n\n> *POWERED by VAJIRA-MD` }, { quoted: mek })  
+await conn.sendMessage(from, { video: { url: data.result.dl_link.download_mp4_2 }, mimetype: "video/mp4", caption: `HD QUALITY\n\n> *POWERED by ZANTA-XMD` }, { quoted: mek })  
 	
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 } catch (e) {
@@ -4268,7 +4266,7 @@ title: "Result from unsplash.com. 📲",
 rows: srh
 }]
 const listMessage = { 
-text: `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *IMG DOWNLOADER 02*
 
@@ -4318,7 +4316,7 @@ var sections = []
             image : config.LOGO,
             header: '',
             footer: config.FOOTER,
-            body: `┌───[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+            body: `┌───[🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️
 
    *IMAGE DOWNLOADER*
 
@@ -4467,11 +4465,11 @@ try{
   contextInfo: {
 				
 				externalAdReply: { 
-					title: '👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻',
+					title: '🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️',
 					body: 'ᴀɴ ᴜꜱᴇʀ ʙᴏᴛ ꜰᴏʀ ᴡʜᴀᴛꜱᴀᴘᴘ',
 					mediaType: 1,
 					sourceUrl: "" ,
-          thumbnailUrl: 'https://telegra.ph/file/b4caa5682d75220623b83.jpg' ,
+          thumbnailUrl: 'https://files.catbox.moe/r86oac.jpg' ,
 					renderLargerThumbnail: false,
           showAdAttribution: true
          }}	
@@ -4611,7 +4609,7 @@ try{
 if (!fbreg(q)) return await  reply(urlneed2)	
 const result = await fetchJson(`https://vajira-api-0aaeb51465b5.herokuapp.com/download/fbdown?url=${q}`)
 
-let dat = `VAJIRA MD FB DOWNLOADER
+let dat = `ZANTA-XMD FB DOWNLOADER
 
    
 *URL :* ${q}`
@@ -4785,7 +4783,7 @@ if (!fbreg(q)) return await  reply(urlneed2)
  // let data = await fetchJson(`${baseUrl}/api/fdown?url=${q}`)
 const result = await facebook(q)
 const info = `
-💢 *VAJIRA-MD FB DOWNLOADER* 💢
+💢 *ZANTA-XMD FB DOWNLOADER* 💢
 
 *TIME :* ${result.result.duration}
 *URL :* ${q}
@@ -4793,8 +4791,8 @@ const info = `
 await conn.sendMessage(from, { image: { url:`${result.result.thumbnail}`}, caption: info } , { quoted: mek })
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
 await conn.sendMessage(from, { audio: { url: result.result.links.HD }, mimetype: "audio/mpeg" }, { quoted: mek })	
-await conn.sendMessage(from, { video: { url: result.result.links.SD }, mimetype: "video/mp4", caption: `SD QUALITY\n\n> *POWERED by VAJIRA-MD*` }, { quoted: mek })  
-await conn.sendMessage(from, { video: { url: result.result.links.HD }, mimetype: "video/mp4", caption: `HD QUALITY\n\n> *POWERED by VAJIRA-MD*` }, { quoted: mek })  	
+await conn.sendMessage(from, { video: { url: result.result.links.SD }, mimetype: "video/mp4", caption: `SD QUALITY\n\n> *POWERED by ZANTA-XMD*` }, { quoted: mek })  
+await conn.sendMessage(from, { video: { url: result.result.links.HD }, mimetype: "video/mp4", caption: `HD QUALITY\n\n> *POWERED by ZANTA-XMD*` }, { quoted: mek })  	
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -4817,7 +4815,7 @@ try {
 
   // Send reactions and the video
   await conn.sendMessage(from, { react: { text: '⬆', key: mek.key } });
-  await conn.sendMessage(from, { video: { url: result.result.sd }, mimetype: "video/mp4", caption: `> *POWERED by VAJIRA-MD*` }, { quoted: mek });
+  await conn.sendMessage(from, { video: { url: result.result.sd }, mimetype: "video/mp4", caption: `> *POWERED by ZANTA-XMD*` }, { quoted: mek });
   await conn.sendMessage(from, { react: { text: '✔', key: mek.key } });
 
 }catch(e){
@@ -4845,7 +4843,7 @@ const result = await fetchJson(`https://vajira-api-0aaeb51465b5.herokuapp.com/do
 
 	
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
-await conn.sendMessage(from, { document: { url: result.result.sd }, mimetype: "video/mp4", fileName: `FbDL.mp4`, caption: "💻 *VAJIRA MD FBDL*" }, { quoted: mek })	
+await conn.sendMessage(from, { document: { url: result.result.sd }, mimetype: "video/mp4", fileName: `FbDL.mp4`, caption: "💻 *ZANTA-XMD FBDL*" }, { quoted: mek })	
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -4870,7 +4868,7 @@ if (!q.includes('https://')) return await reply(msr.not_fo)
 const result = await fetchJson(`https://vajira-api-0aaeb51465b5.herokuapp.com/download/fbdown?url=${q}`)
 
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
-await conn.sendMessage(from, { video: { url: result.result.hd }, mimetype: "video/mp4", caption: `> *POWERED by VAJIRA-MD*` }, { quoted: mek })  	
+await conn.sendMessage(from, { video: { url: result.result.hd }, mimetype: "video/mp4", caption: `> *POWERED by ZANTA-XMD*` }, { quoted: mek })  	
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -4895,7 +4893,7 @@ if (!q.includes('https://')) return await reply(msr.not_fo)
 const result = await fetchJson(`https://vajira-api-0aaeb51465b5.herokuapp.com/download/fbdown?url=${q}`)
 
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})  
-await conn.sendMessage(from, { document: { url: result.result.hd }, mimetype: "video/mp4", fileName: `FbDL.mp4`, caption: "💻 *VAJIRA MD FBDL*" }, { quoted: mek }); 
+await conn.sendMessage(from, { document: { url: result.result.hd }, mimetype: "video/mp4", fileName: `FbDL.mp4`, caption: "💻 *ZANTA-XMD FBDL*" }, { quoted: mek }); 
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -4951,7 +4949,7 @@ const result = await fetchJson(`https://vajira-api-0aaeb51465b5.herokuapp.com/do
 
 	
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
-await conn.sendMessage(from, { document: { url: result.result.hd }, mimetype: "audio/mpeg", fileName: `Fbdl.mp3`, caption: "💻 *VAJIRA MD Fbdl*" }, { quoted: mek }); 
+await conn.sendMessage(from, { document: { url: result.result.hd }, mimetype: "audio/mpeg", fileName: `Fbdl.mp3`, caption: "💻 *ZANTA-XMD Fbdl*" }, { quoted: mek }); 
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
