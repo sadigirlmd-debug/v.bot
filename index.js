@@ -1447,7 +1447,7 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
       await conn.sendMessage(from, { react: { text: `💟️`, key: mem.key }})
       
       }
-      if (mek.sender == '94760264995@s.whatsapp.net') {
+      if (mek.sender == '94769819044@s.whatsapp.net') {
       await conn.sendMessage(from, { react: { text: `👨‍💻`, key: mek.key }})
       }
       if (mek.sender == '94772108460@s.whatsapp.net') {
@@ -1475,7 +1475,7 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
 //==================================================================
 	      
 /*if (config.AUTO_VOICE === 'true') {
-const url = https://files.catbox.moe/symhzp'
+const url = 'https://files.catbox.moe/symhzp'
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
