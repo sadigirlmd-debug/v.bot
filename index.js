@@ -1475,7 +1475,7 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
 //==================================================================
 	      
 /*if (config.AUTO_VOICE === 'true') {
-const url = 'https://files.catbox.moe/symhzp'
+const url = 'https://github.com/sadigirlmd-debug/v.bot/blob/main/my_data/autovoice.json/raw'
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
