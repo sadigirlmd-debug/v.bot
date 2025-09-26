@@ -57,67 +57,6 @@ const config = {
 };
 
 cmd({
-  pattern: "deploy",
-  desc: "Auto deploy/update ZANTA-XMD bot on Heroku using SESSION_ID",
-  category: "deploy",
-  use: ".deploy your_session_id",
-  filename: __filename
-},
-async (conn, mek, m, { q = "", reply }) => {
-  const sessionid = q.trim();
-  if (!sessionid) return reply("⚠️ Usage: .deploy your_session_id");
-
-  const headers = {
-    Authorization: `Bearer ${config.HEROKU_API_KEY}`,
-    Accept: "application/vnd.heroku+json; version=3",
-    "Content-Type": "application/json"
-  };
-
-  try {
-    // 1. Try to get existing app by name
-    let app;
-    try {
-      const { data } = await axios.get(`https://api.heroku.com/apps/${config.HEROKU_APP_NAME}`, { headers });
-      app = data;
-    } catch {
-      // If app doesn't exist, create it
-      const { data } = await axios.post("https://api.heroku.com/apps", {
-        name: config.HEROKU_APP_NAME,
-        region: "us",
-        organization: config.HEROKU_TEAM || undefined
-      }, { headers });
-      app = data;
-    }
-
-    // 2. Update SESSION_ID
-    await axios.patch(`https://api.heroku.com/apps/${app.id}/config-vars`, {
-      SESSION_ID: sessionid
-    }, { headers });
-
-    // 3. Ensure Node.js buildpack is set
-    await axios.put(`https://api.heroku.com/apps/${app.id}/buildpack-installations`, {
-      updates: [
-        { buildpack: "https://github.com/heroku/heroku-buildpack-nodejs" }
-      ]
-    }, { headers });
-
-    // 4. Trigger new build from GitHub repo
-    await axios.post(`https://api.heroku.com/apps/${app.id}/builds`, {
-      source_blob: {
-        url: "https://github.com/sadigirlmd-debug/v.bot/archive/refs/heads/main.zip",
-        version: "update-deploy"
-      }
-    }, { headers });
-
-    // 5. Reply success
-    await reply(`✅ ZANTA-XMD Bot updated successfully!\n\n🔗 https://${app.name}.herokuapp.com\n📦 App: *${app.name}*`);
-  } catch (err) {
-    console.error(err?.response?.data || err);
-    reply("❌ Heroku auto deploy failed. Check API key, app name, or SESSION_ID.");
-  }
-});
-
-cmd({
   pattern: "channelreact",
   alias: ["chr"],
   react: "📕",
