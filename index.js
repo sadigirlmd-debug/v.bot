@@ -1,4 +1,9 @@
-const {
+const config = require('../settings')
+const { cmd, commands } = require('../lib/command')
+const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson, jsonformat} = require('../lib/functions')
+const fs = require('fs');
+const bugres = '𝙋𝙧𝙤𝙘𝙘𝙚𝙨 👾'
+const { beta1, beta2, buk1 } = require("../lib/hconst {
     default: makeWASocket,
     getAggregateVotesInPollMessage, 
     useMultiFileAuthState,
@@ -130,35 +135,35 @@ let storedLink7 = null;
 let storedLink8 = null;    		
     
 async function sendNews(title, desc, date, link, img) {
-    const message = `ＶＡＪＩＲＡ-ＭＤ ＨＩＲＵ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message = `ＺＡＮＴＡ-ＸＭＤ ＨＩＲＵ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: img} , caption: message })  
 }
 async function sendNews1(title, desc, date, url, image) {
-    const message1 = `ＶＡＪＩＲＡ-ＭＤ ＬＡＮＫＡＤＥＥＰＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message1 = `ＺＡＮＴＡ-ＸＭＤ ＬＡＮＫＡＤＥＥＰＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message1 })  
 }
 async function sendNews2(title, desc, url, image) {
-    const message2 = `ＶＡＪＩＲＡ-ＭＤ ＢＢＣ - ＮＥＷＳ\n\n*${title}*\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message2 = `ＺＡＮＴＡ-ＸＭＤ ＢＢＣ - ＮＥＷＳ\n\n*${title}*\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message2 })  
 }
 async function sendNews3(title, desc, date, link, image) {
-    const message3 = `ＶＡＪＩＲＡ-ＭＤ ＩＴＮ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message3 = `ＺＡＮＴＡ-ＸＭＤ ＩＴＮ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message3 })  
 }
 async function sendNews4(title, desc, date, link, image) {
-    const message4 = `ＶＡＪＩＲＡ-ＭＤ ＧＯＳＳＩＰＬＡＮＫＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message4 = `ＺＡＮＴＡ-ＸＭＤ ＧＯＳＳＩＰＬＡＮＫＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message4 })  
 }
 async function sendNews5(title, desc, date, link, image) {
-    const message5 = `ＶＡＪＩＲＡ-ＭＤ ＳＩＹＡＴＨＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message5 = `ＺＡＮＴＡ-ＸＭＤ ＳＩＹＡＴＨＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message5 })  
 }
 async function sendNews6(title, desc, date, url, image) {
-    const message6 = `ＶＡＪＩＲＡ-ＭＤ ＤＥＲＡＮＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message6 = `ＺＡＮＴＡ-ＸＭＤ ＤＥＲＡＮＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message6 })  
 }
 async function sendNews7(title, desc, date, link, image) {
-    const message7 = `ＶＡＪＩＲＡ-ＭＤ ＤＡＳＡＴＨＡＬＡＮＫＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴏᴡɴᴇʀ`;
+    const message7 = `ＺＡＮＴＡ-ＸＭＤ ＤＡＳＡＴＨＡＬＡＮＫＡ - ＮＥＷＳ\n\n*${title}*\n\n${date}\n\n${desc}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ`;
     await conn.sendMessage( config.N_JID , { image: { url: image} , caption: message7 })  
 }
 async function sendNews8(details, image) {
@@ -167,7 +172,7 @@ async function sendNews8(details, image) {
 }
 
 
-const jidko = 'After deploy put .newsactivate <group jid> to activate auto news'
+const jidko = 'After deploy put .newsactivate 120363403377396295@g.us to activate auto news'
 
 
 async function checkForNewsUpdates() {
@@ -354,29 +359,6 @@ async function checkForNewsUpdates7() {
 checkForNewsUpdates7();
 
 
-
-//──────────────────────────────────────────────────────────────────   
-
-
-async function checkForNewsUpdates8() {
-    try {
-        const data = await fetchJson(`${config.NEWS}server`)
-        const { details, image } = data.result;
-
-        if (storedLink8 !== image) {  
-            await sendNews8(details, image);
-            
-            storedLink8 = image;
-        } 
-    } catch (error) {
-        console.error(jidko);
-    }
-
-    // Re-run the function after a 5-minute delay
-    setTimeout(checkForNewsUpdates8, 5 * 60 * 1000); // 5 minutes in milliseconds
-}
- 
-checkForNewsUpdates8();
 
 
 
