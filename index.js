@@ -1475,28 +1475,49 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
 //==================================================================
 	      
 
+cmd({
+  on: "body"
+},    
+async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+       
 if (config.AUTO_VOICE === 'true') {
-const url = 'https://files.catbox.moe/symhzp'
+const url = `https://gist.github.com/VajiraOfficialBot/2ac7699129e504adab1bab8980ef4fb5/raw`
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
  }}
+} 
+   );
 
- 
+
+cmd({
+  on: "body"
+},    
+async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+       	
 if (config.AUTO_STICKER === 'true') {
-const url = 'https://gist.github.com/VajiraOfficial/8597e09fcb83f1ab9217b0ca9336699c/raw'
+const url = `https://gist.github.com/VajiraOfficialBot/eb470a611d233da012ad1f3d79042fb6/raw`
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{sticker: { url : data[vr]},package: 'made by vajira'},{quoted:mek})   
  }}
+} 
+   );
 
-                                        	      
+
+cmd({
+  on: "body"
+},    
+async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+       	
 if (config.AUTO_REPLY === 'true') {
-const url = 'https://gist.github.com/VajiraOfficial/f1dc27d6b04c72393d123c973622c99d/raw'
+const url = `https://gist.github.com/VajiraOfficialBot/b51ee50e4603d203d36fd61c3d117e9e/raw`
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) m.reply(data[vr])
  }}	
+} 
+   );
 
 //==================================================================	      
 
