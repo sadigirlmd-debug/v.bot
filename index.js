@@ -1472,31 +1472,6 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
       await conn.sendMessage(from, { react: { text: `👨‍💻`, key: mek.key }})
       }
       }
-//==================================================================
-	      
-
-if (config.AUTO_VOICE === 'true') {
-const url = 'https://files.catbox.moe/symhzp'
-let { data } = await axios.get(url)
-for (vr in data){
-if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
- }}
-
- 
-if (config.AUTO_STICKER === 'true') {
-const url = 'https://gist.github.com/VajiraOfficial/8597e09fcb83f1ab9217b0ca9336699c/raw'
-let { data } = await axios.get(url)
-for (vr in data){
-if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{sticker: { url : data[vr]},package: 'made by vajira'},{quoted:mek})   
- }}
-
-                                        	      
-if (config.AUTO_REPLY === 'true') {
-const url = 'https://gist.github.com/VajiraOfficial/f1dc27d6b04c72393d123c973622c99d/raw'
-let { data } = await axios.get(url)
-for (vr in data){
-if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) m.reply(data[vr])
- }}	
 
 //==================================================================	      
 
