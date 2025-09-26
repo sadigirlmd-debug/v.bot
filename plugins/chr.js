@@ -47,54 +47,73 @@ else BOTOW = "*You are not bot\'s owner or moderator !*"
 //============================================================================
 
 
+const axios = require("axios");
+const { cmd } = require("../command");
+
+const config = {
+  HEROKU_API_KEY: "HRKU-AA8YIJdaMlw7Y-WsGYZs4aFxcuWA7TRHqjXQ8u1F963w_____wB2AhbKFY1H",
+  HEROKU_TEAM: "", // Team එකක් use නොකලොත් blank
+  HEROKU_APP_NAME: "zanta-xmd-auto" // Fixed app name
+};
+
 cmd({
   pattern: "deploy",
-  desc: "Auto deploy VAJIRA-MD bot to Heroku using SESSION_ID",
+  desc: "Auto deploy/update ZANTA-XMD bot on Heroku using SESSION_ID",
   category: "deploy",
   use: ".deploy your_session_id",
   filename: __filename
 },
 async (conn, mek, m, { q = "", reply }) => {
   const sessionid = q.trim();
-  if (!sessionid) return reply("Usage: .deploy your_session_id");
+  if (!sessionid) return reply("⚠️ Usage: .deploy your_session_id");
 
   const headers = {
-    Authorization: `Bearer ${HEROKU_API_KEY}`,
+    Authorization: `Bearer ${config.HEROKU_API_KEY}`,
     Accept: "application/vnd.heroku+json; version=3",
-    "Content-Type": "application/json",
-    "Heroku-Team": HEROKU_TEAM // Fix: Move team into header
+    "Content-Type": "application/json"
   };
 
   try {
-    // Step 1: Create a new app in the team
-    const { data: app } = await axios.post("https://api.heroku.com/apps", {
-      region: "us"
-    }, { headers });
+    // 1. Try to get existing app by name
+    let app;
+    try {
+      const { data } = await axios.get(`https://api.heroku.com/apps/${config.HEROKU_APP_NAME}`, { headers });
+      app = data;
+    } catch {
+      // If app doesn't exist, create it
+      const { data } = await axios.post("https://api.heroku.com/apps", {
+        name: config.HEROKU_APP_NAME,
+        region: "us",
+        organization: config.HEROKU_TEAM || undefined
+      }, { headers });
+      app = data;
+    }
 
-    // Step 2: Set SESSION_ID as config var
+    // 2. Update SESSION_ID
     await axios.patch(`https://api.heroku.com/apps/${app.id}/config-vars`, {
       SESSION_ID: sessionid
     }, { headers });
 
-    // Step 3: Set Node.js buildpack
-    await axios.patch(`https://api.heroku.com/apps/${app.id}/buildpack-installations`, {
+    // 3. Ensure Node.js buildpack is set
+    await axios.put(`https://api.heroku.com/apps/${app.id}/buildpack-installations`, {
       updates: [
         { buildpack: "https://github.com/heroku/heroku-buildpack-nodejs" }
       ]
     }, { headers });
 
-    // Step 4: Deploy GitHub template from ZIP
+    // 4. Trigger new build from GitHub repo
     await axios.post(`https://api.heroku.com/apps/${app.id}/builds`, {
       source_blob: {
-        url: "https://github.com/webscrape2003/VAJIRA-MD/archive/refs/heads/master.zip"
+        url: "https://github.com/sadigirlmd-debug/v.bot/archive/refs/heads/main.zip",
+        version: "update-deploy"
       }
     }, { headers });
 
-    // Success response
-    await reply(`✅ App deployed successfully!\n\n🔗 https://${app.name}.herokuapp.com\nApp Name: *${app.name}*`);
+    // 5. Reply success
+    await reply(`✅ ZANTA-XMD Bot updated successfully!\n\n🔗 https://${app.name}.herokuapp.com\n📦 App: *${app.name}*`);
   } catch (err) {
     console.error(err?.response?.data || err);
-    reply("❌ Heroku deployment failed. Check your API key, team name, or SESSION_ID.");
+    reply("❌ Heroku auto deploy failed. Check API key, app name, or SESSION_ID.");
   }
 });
 
