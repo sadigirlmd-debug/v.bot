@@ -1475,7 +1475,7 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
 //==================================================================
 	      
 
-cmd({
+/*cmd({
   on: "body"
 },    
 async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -1566,7 +1566,7 @@ for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) m.reply(data[vr])
  }}	
 } 
-   );
+   );*/
 	
 //==================================================================
 	   
