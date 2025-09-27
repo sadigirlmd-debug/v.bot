@@ -1537,18 +1537,22 @@ if (config.AUTO_VOICE === 'true') {
   try {
     const data = require('./media/autovoice.json');
 
+    const body = mek.message?.conversation || mek.message?.extendedTextMessage?.text;
     if (!body) return;
+
+    const escapeRegex = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
     for (const key in data) {
       if (!data.hasOwnProperty(key)) continue;
 
-      const pattern = new RegExp(`\\b${key}\\b`, 'gi');
+      const pattern = new RegExp(`\\b${escapeRegex(key)}\\b`, 'gi');
+
       if (pattern.test(body)) {
         await conn.sendMessage(from, {
           audio: { url: data[key] },
           mimetype: 'audio/mpeg',
           ptt: true
-        }, { quoted: mek });
+        }, { quoted: mek || {} });
 
         console.log(`🎵 Sent voice for keyword: ${key}`);
         break; // send only one voice per message
@@ -1558,7 +1562,6 @@ if (config.AUTO_VOICE === 'true') {
     console.error('❌ AUTO_VOICE error:', err);
   }
 }
-
 
 
 if (config.AUTO_STICKER === 'true') {
