@@ -51,6 +51,9 @@ const styles = [
   "dj remix sinhala"
 ];
 
+
+
+
 cmd({
   pattern: "startsongs",
   desc: "Start sending YouTube songs under 8 minutes every 8 minutes (auto styles)",
@@ -101,7 +104,7 @@ async (conn, mek, m, { reply }) => {
         caption: desc,
       });
 
-      // Download MP3 link from API
+      // ⬇️ Download MP3
       const apiUrl = `https://sadiya-tech-apis.vercel.app/download/ytdl?url=${encodeURIComponent(video.url)}&format=mp3&apikey=sadiya`;
       const { data } = await axios.get(apiUrl);
 
@@ -122,22 +125,18 @@ async (conn, mek, m, { reply }) => {
           writer.on("error", reject);
         });
 
-        // Convert mp3 → opus using ffmpeg
+        // Convert to opus with ffmpeg
         await new Promise((resolve, reject) => {
-          ffmpeg(mp3File)
-            .audioCodec("libopus")
-            .audioBitrate(128)
-            .save(opusFile)
-            .on("end", resolve)
-            .on("error", reject);
-        });
+  exec(`ffmpeg -i "${mp3File}" -c:a libopus -b:a 128k "${opusFile}"`, (err) => {
+    if (err) return reject(err);
+    resolve();
+  });
+});
 
-        // Send as voice note
-        await conn.sendMessage(targetJid, {
-          audio: fs.readFileSync(opusFile),
-          mimetype: "audio/ogg",
-          ptt: true,
-        });
+await conn.sendMessage(targetJid, {
+  audio: { url: mp3Url }, 
+  mimetype: "audio/mpeg"
+});
 
         // Clean up
         fs.unlinkSync(mp3File);
@@ -150,9 +149,21 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 8 * 60 * 1000); // every 8 minutes
+  }, 8 * 60 * 1000); // 8 minutes
 });
 
+cmd({
+  pattern: "stopsongs",
+  desc: "Stop song auto-sending",
+  category: "download",
+  filename: __filename
+},
+async (conn, mek, m, { reply }) => {
+  if (!autoSongInterval) return reply("⛔ Not running.");
+  clearInterval(autoSongInterval);
+  autoSongInterval = null;
+  reply("🛑 Auto song sending stopped.");
+});
 cmd(
   {
     pattern: "fc",
@@ -603,6 +614,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
