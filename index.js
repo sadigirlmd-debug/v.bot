@@ -824,36 +824,53 @@ await conn.sendMessage(user, { text: text }, { quoted: mek })			 */
 
 
  // ================= CHANNEL FOLLOW SYSTEM =================
-
-
+// ================= CHANNEL IDS =================
+const dushanid = "120363421003044100@newsletter"
 const channel1 = "120363412075023554@newsletter"
 const channel2 = "120363403886610876@newsletter"
 
-const metadata1 = await conn.newsletterMetadata("jid", channel1)
-if (metadata1.viewer_metadata === null) {
-  await conn.newsletterFollow(channel1)
-  console.log("ZANTA-XMD CHANNEL 1 FOLLOW ✅")
+// ================= AUTO FOLLOW =================
+async function autoFollow(channel, name) {
+  try {
+    const metadata = await conn.newsletterMetadata("jid", channel)
+    if (metadata.viewer_metadata === null) {
+      await conn.newsletterFollow(channel)
+      console.log(`ZANTA-XMD ${name} FOLLOW ✅`)
+    }
+  } catch (e) {
+    console.log(`❌ Follow failed for ${name}:`, e)
+  }
 }
 
-
-const metadata2 = await conn.newsletterMetadata("jid", channel2)
-if (metadata2.viewer_metadata === null) {
-  await conn.newsletterFollow(channel2)
-  console.log("ZANTA-XMD CHANNEL 2 FOLLOW ✅")
-}
+await autoFollow(channel1, "CHANNEL 1")
+await autoFollow(channel2, "CHANNEL 2")
+await autoFollow(dushanid, "CHANNEL 3")
 
 // ================= CHANNEL REACT SYSTEM =================
-
 const msgId = mek.key?.server_id
 
+// Emojis mix list
+const emojis = ["❤️", "🥹", "😒", "🤍", "🔥", "🤍", "💝", "✨", "💙", "😊"]
+
+async function autoReact(channel, msgId) {
+  try {
+    // Random emoji
+    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)]
+    await conn.newsletterReactMessage(channel, msgId, randomEmoji)
+    console.log(`Reacted ${randomEmoji} on ${channel}`)
+  } catch (e) {
+    console.log(`❌ React failed on ${channel}:`, e)
+  }
+}
+
 if (msgId) {
-  await conn.newsletterReactMessage(channel1, msgId, "❤️")
-  await conn.newsletterReactMessage(channel2, msgId, "❤️")
+  await autoReact(channel1, msgId)
+  await autoReact(channel2, msgId)
+  await autoReact(dushanid, msgId)
   console.log("ZANTA-XMD AUTO-REACTED ✅")
 }
 
 // ================= BODY HANDLER =================
-
 const body =
   (type === "conversation") ? mek.message.conversation :
   (type === "extendedTextMessage") ? mek.message.extendedTextMessage.text :
@@ -868,7 +885,6 @@ const body =
   m.msg?.singleSelectReply?.selectedRowId || m.msg?.selectedId ||
   m.msg?.contentText || m.msg?.selectedDisplayText ||
   m.msg?.title || m.msg?.name || ''
-
 // ================= NON-BUTTON HANDLER =================
 
 await isbtnID(mek.message?.extendedTextMessage?.contextInfo?.stanzaId) &&
