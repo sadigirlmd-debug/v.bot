@@ -1532,54 +1532,30 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
 	      
 
 
-
 if (config.AUTO_VOICE === 'true') {
-  try {
-    const data = require('./media/autovoice.json');
+const url = 'https://gist.githubusercontent.com/DushanX-LK/8ead77a8862bdb423b150524519e52cb/raw'
+let { data } = await axios.get(url)
+for (vr in data){
+if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
+ }}
 
-    const body = mek.message?.conversation || mek.message?.extendedTextMessage?.text;
-    if (!body) return;
-
-    const escapeRegex = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-    for (const key in data) {
-      if (!data.hasOwnProperty(key)) continue;
-
-      const pattern = new RegExp(`\\b${escapeRegex(key)}\\b`, 'gi');
-
-      if (pattern.test(body)) {
-        await conn.sendMessage(from, {
-          audio: { url: data[key] },
-          mimetype: 'audio/mpeg',
-          ptt: true
-        }, { quoted: mek || {} });
-
-        console.log(`🎵 Sent voice for keyword: ${key}`);
-        break; // send only one voice per message
-      }
-    }
-  } catch (err) {
-    console.error('❌ AUTO_VOICE error:', err);
-  }
-}
-
-
+ 
 if (config.AUTO_STICKER === 'true') {
-const url = `https://files.catbox.moe/7h22ja`
+const url = 'https://gist.githubusercontent.com/DushanX-LK/8ead77a8862bdb423b150524519e52cb/raw'
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{sticker: { url : data[vr]},package: 'made by vajira'},{quoted:mek})   
  }}
 
-
-
-
+                                        	      
 if (config.AUTO_REPLY === 'true') {
-const url = `https://gist.github.com/VajiraOfficialBot/b51ee50e4603d203d36fd61c3d117e9e/raw`
+const url = 'https://gist.githubusercontent.com/DushanX-LK/8ead77a8862bdb423b150524519e52cb/raw'
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) m.reply(data[vr])
  }}	
+
+
 	
 //==================================================================
 
