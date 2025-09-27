@@ -136,6 +136,62 @@ menuc2 += `• *${commands[i].pattern}*\n`
   menuc2 += `\n⭓ *Total Commands List ${category}*: ${commands.filter(cmd => cmd.category.toUpperCase() === category).length}\n\n${wm}`
 
 
+let menuc3 = `*◈╾──────${category} LOGO COMMAND LIST──────╼◈*\n\n> 🧙‍♂️ 𝚉𝙰𝙽𝚃𝙰-𝚇𝙼𝙳 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🧙‍♂️\n\n`;
+        
+  for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'logo'){
+  if(!commands[i].dontAddCommandList){
+
+menuc3 += `• *${commands[i].pattern}*\n`
+}}};
+  menuc3 += `\n⭓ *Total Commands List ${category}*: ${commands.filter(cmd => cmd.category.toUpperCase() === category).length}\n\n${wm}`
+
+
+let menuc4 = `*◈╾──────${category} MAIN COMMAND LIST──────╼◈*\n\n> 🧙‍♂️ 𝚉𝙰𝙽𝚃𝙰-𝚇𝙼𝙳 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🧙‍♂️\n\n`;
+        
+  for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'main'){
+  if(!commands[i].dontAddCommandList){
+
+menuc4 += `• *${commands[i].pattern}*\n`
+}}};
+  menuc4 += `\n⭓ *Total Commands List ${category}*: ${commands.filter(cmd => cmd.category.toUpperCase() === category).length}\n\n${wm}`
+	
+let menuc5 = `*◈╾──────${category} GROUP COMMAND LIST──────╼◈*\n\n> 🧙‍♂️ 𝚉𝙰𝙽𝚃𝙰-𝚇𝙼𝙳 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🧙‍♂️\n\n`;
+        
+  for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'group'){
+  if(!commands[i].dontAddCommandList){
+
+menuc5 += `• *${commands[i].pattern}*\n`
+}}};
+  menuc5 += `\n⭓ *Total Commands List ${category}*: ${commands.filter(cmd => cmd.category.toUpperCase() === category).length}\n\n${wm}`
+
+let menuc6 = `*◈╾──────${category} BUG COMMAND LIST──────╼◈*\n\n> 🧙‍♂️ 𝚉𝙰𝙽𝚃𝙰-𝚇𝙼𝙳 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🧙‍♂️\n\n`;
+        
+  for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'bug'){
+  if(!commands[i].dontAddCommandList){
+
+menuc6 += `• *${commands[i].pattern}*\n`
+}}};
+  menuc6 += `\n⭓ *Total Commands List ${category}*: ${commands.filter(cmd => cmd.category.toUpperCase() === category).length}\n\n${wm}`
+	
+let menuc7 = `*◈╾──────${category} OTHER COMMAND LIST──────╼◈*\n\n> 🧙‍♂️ 𝚉𝙰𝙽𝚃𝙰-𝚇𝙼𝙳 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🧙‍♂️\n\n`;
+        
+  for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'other'){
+  if(!commands[i].dontAddCommandList){
+
+menuc7 += `• *${commands[i].pattern}*\n`
+}}};
+  menuc7 += `\n⭓ *Total Commands List ${category}*: ${commands.filter(cmd => cmd.category.toUpperCase() === category).length}\n\n${wm}`
+	
+let menuc8 = `*◈╾──────${category} MOVIE COMMAND LIST──────╼◈*\n\n> 🧙‍♂️ 𝚉𝙰𝙽𝚃𝙰-𝚇𝙼𝙳 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🧙‍♂️\n\n`;
+        
+  for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'movie'){
+  if(!commands[i].dontAddCommandList){
 
 menuc8 += `• *${commands[i].pattern}*\n`
 }}};
@@ -167,6 +223,118 @@ let msg = generateWAMessageFromContent(
                   },
                   {                   
 
+header: proto.Message.InteractiveMessage.Header.create({
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/u6ikiq.jpg' } }, { upload: conn.waUploadToServer })),
+          title: menuc1,
+          gifPlayback: true,
+          subtitle: "DEWMINI-MD",
+          hasMediaAttachment: false
+        }),
+                    body: { text: ``},
+                    nativeFlowMessage: {
+
+                    },
+                  },
+                  {                   
+
+header: proto.Message.InteractiveMessage.Header.create({
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/pdc3m0.jpg' } }, { upload: conn.waUploadToServer })),
+          title: menuc2,
+          gifPlayback: true,
+          subtitle: "DEWMINI-MD",
+          hasMediaAttachment: false
+        }),
+                    body: { text: ``},
+                    nativeFlowMessage: {
+                      
+                    },
+                  },
+                  {                   
+			  
+header: proto.Message.InteractiveMessage.Header.create({
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/z5i5jn.jpg' } }, { upload: conn.waUploadToServer })),
+          title: menuc3,
+          gifPlayback: true,
+          subtitle: "DEWMINI-MD",
+          hasMediaAttachment: false
+        }),
+                    body: { text: ``},
+                    nativeFlowMessage: {
+                      
+                    },
+                  },                                    
+
+                  {                   
+			  
+header: proto.Message.InteractiveMessage.Header.create({
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/z897oi.jpg' } }, { upload: conn.waUploadToServer })),
+          title: menuc4,
+          gifPlayback: true,
+          subtitle: "DEWMINI-MD",
+          hasMediaAttachment: false
+        }),
+                    body: { text: ``},
+                    nativeFlowMessage: {
+                      
+                    },
+                  },                                    
+                      {                   
+			  
+header: proto.Message.InteractiveMessage.Header.create({
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/a6xv9y.jpg' } }, { upload: conn.waUploadToServer })),
+          title: menuc5,
+          gifPlayback: true,
+          subtitle: "DEWMINI-MD",
+          hasMediaAttachment: false
+        }),
+                    body: { text: ``},
+                    nativeFlowMessage: {
+                      
+                    },
+                  },        
+	                  {                   
+			  
+header: proto.Message.InteractiveMessage.Header.create({
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/2cua5q.jpg' } }, { upload: conn.waUploadToServer })),
+          title: menuc6,
+          gifPlayback: true,
+          subtitle: "DEWMINI-MD",
+          hasMediaAttachment: false
+        }),
+                    body: { text: ``},
+                    nativeFlowMessage: {
+                      
+                    },
+                  },         
+	                  {             
+	                  
+header: proto.Message.InteractiveMessage.Header.create({
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/60cfn1.jpg' } }, { upload: conn.waUploadToServer })),
+          title: menuc8,
+          gifPlayback: true,
+          subtitle: "DEWMINI-MD",
+          hasMediaAttachment: false
+        }),
+                    body: { text: ``},
+                    nativeFlowMessage: {
+                      
+                    },
+                  },         
+	                  {                                                 
+			  			  
+header: proto.Message.InteractiveMessage.Header.create({
+          ...(await prepareWAMessageMedia({ image: { url: 'https://files.catbox.moe/x73kfs.jpg' } }, { upload: conn.waUploadToServer })),
+          title: menuc7,
+          gifPlayback: true,
+          subtitle: "DEWMINI-MD",
+          hasMediaAttachment: false
+        }),
+                    body: { text: ``},
+                    nativeFlowMessage: {
+                      
+                    },
+                  },                                    		
+                ],
                             messageVersion: 1,
                         },
                          contextInfo: {
@@ -194,6 +362,4 @@ let msg = generateWAMessageFromContent(
 reply()
 l(e)
 }
-})   
-
-
+})
