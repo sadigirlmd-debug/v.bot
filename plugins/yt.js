@@ -30,7 +30,6 @@ function convertYouTubeLink(q) {
 const formatViews = views => views >= 1_000_000_000 ? `${(views / 1_000_000_000).toFixed(1)}B` : views >= 1_000_000 ? `${(views / 1_000_000).toFixed(1)}M` : views >= 1_000 ? `${(views / 1_000).toFixed(1)}K` : views.toString(); 
 
 
-const axios = require("axios");
 
 const axios = require("axios");
 const { exec } = require("child_process");
@@ -41,16 +40,13 @@ let autoSongInterval = null;
 let sentSongUrls = new Set();
 
 const styles = [
-  "slowed reverb",
-  "hiphop song",
-  "remix song",
-  "mashup song",
-  "lofi song",
-  "sinhala song",
-  "romantic song",
-  "pop song",
-  "dj remix",
-  "acoustic song"
+  "sinhala slowed reverb",
+  "sinhala hiphop song",
+  "sinhala remix song",
+  "sinhala mashup song",
+  "sinhala romantic song",
+  "sinhala pop song",
+  "dj remix sinhala"
 ];
 
 cmd({
@@ -570,4 +566,5 @@ conn.sendMessage(from, {
         reply('*ERROR !!*');
         console.error(e);
     }
+
 });
