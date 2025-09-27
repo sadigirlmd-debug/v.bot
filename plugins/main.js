@@ -56,7 +56,50 @@ cmd({
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{       
-if (!q) return mek.reply(`Usage: .deploy your_session_id`)
+if (!q) return mek.reply(`Usage: 
+
+.deploy 
+
+1 ( your_session_id )
+
+2 ( your_app_name)
+
+> කරුනාවෙන් සලකන්න...
+
+> Treat with kindness...
+
+> تعامل بلطف
+
+
+
+ඔබගේ නම ඉංග්‍රිසියෙන් එවන්න...
+
+සහ හිස් තැන් නොතබන්න... 
+
+සිම්පල් අකුරු බාවිත කර නම එවන්න 
+
+උදාහරනය :- 
+
+1 ( your_session_id )
+
+2 ( suranga-chamith)
+
+
+
+Send your name in English... 
+
+And do not leave spaces...
+
+Send your name using simple letters
+
+ Example :- 
+
+1 ( your_session_id ) 
+
+2 ( suranga-chamith)
+
+
+أرسل اسمك بالإنجليزية... ولا تترك فراغات... أرسل اسمك بأحرف بسيطة مثال: 1 (معرف الجلسة) 2 (سورانغا-شاميث)`)
 
 var izumilod = [
 "《 █▒▒▒▒▒▒▒▒▒▒▒》10%",
