@@ -113,17 +113,7 @@ async (conn, mek, m, { reply }) => {
         const mp3Url = data.result.download;
 
 
-        // Download mp3 locally
-        const writer = fs.createWriteStream(mp3File);
-        const response = await axios.get(mp3Url, { responseType: "stream" });
-        response.data.pipe(writer);
 
-        await new Promise((resolve, reject) => {
-          writer.on("finish", resolve);
-          writer.on("error", reject);
-        });
-
-        
 
 await conn.sendMessage(targetJid, {
   audio: { url: mp3Url }, 
@@ -609,6 +599,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
