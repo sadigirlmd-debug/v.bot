@@ -32,7 +32,6 @@ const formatViews = views => views >= 1_000_000_000 ? `${(views / 1_000_000_000)
 
 const axios = require("axios");
 
-const yts = require("yt-search");
 const axios = require("axios");
 const { exec } = require("child_process");
 const fs = require("fs");
