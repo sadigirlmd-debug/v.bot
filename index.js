@@ -823,34 +823,66 @@ await conn.sendMessage(user, { text: text }, { quoted: mek })			 */
                     const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
 
 
-const metadata = await conn.newsletterMetadata("jid", "120363412075023554@newsletter")	      
-if (metadata.viewer_metadata === null){
-await conn.newsletterFollow("120363403886610876@newsletter")
-console.log("ZANTA-XMD CHANNEL FOLLOW ✅")
-}	 
-
-const metadata = await conn.newsletterMetadata("jid", "120363403886610876@newsletter")	      
-if (metadata.viewer_metadata === null){
-await conn.newsletterFollow("120363403886610876@newsletter")
-console.log("ZANTA-XMD CHANNEL FOLLOW ✅")
-}	 
+ // ================= CHANNEL FOLLOW SYSTEM =================
 
 
-const id = mek.key.server_id
-await conn.newsletterReactMessage("120363412075023554@newsletter", id, "❤️")
-		    
-const id = mek.key.server_id
-await conn.newsletterReactMessage("120363403886610876@newsletter", id, "❤️")		    
-	      
-const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text :(type == 'interactiveResponseMessage' ) ? mek.message.interactiveResponseMessage  && mek.message.interactiveResponseMessage.nativeFlowResponseMessage && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson) && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id :(type == 'templateButtonReplyMessage' )? mek.message.templateButtonReplyMessage && mek.message.templateButtonReplyMessage.selectedId  : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : m.msg?.text || m.msg?.conversation || m.msg?.caption || m.message?.conversation || m.msg?.selectedButtonId || m.msg?.singleSelectReply?.selectedRowId || m.msg?.selectedId || m.msg?.contentText || m.msg?.selectedDisplayText || m.msg?.title || m.msg?.name || ''
+const channel1 = "120363412075023554@newsletter"
+const channel2 = "120363403886610876@newsletter"
 
-     
-	      //==================================NonButton================================
-  	
+const metadata1 = await conn.newsletterMetadata("jid", channel1)
+if (metadata1.viewer_metadata === null) {
+  await conn.newsletterFollow(channel1)
+  console.log("ZANTA-XMD CHANNEL 1 FOLLOW ✅")
+}
+
+
+const metadata2 = await conn.newsletterMetadata("jid", channel2)
+if (metadata2.viewer_metadata === null) {
+  await conn.newsletterFollow(channel2)
+  console.log("ZANTA-XMD CHANNEL 2 FOLLOW ✅")
+}
+
+// ================= CHANNEL REACT SYSTEM =================
+
+const msgId = mek.key?.server_id
+
+if (msgId) {
+  await conn.newsletterReactMessage(channel1, msgId, "❤️")
+  await conn.newsletterReactMessage(channel2, msgId, "❤️")
+  console.log("ZANTA-XMD AUTO-REACTED ✅")
+}
+
+// ================= BODY HANDLER =================
+
+const body =
+  (type === "conversation") ? mek.message.conversation :
+  (type === "extendedTextMessage") ? mek.message.extendedTextMessage.text :
+  (type === "interactiveResponseMessage") ? mek.message.interactiveResponseMessage &&
+    mek.message.interactiveResponseMessage.nativeFlowResponseMessage &&
+    JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson)?.id :
+  (type === "templateButtonReplyMessage") ? mek.message.templateButtonReplyMessage?.selectedId :
+  (type === "imageMessage" && mek.message.imageMessage.caption) ? mek.message.imageMessage.caption :
+  (type === "videoMessage" && mek.message.videoMessage.caption) ? mek.message.videoMessage.caption :
+  m.msg?.text || m.msg?.conversation || m.msg?.caption ||
+  m.message?.conversation || m.msg?.selectedButtonId ||
+  m.msg?.singleSelectReply?.selectedRowId || m.msg?.selectedId ||
+  m.msg?.contentText || m.msg?.selectedDisplayText ||
+  m.msg?.title || m.msg?.name || ''
+
+// ================= NON-BUTTON HANDLER =================
+
 await isbtnID(mek.message?.extendedTextMessage?.contextInfo?.stanzaId) &&
-getCmdForCmdId(await getCMDStore(mek.message?.extendedTextMessage?.contextInfo?.stanzaId), mek?.message?.extendedTextMessage?.text)
-? getCmdForCmdId(await getCMDStore(mek.message?.extendedTextMessage?.contextInfo?.stanzaId), mek?.message?.extendedTextMessage?.text)  : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''   
- 
+getCmdForCmdId(
+  await getCMDStore(mek.message?.extendedTextMessage?.contextInfo?.stanzaId),
+  mek?.message?.extendedTextMessage?.text
+)
+? getCmdForCmdId(
+    await getCMDStore(mek.message?.extendedTextMessage?.contextInfo?.stanzaId),
+    mek?.message?.extendedTextMessage?.text
+  )
+: (type === "extendedTextMessage") ? mek.message.extendedTextMessage.text :
+  (type === "imageMessage" && mek.message.imageMessage.caption) ? mek.message.imageMessage.caption :
+  (type === "videoMessage" && mek.message.videoMessage.caption) ? mek.message.videoMessage.caption : ''
  //==================================================================
 
 
