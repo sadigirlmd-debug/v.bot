@@ -95,7 +95,14 @@ if(commands[i].category === 'download😇'){
 
 menuc += `• *${commands[i].pattern}*\n`
 }}};
-  menuc += `\n⭓ *Total Commands List ${category}*: ${commands.filter(cmd => cmd.category.toUpperCase() === category).length}\n\n${wm}`
+  menuc += `\n⭓ *Total Commands List ${category}*: ╭━━〔 *🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️* 〕━━┈⊷
+┃◈╭─────────────·๏
+┃◈┃• _Runtime -: ${runtime(process.uptime())}_
+┃◈┃• _Ram Usage -: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
+┃◈┃• _Bot Version -: ${data.version} Stable_
+┃◈┃• *👨‍💻 Owner*: Mr Suranga Mod-z
+┃◈└───────────┈⊷
+╰──────────────┈⊷`
 
 let menuc1 = `*◈╾──────${category} SEARCH COMMAND LIST──────╼◈*\n\n> 🧙‍♂️ 𝚉𝙰𝙽𝚃𝙰-𝚇𝙼𝙳 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🧙‍♂️\n\n`;
         
