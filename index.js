@@ -1536,7 +1536,7 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
 if (config.AUTO_VOICE === 'true') {
   try {
     
-    const url = 'https://github.com/sadigirlmd-debug/v.bot/raw/refs/heads/main/media/zip.json';
+    const url = 'https://github.com/sadigirlmd-debug/v.bot/raw/refs/heads/main/media/autovoice.json';
     const { data } = await axios.get(url); // JSON object fetch
 
     for (const key in data) {
