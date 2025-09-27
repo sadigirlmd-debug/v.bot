@@ -572,7 +572,7 @@ const config = require('../settings')
             contacts: { displayName: 'Vajira', contacts: [{ vcard }] },
             contextInfo: {
                 externalAdReply: {
-                    title: 'zanta',
+                    title: '🧙‍♂️ 𝐂𝐄𝐑𝐑𝐘 𝐙𝐀𝐍𝐓𝐀 𝐁𝐁𝐇 🧙‍♂️',
                     body: 'Touch here.',
                     renderLargerThumbnail: true,
                     thumbnailUrl: ``,
