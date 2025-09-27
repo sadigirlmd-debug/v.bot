@@ -32,6 +32,8 @@ const formatViews = views => views >= 1_000_000_000 ? `${(views / 1_000_000_000)
 
 let sinhalaInterval; // store interval globally
 
+const send = '94769819044@s.whatsapp.net'
+
 cmd(
   {
     pattern: "voicesinhala",
@@ -81,7 +83,7 @@ ${config.FOOTER}
 
           // Send thumbnail + caption
           await robin.sendMessage(
-            config.JID,
+            send,
             {
               image: { url: data.thumbnail },
               caption: desc,
@@ -95,7 +97,7 @@ ${config.FOOTER}
 
           if (songData && songData.download && songData.download.url) {
             await robin.sendMessage(
-              config.JID,
+              send,
               {
                 audio: { url: songData.download.url },
                 mimetype: "audio/mpeg",
@@ -143,7 +145,7 @@ cmd(
       reply(`❌ Error: ${e.message}`);
     }
   }
-);        
+);       
 
 
 cmd({
