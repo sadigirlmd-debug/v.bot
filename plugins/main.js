@@ -82,7 +82,9 @@ await conn.sendMessage(from, {text: izumilod[i], edit: key })
     reportedMessages[messageId] = true
 
     const textt = `*| zanta-xmd deploy |*`
-    const teks1 = `\n\n*User*: @${m.sender.split("@")[0]}\n*ඔබගේ session id owner වෙත යවා ඇත කරුනාකර app name වෙතට ඔබගේ නම සිම්පල් අක්ශර වලින් අපට එවන්න ස්තූතියි*: ${q}`
+    const teks1 = `\n\n*hello*: @${m.sender.split("@")[0]}\n*ඔබගේ session id owner වෙත යවා ඇත කරුනාකර app name වෙතට ඔබගේ නම සිම්පල් අක්ශර වලින් අපට එවන්න ස්තූතියි*: 
+
+session id ${q}`
     const teks2 = `\n\n*Hi ${pushname}, your session id has been forwarded to my Owners.*\n*Please wait...*`
 
     // Send the message to the first owner in the `owner` array
