@@ -47,6 +47,62 @@ else BOTOW = "*You are not bot\'s owner or moderator !*"
 //============================================================================
 
 cmd({
+    pattern: "deploy",
+    react: "🔖",
+    desc: "Contact to bot owner",
+    category: "main",
+    use: '.rsquest2',
+    filename: __filename
+},
+async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{       
+if (!q) return mek.reply(`Example: ${prefix + command} hi zanta-xmd play command is not working`)
+
+var izumilod = [
+"《 █▒▒▒▒▒▒▒▒▒▒▒》10%",
+"《 ████▒▒▒▒▒▒▒▒》30%",
+"《 ███████▒▒▒▒▒》50%",
+"《 ██████████▒▒》80%",
+"《 ████████████》100%",
+"🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️"
+]
+let { key } = await conn.sendMessage(from, {text: 'ꜱᴇɴᴅɪɴɢ...'})
+
+for (let i = 0; i < izumilod.length; i++) {
+await conn.sendMessage(from, {text: izumilod[i], edit: key })
+}
+
+
+    const messageId = mek.key.id
+
+    if (reportedMessages[messageId]) {
+        return mek.reply("This report has already been forwarded to the owner. Please wait for a response.")
+    }
+
+    reportedMessages[messageId] = true
+
+    const textt = `*| zanta-xmd deploy |*`
+    const teks1 = `\n\n*User*: @${m.sender.split("@")[0]}\n*ඔබගේ session id owner වෙත යවා ඇත කරුනාකර app name වෙතට ඔබගේ නම සිම්පල් අක්ශර වලින් අපට එවන්න ස්තූතියි*: ${q}`
+    const teks2 = `\n\n*Hi ${pushname}, your session id has been forwarded to my Owners.*\n*Please wait...*`
+
+    // Send the message to the first owner in the `owner` array
+    conn.sendMessage(devlopernumber + "@s.whatsapp.net", {
+        text: textt + teks1,
+        mentions: [mek.sender],
+    }, {
+        quoted: mek,
+    });
+
+    // Send a reply to the user
+    mek.reply("Tʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ Iᴛ ʜᴀs ʙᴇᴇɴ ꜰᴏʀᴡᴀʀᴅᴇᴅ ᴛᴏ ᴛʜᴇ ᴏᴡɴᴇʀ. Pʟᴇᴀsᴇ ᴡᴀɪᴛ ꜰᴏʀ ᴀ ʀᴇsᴘᴏɴsᴇ.")
+  await conn.sendMessage(from, { react: { text: `✅`, key: mek.key }}) 
+} catch (e) {
+reply('*Error !!*')
+l(e)
+}
+})
+
+cmd({
     pattern: "broadcast",
     desc: "Broadcast a message to all groups.",
     category: "main",
