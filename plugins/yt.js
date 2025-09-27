@@ -112,22 +112,40 @@ async (conn, mek, m, { reply }) => {
       if (data.status && data.result && data.result.download) {
         const mp3Url = data.result.download;
 
-        await conn.sendMessage(targetJid, {
-          audio: { url: mp3Url }, 
-          mimetype: "audio/mpeg"
+        // Temp file paths
+        const mp3File = path.join(__dirname, "temp.mp3");
+        const opusFile = path.join(__dirname, "temp.opus");
+
+        // Download mp3 locally
+        const writer = fs.createWriteStream(mp3File);
+        const response = await axios.get(mp3Url, { responseType: "stream" });
+        response.data.pipe(writer);
+
+        await new Promise((resolve, reject) => {
+          writer.on("finish", resolve);
+          writer.on("error", reject);
         });
+
+        // Convert to opus with ffmpeg
+        await new Promise((resolve, reject) => {
+  exec(`ffmpeg -i "${mp3File}" -c:a libopus -b:a 128k "${opusFile}"`, (err) => {
+    if (err) return reject(err);
+    resolve();
+  });
+});
+
+await conn.sendMessage(targetJid, {
+  audio: { url: mp3Url }, 
+  mimetype: "audio/mpeg"
+});
+
+        // Clean up
+        fs.unlinkSync(mp3File);
+        fs.unlinkSync(opusFile);
+
       } else {
         reply("⚠️ Mp3 link not found from API.");
       }
-
-    } catch (e) {
-      console.error("Song sending error:", e);
-    }
-  }, 8 * 60 * 1000); // 8 minutes
-});
-
-
-
 
     } catch (e) {
       console.error("Song sending error:", e);
@@ -599,6 +617,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
