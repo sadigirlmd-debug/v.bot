@@ -95,7 +95,7 @@ if(commands[i].category === 'download😇'){
 
 menuc += `• *${commands[i].pattern}*\n`
 }}};
-  menuc += `\n⭓ *Total Commands List ${category}*: ╭━━〔 *🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️* 〕━━┈⊷
+  menuc += `\n ╭━━〔 *🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️* 〕━━┈⊷
 ┃◈╭─────────────·๏
 ┃◈┃• _Runtime -: ${runtime(process.uptime())}_
 ┃◈┃• _Ram Usage -: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
