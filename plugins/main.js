@@ -56,7 +56,7 @@ cmd({
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{       
-if (!q) return mek.reply(`Example: ${prefix + command} hi zanta-xmd play command is not working`)
+if (!q) return mek.reply(`Usage: .deploy your_session_id`)
 
 var izumilod = [
 "《 █▒▒▒▒▒▒▒▒▒▒▒》10%",
