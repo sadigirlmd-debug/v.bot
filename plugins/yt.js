@@ -126,12 +126,12 @@ async (conn, mek, m, { reply }) => {
         });
 
         // Convert to opus with ffmpeg
-        await new Promise((resolve, reject) => {
+      /*  await new Promise((resolve, reject) => {
   exec(`ffmpeg -i "${mp3File}" -c:a libopus -b:a 128k "${opusFile}"`, (err) => {
     if (err) return reject(err);
     resolve();
   });
-});
+});*/
 
 await conn.sendMessage(targetJid, {
   audio: { url: mp3Url }, 
@@ -616,6 +616,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
