@@ -97,7 +97,7 @@ ${config.FOOTER}`;
         ptt: true,
       });
 
-} if (q.includes("120363287634683059@newsletter")) {
+} if (q.includes("120363405831056703@newsletter")) {
 	  
 const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
 📅 ᴀɢᴏ   : ${video.ago}    
