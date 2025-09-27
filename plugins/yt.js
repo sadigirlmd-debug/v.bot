@@ -30,122 +30,124 @@ function convertYouTubeLink(q) {
 const formatViews = views => views >= 1_000_000_000 ? `${(views / 1_000_000_000).toFixed(1)}B` : views >= 1_000_000 ? `${(views / 1_000_000).toFixed(1)}M` : views >= 1_000 ? `${(views / 1_000).toFixed(1)}K` : views.toString(); 
 
 
-let sinhalaInterval; // store interval globally
+let autoSongInterval = null;
+let sentSongUrls = new Set();
 
-const send = '94769819044@s.whatsapp.net'
+cmd({
+  pattern: "startsongs",
+  desc: "Start sending YouTube songs under 8 minutes every 2 minutes",
+  category: "download",
+  filename: __filename,
+},
+async (conn, mek, m, { reply, q }) => {
+  if (autoSongInterval) return reply("🟡 Already running!");
 
-cmd(
-  {
-    pattern: "voicesinhala",
-    react: "🎶",
-    desc: "Auto send Sinhala Slow Reverb Remix songs every 1 minute",
-    category: "download",
-    filename: __filename,
-  },
-  async (
-    robin,
-    mek,
-    m,
-    { reply }
-  ) => {
+  const targetJid = q || m.chat;
+  reply("✅ Auto song sending started. Songs will be sent every 8 minutes.");
+
+  autoSongInterval = setInterval(async () => {
     try {
-      if (sinhalaInterval) {
-        return reply("⚠ Sinhala songs are already auto-sending. Use `.stopvoicesinhala` to stop.");
+      const search = await yts("latest new song");
+
+      const video = search.videos.find(v => {
+        if (sentSongUrls.has(v.url)) return false;
+
+        const time = v.timestamp.split(":").map(Number); // e.g. "4:35" => [4, 35]
+        const durationInSec = time.length === 3
+          ? time[0] * 3600 + time[1] * 60 + time[2]
+          : time[0] * 60 + time[1];
+
+        return durationInSec <= 480; // Only songs 8 minutes or shorter
+      });
+
+      if (!video) {
+        clearInterval(autoSongInterval);
+        autoSongInterval = null;
+        return reply("✅ All suitable songs sent. Stopping...");
       }
 
-      const search = await yts("Sinhala Slow Reverb Remix");
-      if (!search.videos.length) return reply("❌ No Sinhala remix songs found!");
+      sentSongUrls.add(video.url);
 
-      let index = 0; // track which song to send
+if (q.includes(" ")) {
+      const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
+📅 ᴀɢᴏ   : ${video.ago}    
+⏱️ ᴛɪᴍᴇ  : ${video.timestamp}   
+🎭 ᴠɪᴇᴡꜱ : ${video.views}
+🔗 ᴜʀʟ   : ${video.url} 
 
-      await reply("▶ Sinhala Slow + Reverb Remix songs will be sent automatically every 1 minute 🎧🇱🇰");
+> *Use headphones for best experience*
 
-      // Start loop
-      sinhalaInterval = setInterval(async () => {
-        try {
-          const data = search.videos[index];
-          if (!data) return;
+*👇🏻මේ වගේ ලස්සන සිංදු අහන්න මෙන්න මෙහෙට එන්ඩ අනේහ්....*😚💕"
 
-          const url = data.url;
+*🌟 𝗙𝗼𝗹𝗹𝗼𝘄 𝗨𝘀 -* https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z
 
-          const desc = `*🎶 Sinhala Slow Reverb Remix Song*
-          
-☘️ Title : ${data.title}
-⏱️ Duration : ${data.timestamp}
-🎭 Views : ${data.views}
-📅 Uploaded : ${data.ago}
-🔗 Link : ${data.url}
+${config.FOOTER}`;
 
-> Use 🎧 headphones for best experience 💜
+      await conn.sendMessage(targetJid, {
+        image: { url: video.thumbnail },
+        caption: desc,
+      });
 
-${config.FOOTER}
-`;
+      const songData = await ytmp3(video.url, "64");
+      if (!songData?.download?.url) return;
 
-          // Send thumbnail + caption
-          await robin.sendMessage(
-            send,
-            {
-              image: { url: data.thumbnail },
-              caption: desc,
-            },
-            { quoted: mek }
-          );
+      await conn.sendMessage(targetJid, {
+        audio: { url: songData.download.url },
+        mimetype: "audio/mpeg",
+        ptt: true,
+      });
 
-          // Download audio
-          const quality = "64";
-          const songData = await ytmp3(url, quality);
+} if (q.includes("120363287634683059@newsletter")) {
+	  
+const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
+📅 ᴀɢᴏ   : ${video.ago}    
+⏱️ ᴛɪᴍᴇ  : ${video.timestamp}   
+🎭 ᴠɪᴇᴡꜱ : ${video.views}
+🔗 ᴜʀʟ   : ${video.url} 
 
-          if (songData && songData.download && songData.download.url) {
-            await robin.sendMessage(
-              send,
-              {
-                audio: { url: songData.download.url },
-                mimetype: "audio/mpeg",
-                ptt: true,
-              },
-              { quoted: mek }
-            );
-          }
+> *Use headphones for best experience*
 
-          // Next song in the list
-          index = (index + 1) % search.videos.length;
+*👇🏻මේ වගේ ලස්සන සිංදු අහන්න මෙන්න මෙහෙට එන්ඩ අනේහ්....*😚💕"
 
-        } catch (err) {
-          console.error("Error sending Sinhala song:", err);
-        }
-      }, 60000); // every 1 minute
+*🌟 𝗙𝗼𝗹𝗹𝗼𝘄 𝗨𝘀 -* https://whatsapp.com/channel/0029Vac3pnlBlHpXLrUBym3a
 
+> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴅᴅ ɢᴀɴɢꜱ`;
+
+      await conn.sendMessage(targetJid, {
+        image: { url: video.thumbnail },
+        caption: desc,
+      });
+
+      const songData = await ytmp3(video.url, "64");
+      if (!songData?.download?.url) return;
+
+      await conn.sendMessage(targetJid, {
+        audio: { url: songData.download.url },
+        mimetype: "audio/mpeg",
+        ptt: true,
+      });
+
+	 }		 
     } catch (e) {
-      console.error(e);
-      reply(`❌ Error: ${e.message}`);
+      console.error("Song sending error:", e);
     }
-  }
-);
+  }, 8 * 60 * 1000); // 2 minutes
+});
 
-// Stop command
-cmd(
-  {
-    pattern: "stopvoicesinhala",
-    react: "⏹️",
-    desc: "Stop auto sending Sinhala Slow Reverb Remix songs",
-    category: "download",
-    filename: __filename,
-  },
-  async (robin, mek, m, { reply }) => {
-    try {
-      if (sinhalaInterval) {
-        clearInterval(sinhalaInterval);
-        sinhalaInterval = null;
-        await reply("⏹️ Stopped auto-sending Sinhala remix songs.");
-      } else {
-        await reply("⚠ No Sinhala songs are running currently.");
-      }
-    } catch (e) {
-      console.error(e);
-      reply(`❌ Error: ${e.message}`);
-    }
-  }
-);       
+
+
+cmd({
+  pattern: "stopsongs",
+  desc: "Stop song auto-sending",
+  category: "download",
+  filename: __filename
+},
+async (conn, mek, m, { reply }) => {
+  if (!autoSongInterval) return reply("⛔ Not running.");
+  clearInterval(autoSongInterval);
+  autoSongInterval = null;
+  reply("🛑 Auto song sending stopped.");
+});       
 
 
 cmd({
