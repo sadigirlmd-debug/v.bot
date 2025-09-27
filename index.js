@@ -822,6 +822,7 @@ await conn.sendMessage(user, { text: text }, { quoted: mek })			 */
             const from = mek.key.remoteJid
                     const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
 
+/*
 const metadata = await conn.newsletterMetadata("jid", "120363412075023554@newsletter")	      
 if (metadata.viewer_metadata === null){
 await conn.newsletterFollow("120363412075023554@newsletter")
