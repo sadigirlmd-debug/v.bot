@@ -149,7 +149,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 8 * 60 * 1000); // 8 minutes
+  }, 1 * 60 * 1000); // 8 minutes
 });
 
 cmd({
@@ -164,6 +164,8 @@ async (conn, mek, m, { reply }) => {
   autoSongInterval = null;
   reply("🛑 Auto song sending stopped.");
 });
+
+
 cmd(
   {
     pattern: "fc",
@@ -614,6 +616,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
