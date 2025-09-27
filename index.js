@@ -1534,12 +1534,30 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
 
 
 if (config.AUTO_VOICE === 'true') {
-const url = `https://raw.githubusercontent.com/sadigirlmd-debug/v.bot/refs/heads/main/media/autovoice.json`
-let { data } = await axios.get(url)
-for (vr in data){
-if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
- }}
+  try {
+    
+    const url = 'https://github.com/sadigirlmd-debug/v.bot/raw/refs/heads/main/media/zip.json';
+    const { data } = await axios.get(url); // JSON object fetch
 
+    for (const key in data) {
+      if (!data.hasOwnProperty(key)) continue;
+
+
+      const pattern = new RegExp(`\\b${key}\\b`, 'gi');
+      if (pattern.test(body)) {
+        await conn.sendMessage(from, {
+          audio: { url: data[key] },
+          mimetype: 'audio/mpeg',
+          ptt: true
+        }, { quoted: mek });
+
+        console.log(`🎵 Sent voice for keyword: ${key}`);
+      }
+    }
+  } catch (err) {
+    console.error('❌ AUTO_VOICE error:', err);
+  }
+}
 
 
 if (config.AUTO_STICKER === 'true') {
