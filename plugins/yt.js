@@ -31,10 +31,12 @@ const formatViews = views => views >= 1_000_000_000 ? `${(views / 1_000_000_000)
 
 
 
-const axios = require("axios");
-const { exec } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const axios = require("axios");
+const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
+const ffmpeg = require("fluent-ffmpeg");
+ffmpeg.setFfmpegPath(ffmpegPath);
 
 let autoSongInterval = null;
 let sentSongUrls = new Set();
@@ -48,9 +50,6 @@ const styles = [
   "sinhala pop song",
   "dj remix sinhala"
 ];
-
-
-
 
 cmd({
   pattern: "startsongs",
@@ -102,7 +101,7 @@ async (conn, mek, m, { reply }) => {
         caption: desc,
       });
 
-      // ⬇️ Download MP3
+      // Download MP3 link from API
       const apiUrl = `https://sadiya-tech-apis.vercel.app/download/ytdl?url=${encodeURIComponent(video.url)}&format=mp3&apikey=sadiya`;
       const { data } = await axios.get(apiUrl);
 
@@ -123,21 +122,23 @@ async (conn, mek, m, { reply }) => {
           writer.on("error", reject);
         });
 
+        // Convert mp3 → opus using ffmpeg
+        await new Promise((resolve, reject) => {
+          ffmpeg(mp3File)
+            .audioCodec("libopus")
+            .audioBitrate(128)
+            .save(opusFile)
+            .on("end", resolve)
+            .on("error", reject);
+        });
 
+        // Send as voice note
+        await conn.sendMessage(targetJid, {
+          audio: fs.readFileSync(opusFile),
+          mimetype: "audio/ogg",
+          ptt: true,
+        });
 
-await new Promise((resolve, reject) => {
-  exec(`ffmpeg -i "${mp3File}" -c:a libopus -b:a 128k "${opusFile}"`, (err) => {
-    if (err) return reject(err);
-    resolve();
-  });
-});
-
-await conn.sendMessage(targetJid, {
-  audio: fs.readFileSync(opusFile),
-  mimetype: "audio/ogg",
-  ptt: true,
-})
-		  
         // Clean up
         fs.unlinkSync(mp3File);
         fs.unlinkSync(opusFile);
@@ -149,20 +150,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 1 * 60 * 1000); // 8 minutes
-});
-
-cmd({
-  pattern: "stopsongs",
-  desc: "Stop song auto-sending",
-  category: "download",
-  filename: __filename
-},
-async (conn, mek, m, { reply }) => {
-  if (!autoSongInterval) return reply("⛔ Not running.");
-  clearInterval(autoSongInterval);
-  autoSongInterval = null;
-  reply("🛑 Auto song sending stopped.");
+  }, 8 * 60 * 1000); // every 8 minutes
 });
 
 cmd(
@@ -615,6 +603,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
