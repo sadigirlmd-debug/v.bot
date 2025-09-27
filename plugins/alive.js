@@ -89,9 +89,14 @@ const category = q.trim().toUpperCase();
 let menuc = `*◈╾──────${category} DOWNLOAD COMMAND LIST──────╼◈*\n\n> 🧙‍♂️ 𝚉𝙰𝙽𝚃𝙰-𝚇𝙼𝙳 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🧙‍♂️\n\n`;
         let wm = '*ᴘᴏᴡᴇʀᴇᴅ ʙʏᴇ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ *'	
 
-  for (let i=0;i<commands.length;i++) { 
-if(commands[i].category === 'download'){
-  if(!commands[i].dontAddCommandList){
+  ╭━━〔 *🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️* 〕━━┈⊷
+┃◈╭─────────────·๏
+┃◈┃• _Runtime -: ${runtime(process.uptime())}_
+┃◈┃• _Ram Usage -: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
+┃◈┃• _Bot Version -: ${data.version} Stable_
+┃◈┃• *👨‍💻 Owner*: Mr Suranga Mod-z
+┃◈└───────────┈⊷
+╰──────────────┈⊷
 
 menuc += `• *${commands[i].pattern}*\n`
 }}};
