@@ -1535,22 +1535,14 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
 
 if (config.AUTO_VOICE === 'true') {
   try {
-    const fs = require('fs');
-    const path = './media/autovoice.json';
+    const data = require('./media/autovoice.json');
 
-    // Read local JSON file
-    const rawData = fs.readFileSync(path, 'utf-8');
-    const data = JSON.parse(rawData);
+    if (!body) return;
 
-    let sent = false; // only send first match
     for (const key in data) {
       if (!data.hasOwnProperty(key)) continue;
-      if (sent) break;
 
-      // Escape special regex characters in keyword
-      const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const pattern = new RegExp(`\\b${escapeRegex(key)}\\b`, 'gi');
-
+      const pattern = new RegExp(`\\b${key}\\b`, 'gi');
       if (pattern.test(body)) {
         await conn.sendMessage(from, {
           audio: { url: data[key] },
@@ -1559,13 +1551,15 @@ if (config.AUTO_VOICE === 'true') {
         }, { quoted: mek });
 
         console.log(`🎵 Sent voice for keyword: ${key}`);
-        sent = true;
+        break; // send only one voice per message
       }
     }
   } catch (err) {
     console.error('❌ AUTO_VOICE error:', err);
   }
 }
+
+
 
 if (config.AUTO_STICKER === 'true') {
 const url = `https://files.catbox.moe/7h22ja`
