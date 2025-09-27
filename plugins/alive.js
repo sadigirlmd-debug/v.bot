@@ -48,7 +48,7 @@ else BOTOW = "*You are not bot\'s owner or moderator !*"
 
 cmd({
   pattern: "alive",
-  react: "👨‍💻",
+  react: "💃",
   desc: "Get bot\'s command list.",
   category: "main",
   use: '.menu',
