@@ -30,7 +30,6 @@ function convertYouTubeLink(q) {
 const formatViews = views => views >= 1_000_000_000 ? `${(views / 1_000_000_000).toFixed(1)}B` : views >= 1_000_000 ? `${(views / 1_000_000).toFixed(1)}M` : views >= 1_000 ? `${(views / 1_000).toFixed(1)}K` : views.toString(); 
 
 
-const yts = require("yt-search");
 const axios = require("axios");
 
 let autoSongInterval = null;
