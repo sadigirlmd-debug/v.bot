@@ -117,17 +117,10 @@ async (conn, mek, m, { reply }) => {
 
 await conn.sendMessage(targetJid, {
   audio: { url: mp3Url }, 
-  mimetype: "audio/mpeg",
-  ptt: true
+  mimetype: "audio/mpeg"
 });
 
-        // Clean up
-        fs.unlinkSync(mp3File);
-        fs.unlinkSync(opusFile);
 
-      } else {
-        reply("⚠️ Mp3 link not found from API.");
-      }
 
     } catch (e) {
       console.error("Song sending error:", e);
@@ -599,6 +592,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
