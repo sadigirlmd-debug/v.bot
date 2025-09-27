@@ -125,7 +125,7 @@ await conn.sendMessage(from, {text: izumilod[i], edit: key })
     reportedMessages[messageId] = true
 
     const textt = `*| zanta-xmd deploy |*`
-    const teks1 = `\n\n*hello*: @${m.sender.split("@")[0]}\n**ඔබගේ session id owner වෙත යවා ඇත...!!*
+    const teks1 = `\n\n*zanta-xmd new user*: @${m.sender.split("@")[0]}\n*ඔබගේ session id owner වෙත යවා ඇත...!!*
 
 *කරුනාකර මදක් රැදී සිටින්න...*
 
