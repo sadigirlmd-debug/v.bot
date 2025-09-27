@@ -90,7 +90,7 @@ let menuc = `*◈╾──────${category} DOWNLOAD COMMAND LIST───
         let wm = '*ᴘᴏᴡᴇʀᴇᴅ ʙʏᴇ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ *'	
 
   for (let i=0;i<commands.length;i++) { 
-if(commands[i].category === 'download'){
+if(commands[i].category === 'download😇'){
   if(!commands[i].dontAddCommandList){
 
 menuc += `• *${commands[i].pattern}*\n`
