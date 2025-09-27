@@ -91,7 +91,7 @@ let menuc = `*◈╾──────${category} DOWNLOAD COMMAND LIST───
 
   for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'download'){
-  if(!commands[i].dontAddCommandList👻){
+  if(!commands[i].dontAddCommandList){
 
 menuc += `• *${commands[i].pattern}*\n`
 }}};
