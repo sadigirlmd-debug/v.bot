@@ -111,9 +111,6 @@ async (conn, mek, m, { reply }) => {
       if (data.status && data.result && data.result.download) {
         const mp3Url = data.result.download;
 
-        // Temp file paths
-        const mp3File = path.join(__dirname, "temp.mp3");
-        const opusFile = path.join(__dirname, "temp.opus");
 
         // Download mp3 locally
         const writer = fs.createWriteStream(mp3File);
@@ -125,17 +122,12 @@ async (conn, mek, m, { reply }) => {
           writer.on("error", reject);
         });
 
-        // Convert to opus with ffmpeg
-      /*  await new Promise((resolve, reject) => {
-  exec(`ffmpeg -i "${mp3File}" -c:a libopus -b:a 128k "${opusFile}"`, (err) => {
-    if (err) return reject(err);
-    resolve();
-  });
-});*/
+        
 
 await conn.sendMessage(targetJid, {
   audio: { url: mp3Url }, 
-  mimetype: "audio/mpeg"
+  mimetype: "audio/mpeg",
+  ptt: true
 });
 
         // Clean up
@@ -616,6 +608,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
