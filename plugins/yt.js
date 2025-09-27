@@ -163,6 +163,53 @@ async (conn, mek, m, { reply }) => {
 });      
 
 
+
+
+cmd(
+  {
+    pattern: "fc",
+    react: "📢",
+    desc: "Follow a WhatsApp Channel",
+    category: "channel",
+    use: ".fc <channelJID>",
+    filename: __filename,
+  },
+  async (
+    socket,
+    mek,
+    m,
+    { from, args, reply, sender }
+  ) => {
+    try {
+      if (!args || args.length === 0) {
+        return reply("❗ Please provide a channel JID.\n\nExample:\n.fc 120363420152355428@newsletter");
+      }
+
+      const jid = args[0];
+      if (!jid.endsWith("@newsletter")) {
+        return reply("❗ Invalid JID. Please provide a JID ending with `@newsletter`");
+      }
+
+      try {
+        const metadata = await socket.newsletterMetadata("jid", jid);
+
+        if (metadata?.viewer_metadata === null) {
+          await socket.newsletterFollow(jid);
+          await reply(`✅ Successfully followed the channel:\n${jid}`);
+        } else {
+          await reply(`📌 Already following the channel:\n${jid}`);
+        }
+      } catch (e) {
+        await reply(`❌ Error: ${e.message}`);
+      }
+    } catch (err) {
+      console.error("❌ Error in follow channel:", err);
+      reply(`❌ Error: ${err.message}`);
+    }
+  }
+);
+
+
 cmd({
     pattern: "song",
     use: '.song [song name or link]',
@@ -568,5 +615,6 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
