@@ -48,6 +48,7 @@ const styles = [
   "sinhala mashup song",
   "sinhala romantic song",
   "sinhala pop song",
+  "sinhala beatz song",
   "dj remix sinhala"
 ];
 
@@ -608,6 +609,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
