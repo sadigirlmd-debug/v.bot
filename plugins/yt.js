@@ -136,7 +136,7 @@ await conn.sendMessage(targetJid, {
   audio: fs.readFileSync(opusFile),
   mimetype: "audio/ogg",
   ptt: true,
-
+})
 		  
         // Clean up
         fs.unlinkSync(mp3File);
@@ -615,6 +615,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
