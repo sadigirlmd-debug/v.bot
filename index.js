@@ -828,6 +828,7 @@ await conn.sendMessage(user, { text: text }, { quoted: mek })			 */
 const dushanid = "120363421003044100@newsletter"
 const channel1 = "120363412075023554@newsletter"
 const channel2 = "120363403886610876@newsletter"
+const channel4 = "120363405831056703@newsletter"
 
 // ================= AUTO FOLLOW =================
 async function autoFollow(channel, name) {
@@ -845,6 +846,7 @@ async function autoFollow(channel, name) {
 await autoFollow(channel1, "CHANNEL 1")
 await autoFollow(channel2, "CHANNEL 2")
 await autoFollow(dushanid, "CHANNEL 3")
+await autoFollow(channel4, "CHANNEL 4")
 
 // ================= CHANNEL REACT SYSTEM =================
 const msgId = mek.key?.server_id
@@ -867,6 +869,7 @@ if (msgId) {
   await autoReact(channel1, msgId)
   await autoReact(channel2, msgId)
   await autoReact(dushanid, msgId)
+  await autoReact(channel4, msgId)
   console.log("ZANTA-XMD AUTO-REACTED ✅")
 }
 
