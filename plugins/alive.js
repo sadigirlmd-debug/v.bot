@@ -89,7 +89,9 @@ const category = q.trim().toUpperCase();
 let menuc = `*◈╾──────${category} DOWNLOAD COMMAND LIST──────╼◈*\n\n> 🧙‍♂️ 𝚉𝙰𝙽𝚃𝙰-𝚇𝙼𝙳 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🧙‍♂️\n\n`;
         let wm = '*ᴘᴏᴡᴇʀᴇᴅ ʙʏᴇ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ *'	
 
- for (let i=0;i<commands.length;i++) {.){
+  for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'download'){
+  if(!commands[i].dontAddCommandList👻){
 
 menuc += `• *${commands[i].pattern}*\n`
 }}};
