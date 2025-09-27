@@ -112,13 +112,20 @@ async (conn, mek, m, { reply }) => {
       if (data.status && data.result && data.result.download) {
         const mp3Url = data.result.download;
 
+        await conn.sendMessage(targetJid, {
+          audio: { url: mp3Url }, 
+          mimetype: "audio/mpeg"
+        });
+      } else {
+        reply("⚠️ Mp3 link not found from API.");
+      }
 
-
-
-await conn.sendMessage(targetJid, {
-  audio: { url: mp3Url }, 
-  mimetype: "audio/mpeg"
+    } catch (e) {
+      console.error("Song sending error:", e);
+    }
+  }, 8 * 60 * 1000); // 8 minutes
 });
+
 
 
 
@@ -592,6 +599,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
