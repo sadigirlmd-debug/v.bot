@@ -1475,52 +1475,35 @@ if (mek.sender == '94760264995@s.whatsapp.net') {
 //==================================================================
 	      
 
-cmd({
-  on: "body"
-},    
-async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-       
+
+
 if (config.AUTO_VOICE === 'true') {
-const url = `https://gist.github.com/VajiraOfficialBot/2ac7699129e504adab1bab8980ef4fb5/raw`
+const url = `https://gist.github.com/webscrape2003/33e243689058e5b7c29500730e453c5c/raw`
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
  }}
-} 
-   );
 
 
-cmd({
-  on: "body"
-},    
-async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-       	
+
 if (config.AUTO_STICKER === 'true') {
-const url = `https://gist.github.com/VajiraOfficialBot/eb470a611d233da012ad1f3d79042fb6/raw`
+const url = `https://files.catbox.moe/7h22ja`
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{sticker: { url : data[vr]},package: 'made by vajira'},{quoted:mek})   
  }}
-} 
-   );
 
 
-cmd({
-  on: "body"
-},    
-async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-       	
+
+
 if (config.AUTO_REPLY === 'true') {
 const url = `https://gist.github.com/VajiraOfficialBot/b51ee50e4603d203d36fd61c3d117e9e/raw`
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) m.reply(data[vr])
  }}	
-} 
-   );
-
-//==================================================================	      
-
+	
+//==================================================================
 
     
 	      
