@@ -130,7 +130,7 @@ async (conn, mek, m, { reply }) => {
 
         // Send as voice note
         await conn.sendMessage(targetJid, {
-          audio: fs.readFileSync(opusFile),
+          audio: { url: opusFile },
           mimetype: "audio/ogg; codecs=opus",
           ptt: false,
         });
@@ -568,4 +568,5 @@ conn.sendMessage(from, {
     }
 
 });
+
 
