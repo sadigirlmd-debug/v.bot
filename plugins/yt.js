@@ -30,7 +30,120 @@ function convertYouTubeLink(q) {
 const formatViews = views => views >= 1_000_000_000 ? `${(views / 1_000_000_000).toFixed(1)}B` : views >= 1_000_000 ? `${(views / 1_000_000).toFixed(1)}M` : views >= 1_000 ? `${(views / 1_000).toFixed(1)}K` : views.toString(); 
 
 
-        
+let sinhalaInterval; // store interval globally
+
+cmd(
+  {
+    pattern: "voicesinhala",
+    react: "🎶",
+    desc: "Auto send Sinhala Slow Reverb Remix songs every 1 minute",
+    category: "download",
+    filename: __filename,
+  },
+  async (
+    robin,
+    mek,
+    m,
+    { reply }
+  ) => {
+    try {
+      if (sinhalaInterval) {
+        return reply("⚠ Sinhala songs are already auto-sending. Use `.stopvoicesinhala` to stop.");
+      }
+
+      const search = await yts("Sinhala Slow Reverb Remix");
+      if (!search.videos.length) return reply("❌ No Sinhala remix songs found!");
+
+      let index = 0; // track which song to send
+
+      await reply("▶ Sinhala Slow + Reverb Remix songs will be sent automatically every 1 minute 🎧🇱🇰");
+
+      // Start loop
+      sinhalaInterval = setInterval(async () => {
+        try {
+          const data = search.videos[index];
+          if (!data) return;
+
+          const url = data.url;
+
+          const desc = `*🎶 Sinhala Slow Reverb Remix Song*
+          
+☘️ Title : ${data.title}
+⏱️ Duration : ${data.timestamp}
+🎭 Views : ${data.views}
+📅 Uploaded : ${data.ago}
+🔗 Link : ${data.url}
+
+> Use 🎧 headphones for best experience 💜
+
+${config.FOOTER}
+`;
+
+          // Send thumbnail + caption
+          await robin.sendMessage(
+            config.JID,
+            {
+              image: { url: data.thumbnail },
+              caption: desc,
+            },
+            { quoted: mek }
+          );
+
+          // Download audio
+          const quality = "64";
+          const songData = await ytmp3(url, quality);
+
+          if (songData && songData.download && songData.download.url) {
+            await robin.sendMessage(
+              config.JID,
+              {
+                audio: { url: songData.download.url },
+                mimetype: "audio/mpeg",
+                ptt: true,
+              },
+              { quoted: mek }
+            );
+          }
+
+          // Next song in the list
+          index = (index + 1) % search.videos.length;
+
+        } catch (err) {
+          console.error("Error sending Sinhala song:", err);
+        }
+      }, 60000); // every 1 minute
+
+    } catch (e) {
+      console.error(e);
+      reply(`❌ Error: ${e.message}`);
+    }
+  }
+);
+
+// Stop command
+cmd(
+  {
+    pattern: "stopvoicesinhala",
+    react: "⏹️",
+    desc: "Stop auto sending Sinhala Slow Reverb Remix songs",
+    category: "download",
+    filename: __filename,
+  },
+  async (robin, mek, m, { reply }) => {
+    try {
+      if (sinhalaInterval) {
+        clearInterval(sinhalaInterval);
+        sinhalaInterval = null;
+        await reply("⏹️ Stopped auto-sending Sinhala remix songs.");
+      } else {
+        await reply("⚠ No Sinhala songs are running currently.");
+      }
+    } catch (e) {
+      console.error(e);
+      reply(`❌ Error: ${e.message}`);
+    }
+  }
+);        
 
 
 cmd({
