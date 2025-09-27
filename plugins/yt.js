@@ -30,34 +30,55 @@ function convertYouTubeLink(q) {
 const formatViews = views => views >= 1_000_000_000 ? `${(views / 1_000_000_000).toFixed(1)}B` : views >= 1_000_000 ? `${(views / 1_000_000).toFixed(1)}M` : views >= 1_000 ? `${(views / 1_000).toFixed(1)}K` : views.toString(); 
 
 
+const yts = require("yt-search");
+const axios = require("axios");
+
 let autoSongInterval = null;
 let sentSongUrls = new Set();
 
+
+const styles = [
+  "slowed reverb",
+  "hiphop song",
+  "remix song",
+  "mashup song",
+  "lofi song",
+  "sinhala song",
+  "romantic song",
+  "pop song",
+  "dj remix",
+  "acoustic song"
+];
+
 cmd({
   pattern: "startsongs",
-  desc: "Start sending YouTube songs under 8 minutes every 2 minutes",
+  desc: "Start sending YouTube songs under 8 minutes every 8 minutes (auto styles)",
   category: "download",
   filename: __filename,
 },
-async (conn, mek, m, { reply, q }) => {
+async (conn, mek, m, { reply }) => {
   if (autoSongInterval) return reply("🟡 Already running!");
 
-  const targetJid = q || m.chat;
-  reply("✅ Auto song sending started. Songs will be sent every 8 minutes.");
+  const targetJid = m.chat;
+  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 8 minutes.`);
 
   autoSongInterval = setInterval(async () => {
     try {
-      const search = await yts("latest new song");
+     
+      const style = styles[Math.floor(Math.random() * styles.length)];
+
+    
+      const search = await yts(style);
 
       const video = search.videos.find(v => {
         if (sentSongUrls.has(v.url)) return false;
 
-        const time = v.timestamp.split(":").map(Number); // e.g. "4:35" => [4, 35]
+        const time = v.timestamp.split(":").map(Number);
         const durationInSec = time.length === 3
           ? time[0] * 3600 + time[1] * 60 + time[2]
           : time[0] * 60 + time[1];
 
-        return durationInSec <= 480; // Only songs 8 minutes or shorter
+        return durationInSec <= 480;
       });
 
       if (!video) {
@@ -68,7 +89,7 @@ async (conn, mek, m, { reply, q }) => {
 
       sentSongUrls.add(video.url);
 
-if (q.includes(" ")) {
+   
       const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
 📅 ᴀɢᴏ   : ${video.ago}    
 ⏱️ ᴛɪᴍᴇ  : ${video.timestamp}   
@@ -76,62 +97,44 @@ if (q.includes(" ")) {
 🔗 ᴜʀʟ   : ${video.url} 
 
 > *Use headphones for best experience*
-
-*👇🏻මේ වගේ ලස්සන සිංදු අහන්න මෙන්න මෙහෙට එන්ඩ අනේහ්....*😚💕"
-
-*🌟 𝗙𝗼𝗹𝗹𝗼𝘄 𝗨𝘀 -* https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z
-
-${config.FOOTER}`;
+🎶 *Style:* ${style.toUpperCase()}`;
 
       await conn.sendMessage(targetJid, {
         image: { url: video.thumbnail },
         caption: desc,
       });
 
-      const songData = await ytmp3(video.url, "64");
-      if (!songData?.download?.url) return;
+      
+      const apiUrl = `https://sadiya-tech-apis.vercel.app/download/ytdl?url=${encodeURIComponent(video.url)}&format=mp3&apikey=sadiya`;
+      const { data } = await axios.get(apiUrl);
 
-      await conn.sendMessage(targetJid, {
-        audio: { url: songData.download.url },
-        mimetype: "audio/mpeg",
-        ptt: true,
-      });
+      if (data.status && data.result && data.result.download) {
+        await conn.sendMessage(targetJid, {
+          audio: { url: data.result.download },
+          mimetype: "audio/mpeg",
+          ptt: true,
+        });
+      } else {
+        reply("⚠️ Mp3 link not found from API.");
+      }
 
-} if (q.includes("120363405831056703@newsletter")) {
-	  
-const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
-📅 ᴀɢᴏ   : ${video.ago}    
-⏱️ ᴛɪᴍᴇ  : ${video.timestamp}   
-🎭 ᴠɪᴇᴡꜱ : ${video.views}
-🔗 ᴜʀʟ   : ${video.url} 
-
-> *Use headphones for best experience*
-
-*👇🏻මේ වගේ ලස්සන සිංදු අහන්න මෙන්න මෙහෙට එන්ඩ අනේහ්....*😚💕"
-
-*🌟 𝗙𝗼𝗹𝗹𝗼𝘄 𝗨𝘀 -* https://whatsapp.com/channel/0029Vac3pnlBlHpXLrUBym3a
-
-> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴅᴅ ɢᴀɴɢꜱ`;
-
-      await conn.sendMessage(targetJid, {
-        image: { url: video.thumbnail },
-        caption: desc,
-      });
-
-      const songData = await ytmp3(video.url, "64");
-      if (!songData?.download?.url) return;
-
-      await conn.sendMessage(targetJid, {
-        audio: { url: songData.download.url },
-        mimetype: "audio/mpeg",
-        ptt: true,
-      });
-
-	 }		 
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 8 * 60 * 1000); // 2 minutes
+  }, 1 * 60 * 1000); // 8 minutes
+});
+
+cmd({
+  pattern: "stopsongs",
+  desc: "Stop song auto-sending",
+  category: "download",
+  filename: __filename
+},
+async (conn, mek, m, { reply }) => {
+  if (!autoSongInterval) return reply("⛔ Not running.");
+  clearInterval(autoSongInterval);
+  autoSongInterval = null;
+  reply("🛑 Auto song sending stopped.");
 });
 
 
