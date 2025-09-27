@@ -49,6 +49,8 @@ const styles = [
   "dj remix sinhala"
 ];
 
+
+
 cmd({
   pattern: "startsongs",
   desc: "Start sending YouTube songs under 8 minutes every 8 minutes (auto styles)",
@@ -63,7 +65,10 @@ async (conn, mek, m, { reply }) => {
 
   autoSongInterval = setInterval(async () => {
     try {
+     
       const style = styles[Math.floor(Math.random() * styles.length)];
+
+    
       const search = await yts(style);
 
       const video = search.videos.find(v => {
@@ -85,6 +90,7 @@ async (conn, mek, m, { reply }) => {
 
       sentSongUrls.add(video.url);
 
+   
       const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
 📅 ᴀɢᴏ   : ${video.ago}    
 ⏱️ ᴛɪᴍᴇ  : ${video.timestamp}   
@@ -99,46 +105,16 @@ async (conn, mek, m, { reply }) => {
         caption: desc,
       });
 
-      // ⬇️ Download MP3
+      
       const apiUrl = `https://sadiya-tech-apis.vercel.app/download/ytdl?url=${encodeURIComponent(video.url)}&format=mp3&apikey=sadiya`;
       const { data } = await axios.get(apiUrl);
 
       if (data.status && data.result && data.result.download) {
-        const mp3Url = data.result.download;
-
-        // Temp file paths
-        const mp3File = path.join(__dirname, "temp.mp3");
-        const opusFile = path.join(__dirname, "temp.opus");
-
-        // Download mp3 locally
-        const writer = fs.createWriteStream(mp3File);
-        const response = await axios.get(mp3Url, { responseType: "stream" });
-        response.data.pipe(writer);
-
-        await new Promise((resolve, reject) => {
-          writer.on("finish", resolve);
-          writer.on("error", reject);
-        });
-
-        // Convert to opus with ffmpeg
-        await new Promise((resolve, reject) => {
-          exec(`ffmpeg -i "${mp3File}" -c:a libopus -b:a 128k "${opusFile}"`, (err) => {
-            if (err) return reject(err);
-            resolve();
-          });
-        });
-
-        // Send as voice note
         await conn.sendMessage(targetJid, {
-          audio: { url: opusFile },
-          mimetype: "audio/ogg; codecs=opus",
-          ptt: false,
+          audio: { url: data.result.download },
+          mimetype: "audio/mpeg",
+          ptt: true,
         });
-
-        // Clean up
-        fs.unlinkSync(mp3File);
-        fs.unlinkSync(opusFile);
-
       } else {
         reply("⚠️ Mp3 link not found from API.");
       }
@@ -146,7 +122,7 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 1 * 60 * 1000); // 8 minutes
+  }, 8 * 60 * 1000); // 8 minutes
 });
 
 cmd({
@@ -160,7 +136,7 @@ async (conn, mek, m, { reply }) => {
   clearInterval(autoSongInterval);
   autoSongInterval = null;
   reply("🛑 Auto song sending stopped.");
-});      
+});
 
 
 
@@ -615,6 +591,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
