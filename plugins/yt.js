@@ -43,13 +43,7 @@ let sentSongUrls = new Set();
 
 const styles = [
   "sinhala slowed reverb",
-  "sinhala hiphop song",
-  "sinhala remix song",
-  "sinhala mashup song",
-  "sinhala romantic song",
-  "sinhala pop song",
-  "sinhala beatz song",
-  "dj remix sinhala"
+  
 ];
 
 
@@ -142,7 +136,7 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 30 * 60 * 1000); // every 8 minutes
+  }, 1 * 60 * 1000); // every 8 minutes
 });
 
 
@@ -247,7 +241,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 30 * 60 * 1000); // 8 minutes
+  }, 1 * 60 * 1000); // 8 minutes
 });
 
 
