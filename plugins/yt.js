@@ -56,8 +56,6 @@ const styles = [
 
 
 
-const { exec } = require("child_process");
-
 cmd({
   pattern: "startsongs",
   desc: "Start sending YouTube songs under 8 minutes every 8 minutes (auto styles)",
@@ -129,24 +127,15 @@ async (conn, mek, m, { reply }) => {
           writer.on("error", reject);
         });
 
-        // Convert to opus with ffmpeg
-        await new Promise((resolve, reject) => {
-          exec(`ffmpeg -y -i "${mp3File}" -c:a libopus -b:a 128k "${opusFile}"`, (err) => {
-            if (err) return reject(err);
-            resolve();
-          });
-        });
 
-        // Send as voice note (PTT)
-        await conn.sendMessage(targetJid, {
-          audio: { url: opusFile },
-          mimetype: "audio/ogg; codecs=opus",
-          ptt: true
-        });
 
-        // Cleanup temp files
-        fs.unlinkSync(mp3File);
-        fs.unlinkSync(opusFile);
+await conn.sendMessage(targetJid, {
+  audio: { url: mp3Url }, 
+  mimetype: "audio/mpeg",
+  ptt: true
+});
+
+        
 
       } else {
         reply("⚠️ Mp3 link not found from API.");
@@ -155,8 +144,9 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 8 * 60 * 1000); // 8 minutes
+  }, 1 * 60 * 1000); // 8 minutes
 });
+
 
 
 
@@ -624,6 +614,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
