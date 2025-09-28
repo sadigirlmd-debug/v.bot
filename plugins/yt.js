@@ -113,7 +113,7 @@ async (conn, mek, m, { reply }) => {
 > *මේ වගේ සිංදු හැමදාම අහන්න මෙන්න මෙහාට එන්න ළමයෝ🙇‍♂️🥹❤‍🩹*
 
 
-```Use headphones for best experience.... 🎧🎵🎶```
+> Use headphones for best experience.... 🎧🎵🎶
 
 
 🎶 *Style:* ${style.toUpperCase()}`;
@@ -199,7 +199,7 @@ async (conn, mek, m, { reply }) => {
 > *මේ වගේ සිංදු හැමදාම අහන්න මෙන්න මෙහාට එන්න ළමයෝ🙇‍♂️🥹❤‍🩹*
 
 
-```Use headphones for best experience.... 🎧🎵🎶```
+> Use headphones for best experience.... 🎧🎵🎶
 
 
 🎶 *Style:* ${style.toUpperCase()}`;
