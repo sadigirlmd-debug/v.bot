@@ -53,7 +53,95 @@ const styles = [
 ];
 
 
+cmd({
+  pattern: "startsongs2",
+  desc: "Start sending YouTube songs under 8 minutes every 8 minutes (auto styles)",
+  category: "download",
+  filename: __filename,
+},
+async (conn, mek, m, { reply }) => {
+  if (autoSongInterval) return reply("🟡 Already running!");
 
+  const targetJid = m.chat;
+  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 8 minutes.`);
+
+  autoSongInterval = setInterval(async () => {
+    try {
+      const style = styles[Math.floor(Math.random() * styles.length)];
+      const search = await yts(style);
+
+      const video = search.videos.find(v => {
+        if (sentSongUrls.has(v.url)) return false;
+
+        const time = v.timestamp.split(":").map(Number);
+        const durationInSec = time.length === 3
+          ? time[0] * 3600 + time[1] * 60 + time[2]
+          : time[0] * 60 + time[1];
+
+        return durationInSec <= 480;
+      });
+
+      if (!video) {
+        clearInterval(autoSongInterval);
+        autoSongInterval = null;
+        return reply("✅ All suitable songs sent. Stopping...");
+      }
+
+      sentSongUrls.add(video.url);
+
+      const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
+📅 ᴀɢᴏ   : ${video.ago}    
+⏱️ ᴛɪᴍᴇ  : ${video.timestamp}   
+🎭 ᴠɪᴇᴡꜱ : ${video.views}
+🔗 ᴜʀʟ   : ${video.url} 
+
+> *Use headphones for best experience*
+🎶 *Style:* ${style.toUpperCase()}`;
+
+      await conn.sendMessage(targetJid, {
+        image: { url: video.thumbnail },
+        caption: desc,
+      });
+
+      // ⬇️ Download MP3
+      const apiUrl = `https://sadiya-tech-apis.vercel.app/download/ytdl?url=${encodeURIComponent(video.url)}&format=mp3&apikey=sadiya`;
+      const { data } = await axios.get(apiUrl);
+
+      if (data.status && data.result && data.result.download) {
+        const mp3Url = data.result.download;
+
+        // Temp file paths
+        const mp3File = path.join(__dirname, "temp.mp3");
+        const opusFile = path.join(__dirname, "temp.opus");
+
+        // Download mp3 locally
+        const writer = fs.createWriteStream(mp3File);
+        const response = await axios.get(mp3Url, { responseType: "stream" });
+        response.data.pipe(writer);
+
+        await new Promise((resolve, reject) => {
+          writer.on("finish", resolve);
+          writer.on("error", reject);
+        });
+
+
+
+await conn.sendMessage(targetJid, {
+  audio: { url: mp3Url }, 
+  mimetype: "audio/mpeg"
+});
+
+        
+
+      } else {
+        reply("⚠️ Mp3 link not found from API.");
+      }
+
+    } catch (e) {
+      console.error("Song sending error:", e);
+    }
+  }, 1 * 60 * 1000); // 8 minutes
+});
 
 
 cmd({
