@@ -57,7 +57,7 @@ async (conn, mek, m, { reply }) => {
   if (autoSongInterval) return reply("🟡 Already running!");
 
   const targetJid = m.chat;
-  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 8 minutes.`);
+  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 15 minutes.`);
 
   autoSongInterval = setInterval(async () => {
     try {
@@ -91,7 +91,7 @@ async (conn, mek, m, { reply }) => {
 
       sentSongUrls.add(video.url);
 
-      const desc = `*🎧🤍🙇‍♂️" ᴛɪᴛʟᴇ : ${video.title}*
+      const desc = `*🎧🤍🙇‍♂️"${video.title}*
 
 > *Mind Relaxing Best Sinhala Song💆❤‍🩹*
 
@@ -105,10 +105,8 @@ async (conn, mek, m, { reply }) => {
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
 
 > *මේ වගේ සිංදු හැමදාම අහන්න මෙන්න මෙහාට එන්න ළමයෝ🙇‍♂️🥹❤‍🩹*
-
 
 > Use headphones for best experience.... 🎧🎵🎶
-
 
 🎶 *Style:* ${style.toUpperCase()}`;
 
@@ -136,7 +134,7 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 1 * 60 * 1000); // every 8 minutes
+  }, 15 * 60 * 1000); // every 8 minutes
 });
 
 
@@ -177,7 +175,7 @@ async (conn, mek, m, { reply }) => {
 
       sentSongUrls.add(video.url);
 
-      const desc = `*🎧🤍🙇‍♂️" ᴛɪᴛʟᴇ : ${video.title}*
+      const desc = `*🎧🤍🙇‍♂️"${video.title}*
 
 > *Mind Relaxing Best Sinhala Song💆❤‍🩹*
 
@@ -192,11 +190,9 @@ async (conn, mek, m, { reply }) => {
 
 > *මේ වගේ සිංදු හැමදාම අහන්න මෙන්න මෙහාට එන්න ළමයෝ🙇‍♂️🥹❤‍🩹*
 
-
-> Use headphones for best experience.... 🎧🎵🎶
+> Use headphones for best experience.... 🎧🎵🎶
 
-
-🎶 *Style:* ${style.toUpperCase()}`;
+🎶 *Style:* ${style.toUpperCase()}`;
 
       await conn.sendMessage(targetJid, {
         image: { url: video.thumbnail },
@@ -241,7 +237,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 1 * 60 * 1000); // 8 minutes
+  }, 15 * 60 * 1000); // 8 minutes
 });
 
 
