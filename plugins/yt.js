@@ -126,22 +126,14 @@ async (conn, mek, m, { reply }) => {
           writer.on("error", reject);
         });
 
-        // Convert to opus with ffmpeg
-        await new Promise((resolve, reject) => {
-  exec(`ffmpeg -i "${mp3File}" -c:a libopus -b:a 128k "${opusFile}"`, (err) => {
-    if (err) return reject(err);
-    resolve();
-  });
-});
+
 
 await conn.sendMessage(targetJid, {
   audio: { url: mp3Url }, 
   mimetype: "audio/mpeg"
 });
 
-        // Clean up
-        fs.unlinkSync(mp3File);
-        fs.unlinkSync(opusFile);
+        
 
       } else {
         reply("⚠️ Mp3 link not found from API.");
@@ -617,6 +609,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
