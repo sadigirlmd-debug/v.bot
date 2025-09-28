@@ -130,7 +130,8 @@ async (conn, mek, m, { reply }) => {
 
 await conn.sendMessage(targetJid, {
   audio: { url: mp3Url }, 
-  mimetype: "audio/mpeg"
+  mimetype: "audio/mpeg",
+  ptt: true
 });
 
         
@@ -609,6 +610,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
