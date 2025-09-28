@@ -57,7 +57,7 @@ async (conn, mek, m, { reply }) => {
   if (autoSongInterval) return reply("🟡 Already running!");
 
   const targetJid = m.chat;
-  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 15 minutes.`);
+  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 30 minutes.`);
 
   autoSongInterval = setInterval(async () => {
     try {
@@ -134,7 +134,7 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 15 * 60 * 1000); // every 8 minutes
+  }, 30 * 60 * 1000); // every 8 minutes
 });
 
 
@@ -237,7 +237,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 15 * 60 * 1000); // 8 minutes
+  }, 30 * 60 * 1000); // 8 minutes
 });
 
 
