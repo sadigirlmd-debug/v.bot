@@ -97,13 +97,25 @@ async (conn, mek, m, { reply }) => {
 
       sentSongUrls.add(video.url);
 
-      const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
-📅 ᴀɢᴏ   : ${video.ago}    
-⏱️ ᴛɪᴍᴇ  : ${video.timestamp}   
-🎭 ᴠɪᴇᴡꜱ : ${video.views}
-🔗 ᴜʀʟ   : ${video.url} 
+      const desc = `*🎧🤍🙇‍♂️" ᴛɪᴛʟᴇ : ${video.title}*
 
-> *Use headphones for best experience*
+> *Mind Relaxing Best Sinhala Song💆❤‍🩹*
+
+▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+
+✓ ᴀɢᴏ   : ${video.ago}    
+✓ ᴛɪᴍᴇ  : ${video.timestamp}   
+✓ ᴠɪᴇᴡꜱ : ${video.views}
+✓ ᴜʀʟ   : ${video.url} 
+
+▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+
+> *මේ වගේ සිංදු හැමදාම අහන්න මෙන්න මෙහාට එන්න ළමයෝ🙇‍♂️🥹❤‍🩹*
+
+
+```Use headphones for best experience.... 🎧🎵🎶```
+
+
 🎶 *Style:* ${style.toUpperCase()}`;
 
       await conn.sendMessage(targetJid, {
@@ -171,13 +183,25 @@ async (conn, mek, m, { reply }) => {
 
       sentSongUrls.add(video.url);
 
-      const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
-📅 ᴀɢᴏ   : ${video.ago}    
-⏱️ ᴛɪᴍᴇ  : ${video.timestamp}   
-🎭 ᴠɪᴇᴡꜱ : ${video.views}
-🔗 ᴜʀʟ   : ${video.url} 
+      const desc = `*🎧🤍🙇‍♂️" ᴛɪᴛʟᴇ : ${video.title}*
 
-> *Use headphones for best experience*
+> *Mind Relaxing Best Sinhala Song💆❤‍🩹*
+
+▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+
+✓ ᴀɢᴏ   : ${video.ago}    
+✓ ᴛɪᴍᴇ  : ${video.timestamp}   
+✓ ᴠɪᴇᴡꜱ : ${video.views}
+✓ ᴜʀʟ   : ${video.url} 
+
+▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+
+> *මේ වගේ සිංදු හැමදාම අහන්න මෙන්න මෙහාට එන්න ළමයෝ🙇‍♂️🥹❤‍🩹*
+
+
+```Use headphones for best experience.... 🎧🎵🎶```
+
+
 🎶 *Style:* ${style.toUpperCase()}`;
 
       await conn.sendMessage(targetJid, {
