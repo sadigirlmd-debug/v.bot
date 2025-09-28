@@ -70,7 +70,7 @@ async (conn, mek, m, { reply }) => {
       const style = styles[Math.floor(Math.random() * styles.length)];
       const search = await yts(style);
 
-      const video = search.videos.find(v => {
+      let video = search.videos.find(v => {
         if (sentSongUrls.has(v.url)) return false;
 
         const time = v.timestamp.split(":").map(Number);
@@ -81,11 +81,19 @@ async (conn, mek, m, { reply }) => {
         return durationInSec <= 480;
       });
 
+      // 🔄 If no fresh video found, reset history & pick first suitable
       if (!video) {
-        clearInterval(autoSongInterval);
-        autoSongInterval = null;
-        return reply("✅ All suitable songs sent. Stopping...");
+        sentSongUrls.clear();
+        video = search.videos.find(v => {
+          const time = v.timestamp.split(":").map(Number);
+          const durationInSec = time.length === 3
+            ? time[0] * 3600 + time[1] * 60 + time[2]
+            : time[0] * 60 + time[1];
+          return durationInSec <= 480;
+        });
       }
+
+      if (!video) return; // skip this round if still nothing
 
       sentSongUrls.add(video.url);
 
@@ -110,28 +118,10 @@ async (conn, mek, m, { reply }) => {
       if (data.status && data.result && data.result.download) {
         const mp3Url = data.result.download;
 
-        // Temp file paths
-        const mp3File = path.join(__dirname, "temp.mp3");
-        const opusFile = path.join(__dirname, "temp.opus");
-
-        // Download mp3 locally
-        const writer = fs.createWriteStream(mp3File);
-        const response = await axios.get(mp3Url, { responseType: "stream" });
-        response.data.pipe(writer);
-
-        await new Promise((resolve, reject) => {
-          writer.on("finish", resolve);
-          writer.on("error", reject);
+        await conn.sendMessage(targetJid, {
+          audio: { url: mp3Url }, 
+          mimetype: "audio/mpeg"
         });
-
-
-
-await conn.sendMessage(targetJid, {
-  audio: { url: mp3Url }, 
-  mimetype: "audio/mpeg"
-});
-
-        
 
       } else {
         reply("⚠️ Mp3 link not found from API.");
@@ -140,8 +130,9 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 8 * 60 * 1000); // 8 minutes
+  }, 8 * 60 * 1000); // every 8 minutes
 });
+
 
 
 cmd({
@@ -702,6 +693,7 @@ conn.sendMessage(from, {
     }
 
 });
+
 
 
 
