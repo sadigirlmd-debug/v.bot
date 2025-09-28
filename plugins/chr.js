@@ -202,3 +202,95 @@ async (conn, mek, m, { q, reply }) => {
   }
 });
 
+
+
+
+const forwardAsChannel = async (conn, m, type, jid, name) => {
+  if (!m.quoted) return m.reply("⚠️ Reply to a message.");
+
+  const msg = {
+    contextInfo: {
+      forwardingScore: 999,
+      isForwarded: true,
+      forwardedNewsletterMessageInfo: {
+        newsletterJid: jid,
+        newsletterName: name,
+        serverMessageId: Math.floor(Math.random() * 9999) + 100
+      }
+    }
+  };
+
+  if (type === "text") {
+    if (!m.quoted.text) return m.reply("📄 Reply to a *text* message.");
+    msg.text = m.quoted.text;
+  }
+
+  if (type === "image") {
+    const mimeType = (m.quoted.msg || m.quoted).mimetype || '';
+    if (!mimeType.includes('image')) return m.reply("🖼️ Reply to an *image* message.");
+
+    const buffer = await m.quoted.download();
+    const tempFile = path.join(os.tmpdir(), `img-${Date.now()}.jpg`);
+    fs.writeFileSync(tempFile, buffer);
+
+    msg.image = fs.readFileSync(tempFile);
+    msg.caption = m.quoted.caption || '';
+
+    fs.unlinkSync(tempFile); // cleanup
+  }
+
+  if (type === "video") {
+    const mimeType = (m.quoted.msg || m.quoted).mimetype || '';
+    if (!mimeType.includes('video')) return m.reply("🎥 Reply to a *video* message.");
+
+    const buffer = await m.quoted.download();
+    const tempFile = path.join(os.tmpdir(), `vid-${Date.now()}.mp4`);
+    fs.writeFileSync(tempFile, buffer);
+
+    msg.video = fs.readFileSync(tempFile);
+    msg.caption = m.quoted.caption || '';
+
+    fs.unlinkSync(tempFile); // cleanup
+  }
+
+  await conn.sendMessage(m.chat, msg, { quoted: m });
+};
+
+// 📄 TEXT command
+cmd({
+  pattern: "ctx",
+  desc: "Forward text like newsletter",
+  category: "tools",
+  filename: __filename
+}, async (conn, m, text, { args }) => {
+  const [jid, ...nameArr] = args;
+  const name = nameArr.join(" ");
+  if (!jid || !name) return m.reply("✏️ Usage: .ctx <channelJid> <channelName>");
+  await forwardAsChannel(conn, m, "text", jid, name);
+});
+
+// 🖼️ IMAGE command
+cmd({
+  pattern: "cimg",
+  desc: "Forward image like newsletter",
+  category: "tools",
+  filename: __filename
+}, async (conn, m, text, { args }) => {
+  const [jid, ...nameArr] = args;
+  const name = nameArr.join(" ");
+  if (!jid || !name) return m.reply("✏️ Usage: .cimg <channelJid> <channelName>");
+  await forwardAsChannel(conn, m, "image", jid, name);
+});
+
+// 🎥 VIDEO command
+cmd({
+  pattern: "cvid",
+  desc: "Forward video like newsletter",
+  category: "tools",
+  filename: __filename
+}, async (conn, m, text, { args }) => {
+  const [jid, ...nameArr] = args;
+  const name = nameArr.join(" ");
+  if (!jid || !name) return m.reply("✏️ Usage: .cvid <channelJid> <channelName>");
+  await forwardAsChannel(conn, m, "video", jid, name);
+});
