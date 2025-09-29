@@ -52,6 +52,7 @@ const styles = [
   "english slowed reverb",
   "sinhala old slowed reverb",
   "sinhala new slowed reverb",
+  "sinhala teledrama slowed reverb",
   
 ];
 
@@ -66,7 +67,7 @@ async (conn, mek, m, { reply }) => {
   if (autoSongInterval) return reply("🟡 Already running!");
 
   const targetJid = m.chat;
-  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 8 minutes.`);
+  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 30 minutes.`);
 
   autoSongInterval = setInterval(async () => {
     try {
@@ -150,7 +151,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 1 * 60 * 1000); // 8 minutes
+  }, 30 * 60 * 1000); // 8 minutes
 });
 
 
@@ -165,7 +166,7 @@ async (conn, mek, m, { reply }) => {
   if (autoSongInterval) return reply("🟡 Already running!");
 
   const targetJid = m.chat;
-  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 8 minutes.`);
+  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 30 minutes.`);
 
   autoSongInterval = setInterval(async () => {
     try {
@@ -250,7 +251,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 60 * 60 * 1000); // 8 minutes
+  }, 30 * 60 * 1000); // 8 minutes
 });
 
 
