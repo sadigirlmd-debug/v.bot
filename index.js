@@ -412,7 +412,7 @@ checkForNewsUpdates8();
 🖇️ https://wa.me/+94760264995?text=hi-zanta-xmd-owner-save-me-🐼🪄💗
 
 > ꜰᴀʟʟᴏᴡ ᴄʜᴀɴɴᴇʟ ɢᴇᴛ ʟɪɴᴋ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ`;
-    conn.sendMessage('94760264995@s.whatsapp.net', { image: { url: `https://files.catbox.moe/r86oac.jpg` }, caption: up })
+    conn.sendMessage('94760264995@s.whatsapp.net', { image: { url: `https://files.catbox.moe/pwg89y.jpg` }, caption: up })
   }
   })
   conn.ev.on('creds.update', saveCreds)
