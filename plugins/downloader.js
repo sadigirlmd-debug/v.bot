@@ -2899,7 +2899,7 @@ cmd({
 },
 async(conn, mek, m,{from, l, quoted, prefix, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
-let dat = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let dat = `[👨‍💻 ZANTA-XMD 👨‍💻]
    
  ▏ *IMG-DOWNLOADER*
 
@@ -3023,8 +3023,8 @@ async(conn, mek, m,{from, l, prefix, quoted, body, isCmd, command, args, q, isGr
                 const imageUrl = topImages[i].url;
                 let Message = {
                     image: { url: imageUrl },
-                    caption: config.LANG === 'en' ? `*-------「 VAJIRA MD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}` :
-                        `*-------「 VAJIRA MD GIMAGE SEARCH 」-------*\n🤠 *හවුල්* : ${q}\n\n🔗 *රූප ${i + 1} Url* : ${imageUrl}`,
+                    caption: config.LANG === 'en' ? `*-------「 ZANTA-XMD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}` :
+                        `*-------「 ZANTA-XMD GIMAGE SEARCH 」-------*\n🤠 *හවුල්* : ${q}\n\n🔗 *රූප ${i + 1} Url* : ${imageUrl}`,
                 };
 
                 conn.sendMessage(from, Message, { quoted: mek });
@@ -3063,8 +3063,8 @@ async(conn, mek, m,{from, l, prefix, quoted, body, isCmd, command, args, q, isGr
                     document: { url: imageUrl },
                     fileName: 'image' + '.jpg',
                     mimetype: 'image/jpeg',
-                    caption: config.LANG === 'en' ? `*-------「 VAJIRA MD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}` :
-                        `*-------「 VAJIRA MD GIMAGE SEARCH 」-------*\n🤠 *හවුල්* : ${q}\n\n🔗 *රූප ${i + 1} Url* : ${imageUrl}`,
+                    caption: config.LANG === 'en' ? `*-------「 ZANTA-XMD GIMAGE SEARCH 」-------*\n🤠 *Query* : ${q}\n\n🔗 *Image ${i + 1} Url* : ${imageUrl}` :
+                        `*-------「 ZANTA-XMD GIMAGE SEARCH 」-------*\n🤠 *හවුල්* : ${q}\n\n🔗 *රූප ${i + 1} Url* : ${imageUrl}`,
                 };
 
                 conn.sendMessage(from, Message, { quoted: mek });
@@ -3176,8 +3176,8 @@ async(conn, mek, m,{from, l, prefix, quoted, body, isCmd, command, args, q, isGr
                                 forwardingScore: 999,
                                 isForwarded: true,
                                 forwardedNewsletterMessageInfo: {
-                                    newsletterJid: '120363290448968237@newsletter',
-                                    newsletterName: `⛅ 𝘝𝘈𝘑𝘐𝘙𝘈 𝑴𝑫 💙`,
+                                    newsletterJid: '120363412075023554@newsletter',
+                                    newsletterName: `🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️`,
                                     serverMessageId: 143
                                 }
                             }
@@ -3266,7 +3266,7 @@ try{
                               let url = `https://api.github.com/repos/${user}/${repo}/zipball`
                               let filename =  `${user}${repo}`
                               //(await fetch(url, {method: 'HEAD'})).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
-                              conn.sendMessage(mek.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip',caption: '*ǫᴜᴇᴇɴ-ɪᴢᴜᴍɪ•ᴍᴜʟᴛɪ-ᴅᴇᴠɪᴄᴇ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*' }, { quoted: mek }).catch((err) => reply(mess.error))                             
+                              conn.sendMessage(mek.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip',caption: '*🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️*\n*ZANTA-XMD*' }, { quoted: mek }).catch((err) => reply(mess.error))                             
 } catch (e) {
 reply()
 l(e)
@@ -3289,7 +3289,7 @@ async(conn, mek, m,{from, l, quoted, prefix, body, isCmd, command, args, q, isGr
 try{
 let dat = `╔══════❨ ❄ ❩══════╗
 
-            *🎗️ ᴠᴀᴊɪʀᴀ ᴍᴅ ᴠ3 ᴇʜɪ 🎗️*
+            *🎗️ ZANTA-XMD 🎗️*
     
  ▫ ғʀᴇᴇ ᴇʜɪ
  ▫ ᴍᴀᴋᴇ ᴅᴀᴛᴇ
@@ -3332,7 +3332,7 @@ return await conn.replyList(from, listMessage ,{ quoted : mek })
 
 
         let sections = [{
-                title: 'VAJIRA MD',
+                title: 'ZANTA-XMD',
                 rows: [{
                         title: '',
                         description: `apk of http injector`,
@@ -3431,7 +3431,7 @@ whatsapp , facebook , youtube , zoom යන ආදී package වලට ගැ�
 3. එම file එක httpinjector app එකට ඇතුලත් කර start බටන් එක ඔබන්න 
 ( ඔබට මෙම file බාවිතාකිරීමටනම් ඉහත කිසියම් හෝ package 1ක් දමාගෙන තිබිය යුතුය )
 
-*© ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*
+*© 🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️*
 
 ============================================================================
 
@@ -3450,12 +3450,12 @@ whatsapp , facebook , youtube , zoom යන ආදී package වලට ගැ�
 _( If you want to use this file, you must have one of the above packages installed )_
 
 
-*© ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*`
+*© 🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️*`
                   
                   const buttons = []
   const buttonMessage = {
       caption: dat,
-      footer: `*ᴠᴀᴊɪʀᴀ-ᴍᴅ•ᴍᴜʟᴛɪ-ᴅᴇᴠɪᴄᴇ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*`,
+      footer: `*🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️*\n*ZANTA-XMD*`,
       buttons: buttons,
       headerType: 1
   }
@@ -3476,7 +3476,7 @@ l(e)
 async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 await conn.sendMessage(from, { react: { text: '📥', key: mek.key }})
-await conn.sendMessage(from, { document: { url: 'https://github.com/VajiraTech/Izumi-ehi/blob/main/Http_injector/HTTP%20Injector%20(SSHProxyV2Ray)%20VPN.apk' },mimetype: 'application/vnd.android.package-archive', fileName: `HTTP Injector Qᴜᴇᴇɴ-ɪᴢᴜᴍɪ (SSHProxyV2Ray) VPN.apk`,  caption: config.FOOTER}, { quoted: mek })
+await conn.sendMessage(from, { document: { url: 'https://github.com/VajiraTech/Izumi-ehi/blob/main/Http_injector/HTTP%20Injector%20(SSHProxyV2Ray)%20VPN.apk' },mimetype: 'application/vnd.android.package-archive', fileName: `HTTP Injector ZANTA-XMD (SSHProxyV2Ray) VPN.apk`,  caption: config.FOOTER}, { quoted: mek })
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 } catch (e) {
   reply('*ERROR !!*')
@@ -3518,7 +3518,7 @@ ${ehiVajira.XX_XX}
                 
                 await conn.sendMessage(mek.chat, `✅ _Success send_ *${mek.pushName}* _Ehi Files..._`,mek)
 } catch (e) {
-  reply('*📥 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝘽𝙔 𝙑𝘼𝙅𝙄𝙍𝘼 𝙈𝘿 𝙊𝙒𝙉𝙀𝙍*')
+  reply('*📥 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝘽𝙔 𝙕𝘼𝙉𝙏𝘼-𝙕𝙈𝘿 𝙊𝙒𝙉𝙀𝙍*')
 l(e)
 }
 })
@@ -3550,7 +3550,7 @@ try{
 ]
 
   const listMessage = {
-caption : `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+caption : `[👨‍💻 ZANTA-XMD 👨‍💻]
       
 *Foud Whatsapp Mod Downloader 📲*
 `,
@@ -3601,7 +3601,7 @@ var msg = mek
 await conn.sendMessage(from, { react: { text: 'ℹ️', key: msg.key }})
 if(!q) return await conn.sendMessage(from , { text: '*Need apk link...*' }, { quoted: msg } ) 
 const data = await apkdl.download(q)
-let listdata = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let listdata = `[👨‍💻 ZANTA-XMD 👨‍💻]
    
  *APK-DOWNLOADER*
 
@@ -3636,7 +3636,7 @@ return await conn.replyList(from, listMessage ,{ quoted : mek })
 
 
         let sections = [{
-                title: 'VAJIRA MD',
+                title: 'ZANTA-XMD',
                 rows: [{
                         title: '',
                         description: `Download the apk`,
@@ -3740,7 +3740,7 @@ title: "_[Result from playstore.]_",
 rows: srh
 }]
 const listMessage = {
-text: `┌───[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `┌───[👨‍💻 ZANTA-XMD 👨‍💻]
 
    *APK DOWNLOADER*
 
@@ -3791,7 +3791,7 @@ var sections = []
             image : config.LOGO,
             header: '',
             footer: config.FOOTER,
-            body: `┌───[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+            body: `┌───[👨‍💻 ZANTA-XMD 👨‍💻]
 
    *APK DOWNLOADER*
 
@@ -3819,7 +3819,7 @@ try{
 await conn.sendMessage(from, { react: { text: '📥', key: mek.key }})
 if(!q) return await conn.sendMessage(from , { text: '*Need apk link...*' }, { quoted: mek } ) 
 const data = await apkdl.download(q)
-let sendapk = await conn.sendMessage(from , { document : { url : data.dllink  } , mimetype : 'application/vnd.android.package-archive' , fileName : data.name + '.' + 'apk',caption: '*ᴠᴀᴊɪʀᴀ-ᴍᴅ•ᴍᴜʟᴛɪ-ᴅᴇᴠɪᴄᴇ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*' } , { quoted: mek })
+let sendapk = await conn.sendMessage(from , { document : { url : data.dllink  } , mimetype : 'application/vnd.android.package-archive' , fileName : data.name + '.' + 'apk',caption: '*🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️*\n*ZANTA-XMD*' } , { quoted: mek })
 await conn.sendMessage(from, { react: { text: '📁', key: sendapk.key }})
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 } catch (e) {
@@ -3840,7 +3840,7 @@ await conn.sendMessage(from, { react: { text: 'ℹ️', key: msg.key }})
 if(!q) return await conn.sendMessage(from , { text: '*Need apk link...*' }, { quoted: msg } ) 
 const data = await apkdl.download(q)
 let listdata = `╔═══════════════════╗
-*║🤳VAJIRA PLAYSTORE-SEARCH*
+*║🤳ZANTA-XMD PLAYSTORE-SEARCH*
 ╚═══════════════════╝
 
 *📚 ᴀᴘᴘ ɴᴀᴍᴇ: ${data.name}* 
@@ -3910,8 +3910,8 @@ async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, send
 
         // Language support for reply before sending the file
         const downloadingMsg = config.LANG === 'en' 
-            ? `*VAJIRA-MD MEDIAFIRE FILE DOWNLOADING...📥*` 
-            : `*VAJIRA-MD MEDIAFIRE ගොනුව බාගන්නවා...📥*`;
+            ? `*ZANTA-XMD MEDIAFIRE FILE DOWNLOADING...📥*` 
+            : `*ZANTA-XMD MEDIAFIRE ගොනුව බාගන්නවා...📥*`;
         
         reply(downloadingMsg);
         await conn.sendMessage(from, { document: { url: dl_link }, fileName: name, mimetype: fileType, caption: `${name}\n\n${type}\n\n${size}\n\n${date}` }, { quoted: mek });
@@ -4037,7 +4037,7 @@ console.log(e)
 
                                          
 cmd({
-    pattern: "tiktok",
+    pattern: "tiktok3",
     alias: ["ttdl","tt"],
     react: '🏷️',
     desc: desc,
@@ -4051,7 +4051,7 @@ if (!regtik(q)) return await  reply(urlneed)
 
 const data = await fetchJson(`${config.DL}/download/tiktokdl?url=${q}`)
 
-let dat = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+let dat = `[👨‍💻 ZANTA-XMD 👨‍💻]
 
 *TIKTOK DOWNLOADER*
 
@@ -4219,7 +4219,7 @@ const data = await fetchJson(`${config.DL}/download/tiktokdl?url=${q}`)
     
 
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
-await conn.sendMessage(from, { video: { url: data.result.nowm }, mimetype: "video/mp4", caption: `> *POWERED by VAJIRA-MD*` }, { quoted: mek })
+await conn.sendMessage(from, { video: { url: data.result.nowm }, mimetype: "video/mp4", caption: `> *POWERED by ZANTA-XMD*` }, { quoted: mek })
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -4245,7 +4245,7 @@ const data = await fetchJson(`${config.DL}/download/tiktokdl?url=${q}`)
     
 
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
-await conn.sendMessage(from, { document: { url: data.result.nowm }, mimetype: "video/mp4", fileName: `${data.result.title}.mp4`, caption: "💻 *VAJIRA MD TTDL*" }, { quoted: mek }); 
+await conn.sendMessage(from, { document: { url: data.result.nowm }, mimetype: "video/mp4", fileName: `${data.result.title}.mp4`, caption: "💻 *ZANTA-XMD TTDL*" }, { quoted: mek }); 
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -4267,7 +4267,7 @@ try{
 const data = await fetchJson(`${config.DL}/download/tiktokdl?url=${q}`)
 
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
-await conn.sendMessage(from, { video: { url: data.result.watermark}, mimetype: "video/mp4", caption: `> *POWERED by VAJIRA-MD*` }, { quoted: mek })
+await conn.sendMessage(from, { video: { url: data.result.watermark}, mimetype: "video/mp4", caption: `> *POWERED by ZANTA-XMD*` }, { quoted: mek })
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -4291,7 +4291,7 @@ const data = await fetchJson(`${config.DL}/download/tiktokdl?url=${q}`)
 
 
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
-await conn.sendMessage(from, { document: { url: data.result.watermark }, mimetype: "video/mp4", fileName: `${data.result.title}.mp4`, caption: "💻 *VAJIRA MD TTDL*" }, { quoted: mek }); 
+await conn.sendMessage(from, { document: { url: data.result.watermark }, mimetype: "video/mp4", fileName: `${data.result.title}.mp4`, caption: "💻 *ZANTA-XMD TTDL*" }, { quoted: mek }); 
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -4369,7 +4369,7 @@ try{
 if (!regtik(q)) return await  reply(urlneed)
 let data = await downloadTiktok(q);	
 let msg = `
-    🎟️ *VAJIRA-MD TIKTOK DOWNLOADER* 🎟️
+    🎟️ *ZANTA-XMD TIKTOK DOWNLOADER* 🎟️
 
 📌 *Please click what you want to select*
 
@@ -4379,8 +4379,8 @@ let msg = `
 await conn.sendMessage( from, { image: { url:`${data.result.image}`}, caption: msg }, { quoted: mek })	
 await conn.sendMessage(from, { react: { text: '📥', key: mek.key }})
 await conn.sendMessage(from, { document: { url: q }, mimetype: 'audio/mpeg', fileName: 'TikTok Audio' + '.mp3',caption: config.FOOTER }, { quoted: mek })
-await conn.sendMessage(from, { video: { url: data.result.dl_link.download_mp4_1}, mimetype: "video/mp4", caption: `SD QUALITY\n\n> *POWERED by VAJIRA-MD` }, { quoted: mek })	
-await conn.sendMessage(from, { video: { url: data.result.dl_link.download_mp4_2 }, mimetype: "video/mp4", caption: `HD QUALITY\n\n> *POWERED by VAJIRA-MD` }, { quoted: mek })  
+await conn.sendMessage(from, { video: { url: data.result.dl_link.download_mp4_1}, mimetype: "video/mp4", caption: `SD QUALITY\n\n> *POWERED by ZANTA-XMD` }, { quoted: mek })	
+await conn.sendMessage(from, { video: { url: data.result.dl_link.download_mp4_2 }, mimetype: "video/mp4", caption: `HD QUALITY\n\n> *POWERED by ZANTA-XMD` }, { quoted: mek })  
 	
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 } catch (e) {
@@ -4429,7 +4429,7 @@ title: "Result from unsplash.com. 📲",
 rows: srh
 }]
 const listMessage = { 
-text: `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+text: `[👨‍💻 ZANTA-XMD 👨‍💻]
 
    *IMG DOWNLOADER 02*
 
@@ -4479,7 +4479,7 @@ var sections = []
             image : config.LOGO,
             header: '',
             footer: config.FOOTER,
-            body: `┌───[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+            body: `┌───[👨‍💻 ZANTA-XMD 👨‍💻]
 
    *IMAGE DOWNLOADER*
 
@@ -4628,11 +4628,11 @@ try{
   contextInfo: {
 				
 				externalAdReply: { 
-					title: '👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻',
+					title: '👨‍💻 ZANTA-XMD 👨‍💻',
 					body: 'ᴀɴ ᴜꜱᴇʀ ʙᴏᴛ ꜰᴏʀ ᴡʜᴀᴛꜱᴀᴘᴘ',
 					mediaType: 1,
 					sourceUrl: "" ,
-          thumbnailUrl: 'https://telegra.ph/file/b4caa5682d75220623b83.jpg' ,
+          thumbnailUrl: 'https://files.catbox.moe/pwg89y.jpg' ,
 					renderLargerThumbnail: false,
           showAdAttribution: true
          }}	
@@ -4772,7 +4772,7 @@ try{
 if (!fbreg(q)) return await  reply(urlneed2)	
 const result = await fetchJson(`${config.DL}/download/fbdown?url=${q}`)
 
-let dat = `VAJIRA MD FB DOWNLOADER
+let dat = `ZANTA-XMD FB DOWNLOADER
 
    
 *URL :* ${q}`
@@ -4946,7 +4946,7 @@ if (!fbreg(q)) return await  reply(urlneed2)
  // let data = await fetchJson(`${baseUrl}/api/fdown?url=${q}`)
 const result = await facebook(q)
 const info = `
-💢 *VAJIRA-MD FB DOWNLOADER* 💢
+💢 *ZANTA-XMD FB DOWNLOADER* 💢
 
 *TIME :* ${result.result.duration}
 *URL :* ${q}
@@ -4954,8 +4954,8 @@ const info = `
 await conn.sendMessage(from, { image: { url:`${result.result.thumbnail}`}, caption: info } , { quoted: mek })
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
 await conn.sendMessage(from, { audio: { url: result.result.links.HD }, mimetype: "audio/mpeg" }, { quoted: mek })	
-await conn.sendMessage(from, { video: { url: result.result.links.SD }, mimetype: "video/mp4", caption: `SD QUALITY\n\n> *POWERED by VAJIRA-MD*` }, { quoted: mek })  
-await conn.sendMessage(from, { video: { url: result.result.links.HD }, mimetype: "video/mp4", caption: `HD QUALITY\n\n> *POWERED by VAJIRA-MD*` }, { quoted: mek })  	
+await conn.sendMessage(from, { video: { url: result.result.links.SD }, mimetype: "video/mp4", caption: `SD QUALITY\n\n> *POWERED by ZANTA-XMD*` }, { quoted: mek })  
+await conn.sendMessage(from, { video: { url: result.result.links.HD }, mimetype: "video/mp4", caption: `HD QUALITY\n\n> *POWERED by ZANTA-XMD*` }, { quoted: mek })  	
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -4978,7 +4978,7 @@ try {
 
   // Send reactions and the video
   await conn.sendMessage(from, { react: { text: '⬆', key: mek.key } });
-  await conn.sendMessage(from, { video: { url: result.result.sd }, mimetype: "video/mp4", caption: `> *POWERED by VAJIRA-MD*` }, { quoted: mek });
+  await conn.sendMessage(from, { video: { url: result.result.sd }, mimetype: "video/mp4", caption: `> *POWERED by ZANTA-XMD*` }, { quoted: mek });
   await conn.sendMessage(from, { react: { text: '✔', key: mek.key } });
 
 }catch(e){
@@ -5006,7 +5006,7 @@ const result = await fetchJson(`${config.DL}/download/fbdown?url=${q}`)
 
 	
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
-await conn.sendMessage(from, { document: { url: result.result.sd }, mimetype: "video/mp4", fileName: `FbDL.mp4`, caption: "💻 *VAJIRA MD FBDL*" }, { quoted: mek })	
+await conn.sendMessage(from, { document: { url: result.result.sd }, mimetype: "video/mp4", fileName: `FbDL.mp4`, caption: "💻 *ZANTA-XMD FBDL*" }, { quoted: mek })	
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -5031,7 +5031,7 @@ if (!q.includes('https://')) return await reply(msr.not_fo)
 const result = await fetchJson(`${config.DL}/download/fbdown?url=${q}`)
 
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
-await conn.sendMessage(from, { video: { url: result.result.hd }, mimetype: "video/mp4", caption: `> *POWERED by VAJIRA-MD*` }, { quoted: mek })  	
+await conn.sendMessage(from, { video: { url: result.result.hd }, mimetype: "video/mp4", caption: `> *POWERED by ZANTA-XMD*` }, { quoted: mek })  	
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
@@ -5056,7 +5056,7 @@ if (!q.includes('https://')) return await reply(msr.not_fo)
 const result = await fetchJson(`${config.DL}/download/fbdown?url=${q}`)
 
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})  
-await conn.sendMessage(from, { document: { url: result.result.hd }, mimetype: "video/mp4", fileName: `FbDL.mp4`, caption: "💻 *VAJIRA MD FBDL*" }, { quoted: mek }); 
+await conn.sendMessage(from, { document: { url: result.result.hd }, mimetype: "video/mp4", fileName: `FbDL.mp4`, caption: "💻 *ZANTA-XMD FBDL*" }, { quoted: mek }); 
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
