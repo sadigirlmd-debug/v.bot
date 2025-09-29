@@ -137,7 +137,7 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 10 * 60 * 1000); // every 8 minutes
+  }, 5 * 60 * 1000); // every 8 minutes
 });
 
 
