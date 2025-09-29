@@ -907,7 +907,7 @@ l(e)
 
 
 cmd({
-    pattern: "alive2",
+    pattern: "alive",
     react: "👨‍💻",
     alias: ["online","test","bot"],
     desc: "Check bot online or no.",
