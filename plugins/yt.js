@@ -43,6 +43,9 @@ let sentSongUrls = new Set();
 
 const styles = [
   "sinhala slowed reverb",
+  "sinhala remix song",
+  "sinhala boot song",
+  "sinhala sad song",
   
 ];
 
@@ -134,7 +137,7 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 30 * 60 * 1000); // every 8 minutes
+  }, 1 * 60 * 1000); // every 8 minutes
 });
 
 
