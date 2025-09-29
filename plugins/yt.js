@@ -93,9 +93,9 @@ async (conn, mek, m, { reply }) => {
 > *💆‍♂️ Mind Relaxing Best Sinhala Song💆❤‍🩹*
 > *🎧 ${style.toUpperCase()}*
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-❍ ᴀɢᴏ   : ${video.ago}    
-❍ ᴛɪᴍᴇ  : ${video.timestamp}   
-❍ ᴠɪᴇᴡꜱ : ${video.views}
+
+00:00 ───●────────── ${video.timestamp}   
+
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
 > ❑ Use headphones for best experience..🙇‍♂️🎧"🫀
 > ❑ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ
@@ -147,7 +147,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 5 * 60 * 1000); // 8 minutes
+  }, 1 * 60 * 1000); // 8 minutes
 });
 
 
@@ -193,13 +193,13 @@ async (conn, mek, m, { reply }) => {
 > *💆‍♂️ Mind Relaxing Best Sinhala Song💆❤‍🩹*
 > *🎧 ${style.toUpperCase()}*
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-❍ ᴀɢᴏ   : ${video.ago}    
-❍ ᴛɪᴍᴇ  : ${video.timestamp}   
-❍ ᴠɪᴇᴡꜱ : ${video.views}
+
+00:00 ───●────────── ${video.timestamp}   
+
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
 > ❑ Use headphones for best experience..🙇‍♂️🎧"🫀
 > ❑ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ
-> ❑ ඔයාටත් මේ වගෙ බොට් කෙනෙක් ඕනිනම් එන්න ළමයෝ..
+> ❑ ඔයාගෙ 𝚌𝚑𝚊𝚗𝚗𝚎𝚕 එකටත් මෙහෙම හදාගන්න එන්න..
 > ❑ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ - +94760264995
 
    ♡          ⎙          ➦ 
