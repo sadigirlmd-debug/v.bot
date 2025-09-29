@@ -111,7 +111,8 @@ async (conn, mek, m, { reply }) => {
 > ❑ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ - +94760264995
 
    ♡          ⎙          ➦ 
-ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ`;
+ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ
+> ${style.toUpperCase()}`;
       await conn.sendMessage(targetJid, {
         image: { url: video.thumbnail },
         caption: desc,
@@ -192,7 +193,8 @@ async (conn, mek, m, { reply }) => {
 > ❑ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ - +94760264995
 
    ♡          ⎙          ➦ 
-ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ`;
+ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ
+> ${style.toUpperCase()}`;
 
       await conn.sendMessage(targetJid, {
         image: { url: video.thumbnail },
