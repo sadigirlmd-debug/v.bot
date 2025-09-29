@@ -53,6 +53,8 @@ const styles = [
   "sinhala old slowed reverb",
   "sinhala new slowed reverb",
   "sinhala teledrama slowed reverb",
+  "sinhala new dj slowed reverb",
+  "sinhala mashshup",
   
 ];
 
