@@ -46,6 +46,8 @@ const styles = [
   "sinhala remix song",
   "sinhala boot song",
   "sinhala sad song",
+  "sinhala phonk remix",
+  "hindi slowed reverb",
   
 ];
 
@@ -108,9 +110,7 @@ async (conn, mek, m, { reply }) => {
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
 
 > *මේ වගේ සිංදු හැමදාම අහන්න මෙන්න මෙහාට එන්න ළමයෝ🙇‍♂️🥹❤‍🩹*
-
 > Use headphones for best experience.... 🎧🎵🎶
-
 🎶 *Style:* ${style.toUpperCase()}`;
 
       await conn.sendMessage(targetJid, {
@@ -137,7 +137,7 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 1 * 60 * 1000); // every 8 minutes
+  }, 10 * 60 * 1000); // every 8 minutes
 });
 
 
@@ -192,10 +192,8 @@ async (conn, mek, m, { reply }) => {
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
 
 > *මේ වගේ සිංදු හැමදාම අහන්න මෙන්න මෙහාට එන්න ළමයෝ🙇‍♂️🥹❤‍🩹*
-
-> Use headphones for best experience.... 🎧🎵🎶
-
-🎶 *Style:* ${style.toUpperCase()}`;
+> Use headphones for best experience.... 🎧🎵🎶
+🎶 *Style:* ${style.toUpperCase()}`;
 
       await conn.sendMessage(targetJid, {
         image: { url: video.thumbnail },
@@ -240,7 +238,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 30 * 60 * 1000); // 8 minutes
+  }, 10 * 60 * 1000); // 8 minutes
 });
 
 
