@@ -101,10 +101,10 @@ async (conn, mek, m, { reply }) => {
 > ❑ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ
 > ❑ ඔයාටත් මේ වගෙ බොට් කෙනෙක් ඕනිනම් එන්න ළමයෝ..
 > ❑ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ - +94760264995
+> ❑ ${style.toUpperCase()}
 
    ♡          ⎙          ➦ 
-ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ
-${style.toUpperCase()}`;
+ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ`;
 
       await conn.sendMessage(targetJid, {
         image: { url: video.thumbnail },
