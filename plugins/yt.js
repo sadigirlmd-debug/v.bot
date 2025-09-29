@@ -88,10 +88,10 @@ async (conn, mek, m, { reply }) => {
 
       sentSongUrls.add(video.url);
 
-      const desc = `*🎧🤍🙇‍♂️"${video.title}*
+      const desc = `*"${video.title}*
 
-> *Mind Relaxing Best Sinhala Song💆❤‍🩹*
-
+> *💆‍♂️ Mind Relaxing Best Sinhala Song💆❤‍🩹*
+> *🎧 ${style.toUpperCase()}*
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
 ❍ ᴀɢᴏ   : ${video.ago}    
 ❍ ᴛɪᴍᴇ  : ${video.timestamp}   
@@ -101,7 +101,6 @@ async (conn, mek, m, { reply }) => {
 > ❑ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ
 > ❑ ඔයාටත් මේ වගෙ බොට් කෙනෙක් ඕනිනම් එන්න ළමයෝ..
 > ❑ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ - +94760264995
-> ❑ ${style.toUpperCase()}
 
    ♡          ⎙          ➦ 
 ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ`;
@@ -148,7 +147,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 1 * 60 * 1000); // 8 minutes
+  }, 5 * 60 * 1000); // 8 minutes
 });
 
 
@@ -189,10 +188,10 @@ async (conn, mek, m, { reply }) => {
 
       sentSongUrls.add(video.url);
 
-      const desc = `*🎧🤍🙇‍♂️"${video.title}*
+      const desc = `*"${video.title}*
 
-> *Mind Relaxing Best Sinhala Song💆❤‍🩹*
-
+> *💆‍♂️ Mind Relaxing Best Sinhala Song💆❤‍🩹*
+> *🎧 ${style.toUpperCase()}*
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
 ❍ ᴀɢᴏ   : ${video.ago}    
 ❍ ᴛɪᴍᴇ  : ${video.timestamp}   
@@ -204,8 +203,7 @@ async (conn, mek, m, { reply }) => {
 > ❑ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ - +94760264995
 
    ♡          ⎙          ➦ 
-ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ
-> ${style.toUpperCase()}`;
+ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ`;
 
       await conn.sendMessage(targetJid, {
         image: { url: video.thumbnail },
@@ -250,7 +248,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 10 * 60 * 1000); // 8 minutes
+  }, 20 * 60 * 1000); // 8 minutes
 });
 
 
