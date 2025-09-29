@@ -88,14 +88,23 @@ async (conn, mek, m, { reply }) => {
 
       sentSongUrls.add(video.url);
 
-      const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
-📅 ᴀɢᴏ   : ${video.ago}    
-⏱️ ᴛɪᴍᴇ  : ${video.timestamp}   
-🎭 ᴠɪᴇᴡꜱ : ${video.views}
-🔗 ᴜʀʟ   : ${video.url} 
+      const desc = `*🎧🤍🙇‍♂️"${video.title}*
 
-> *Use headphones for best experience*
-🎶 *Style:* ${style.toUpperCase()}`;
+> *Mind Relaxing Best Sinhala Song💆❤‍🩹*
+
+▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+❍ ᴀɢᴏ   : ${video.ago}    
+❍ ᴛɪᴍᴇ  : ${video.timestamp}   
+❍ ᴠɪᴇᴡꜱ : ${video.views}
+▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+> ❑ Use headphones for best experience..🙇‍♂️🎧"🫀
+> ❑ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ
+> ❑ ඔයාටත් මේ වගෙ බොට් කෙනෙක් ඕනිනම් එන්න ළමයෝ..
+> ❑ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ - +94760264995
+
+   ♡          ⎙          ➦ 
+ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ
+${style.toUpperCase()}`;
 
       await conn.sendMessage(targetJid, {
         image: { url: video.thumbnail },
