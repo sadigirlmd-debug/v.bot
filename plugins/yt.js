@@ -62,14 +62,14 @@ async (conn, mek, m, { reply }) => {
   if (autoSongInterval) return reply("🟡 Already running!");
 
   const targetJid = m.chat;
-  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 30 minutes.`);
+  reply(`✅ Auto song sending started.\n🎶 Styles: ${styles.join(", ")}\nSongs will be sent every 8 minutes.`);
 
   autoSongInterval = setInterval(async () => {
     try {
       const style = styles[Math.floor(Math.random() * styles.length)];
       const search = await yts(style);
 
-      let video = search.videos.find(v => {
+      const video = search.videos.find(v => {
         if (sentSongUrls.has(v.url)) return false;
 
         const time = v.timestamp.split(":").map(Number);
@@ -80,39 +80,23 @@ async (conn, mek, m, { reply }) => {
         return durationInSec <= 480;
       });
 
-      // 🔄 If no fresh video found, reset history & pick first suitable
       if (!video) {
-        sentSongUrls.clear();
-        video = search.videos.find(v => {
-          const time = v.timestamp.split(":").map(Number);
-          const durationInSec = time.length ===
-            ? time[0] * 3600 + time[1] * 60 + time[2]
-            : time[0] * 60 + time[1];
-          return durationInSec <= 480;
-        });
+        clearInterval(autoSongInterval);
+        autoSongInterval = null;
+        return reply("✅ All suitable songs sent. Stopping...");
       }
-
-      if (!video) return; // skip this round if still nothing
 
       sentSongUrls.add(video.url);
 
-      const desc = `*🎧🤍🙇‍♂️"${video.title}*
+      const desc = `*☘️ ᴛɪᴛʟᴇ : ${video.title}*
+📅 ᴀɢᴏ   : ${video.ago}    
+⏱️ ᴛɪᴍᴇ  : ${video.timestamp}   
+🎭 ᴠɪᴇᴡꜱ : ${video.views}
+🔗 ᴜʀʟ   : ${video.url} 
 
-> *Mind Relaxing Best Sinhala Song💆❤‍🩹*
+> *Use headphones for best experience*
+🎶 *Style:* ${style.toUpperCase()}`;
 
-▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-❍ ᴀɢᴏ   : ${video.ago}    
-❍ ᴛɪᴍᴇ  : ${video.timestamp}   
-❍ ᴠɪᴇᴡꜱ : ${video.views}
-▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-> ❑ Use headphones for best experience..🙇‍♂️🎧"🫀
-> ❑ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ
-> ❑ ඔයාටත් මේ වගෙ බොට් කෙනෙක් ඕනිනම් එන්න ළමයෝ..
-> ❑ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ - +94760264995
-
-   ♡          ⎙          ➦ 
-ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ
-> ${style.toUpperCase()}`;
       await conn.sendMessage(targetJid, {
         image: { url: video.thumbnail },
         caption: desc,
@@ -125,10 +109,28 @@ async (conn, mek, m, { reply }) => {
       if (data.status && data.result && data.result.download) {
         const mp3Url = data.result.download;
 
-        await conn.sendMessage(targetJid, {
-          audio: { url: mp3Url }, 
-          mimetype: "audio/mpeg"
+        // Temp file paths
+        const mp3File = path.join(__dirname, "temp.mp3");
+        const opusFile = path.join(__dirname, "temp.opus");
+
+        // Download mp3 locally
+        const writer = fs.createWriteStream(mp3File);
+        const response = await axios.get(mp3Url, { responseType: "stream" });
+        response.data.pipe(writer);
+
+        await new Promise((resolve, reject) => {
+          writer.on("finish", resolve);
+          writer.on("error", reject);
         });
+
+
+
+await conn.sendMessage(targetJid, {
+  audio: { url: mp3Url }, 
+  mimetype: "audio/mpeg"
+});
+
+        
 
       } else {
         reply("⚠️ Mp3 link not found from API.");
@@ -137,7 +139,7 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 5 * 60 * 1000); // every 8 minutes
+  }, 1 * 60 * 1000); // 8 minutes
 });
 
 
