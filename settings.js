@@ -6,6 +6,7 @@ function convertToBool(text, fault = 'true') {
 
 
 module.exports = {
+PAIR: "https://zanta-pair-64b7a66ac79c.herokuapp.com/pair?phone=",
 SESSION_ID: process.env.SESSION_ID === undefined ? 'session' : process.env.SESSION_ID,
 OWNER_NUMBER: process.env.OWNER_NUMBER === undefined ? '' : process.env.OWNER_NUMBER,
 N_JID: process.env.N_JID=== undefined ? '‌': process.env.N_JID,    
