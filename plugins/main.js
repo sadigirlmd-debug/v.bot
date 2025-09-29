@@ -229,67 +229,6 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
 });
 
 
-
-
-
-
-
-
-
-cmd({
-    pattern: "pair",
-    alias: ["getpair", "clonebot"],
-    react: "✅",
-    desc: "Get pairing code for ZANTA-XMD AI bot",
-    category: "download",
-    use: ".pair +94760264995",
-    filename: __filename
-}, async (conn, mek, m, { q, senderNumber, reply }) => {
-    try {
-        let invalidMsg, failedMsg, doneMsg, errorMsg;
-        
-        if (config.LANG === 'si') {
-            invalidMsg = "❌ කරුණාකර රටේ කේතය සමඟ වලංගු දුරකථන අංකයක් ලබාදෙන්න\nඋදා: .pair +94760264995";
-            failedMsg = "❌ Pairing කේතය ලබාගැනීම අසාර්ථකයි. කරුණාකර පසුව උත්සහ කරන්න.";
-            doneMsg = "> *🧙‍♂️ 𝐙𝐀𝐍𝐓𝐀 × 𝐌𝐃 𝐎𝐅𝐂 🧙‍♂️ යුගල කිරීම සම්පුර්ණයි ✅*";
-            errorMsg = "❌ Pairing කේතය ලබාගැනීමේදී දෝෂයකි. කරුණාකර පසුව උත්සහ කරන්න.";
-        } else {
-            invalidMsg = "❌ Please provide a valid phone number with country code\nExample: .pair +94760264995";
-            failedMsg = "❌ Failed to retrieve pairing code. Please try again later.";
-            doneMsg = "> *ZANTA-XMD PAIRING COMPLETED ✅*";
-            errorMsg = "❌ An error occurred while getting pairing code. Please try again later.";
-        }
-
-        const phoneNumber = q ? q.trim() : senderNumber;
-
-        if (!phoneNumber || !phoneNumber.match(/^\+?\d{10,15}$/)) {
-            return await reply(invalidMsg);
-        }
-
-        const baseUrl = `${config.PAIR}/code?number=`;
-        const response = await axios.get(`${baseUrl}${encodeURIComponent(phoneNumber)}`);
-
-        if (!response.data || !response.data.code) {
-            return await reply(failedMsg);
-        }
-
-        const pairingCode = response.data.code;
-        await reply(`${doneMsg}\n\n*Your pairing code is:* ${pairingCode}`);
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        await reply(`${pairingCode}`);
-
-    } catch (error) {
-        console.error("Pair command error:", error);
-        await reply(errorMsg);
-    }
-});
-
-
-let qrInterval = {};
-
-
-
-
 cmd({
     pattern: "device",
     react: "🔖",
