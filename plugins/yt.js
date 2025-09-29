@@ -60,7 +60,7 @@ const styles = [
 
 
 cmd({
-  pattern: "startsongs2",
+  pattern: "mp3",
   desc: "Start sending YouTube songs under 8 minutes every 8 minutes (auto styles)",
   category: "download",
   filename: __filename,
@@ -159,7 +159,7 @@ await conn.sendMessage(targetJid, {
 
 
 cmd({
-  pattern: "startsongs",
+  pattern: "music",
   desc: "Start sending YouTube songs under 8 minutes every 8 minutes (auto styles)",
   category: "download",
   filename: __filename,
@@ -253,14 +253,14 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 30 * 60 * 1000); // 8 minutes
+  }, 20 * 60 * 1000); // 8 minutes
 });
 
 
 
 
 cmd({
-  pattern: "stopsongs",
+  pattern: "stop",
   desc: "Stop song auto-sending",
   category: "download",
   filename: __filename
