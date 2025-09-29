@@ -5112,7 +5112,7 @@ const result = await fetchJson(`${config.DL}/download/fbdown?url=${q}`)
 
 	
 await conn.sendMessage(from, { react: { text: '⬆', key: mek.key }})
-await conn.sendMessage(from, { document: { url: result.result.hd }, mimetype: "audio/mpeg", fileName: `Fbdl.mp3`, caption: "💻 *VAJIRA MD Fbdl*" }, { quoted: mek }); 
+await conn.sendMessage(from, { document: { url: result.result.hd }, mimetype: "audio/mpeg", fileName: `Fbdl.mp3`, caption: "💻 *ZANTA-XMD Fbdl*" }, { quoted: mek }); 
 await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 }catch(e){
 await conn.sendMessage(from, { react: { text: `❌`, key: mek.key } })
