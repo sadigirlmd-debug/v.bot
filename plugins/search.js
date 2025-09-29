@@ -11,9 +11,9 @@ const util = require('util')
 const {find} = require('raganork-bot')
 const fetch = require('node-fetch')
 const farrkey = require('xfarr-api')
-const ownername = "_VAJIRA RATHNAYAKA_";
-const botname = "👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻"
-const owner = "https://wa.me/94719199757";
+const ownername = "_SURANGA CHAMITH_";
+const botname = "👨‍💻 ZANTA-XMD 👨‍💻"
+const owner = "https://wa.me/94760264995";
 const trueCaller = async (num) => {try { var res = await find(num,'','') } catch { var res = false }; return res;}
 const { lyrics, lyricsv2 } = require('@bochilteam/scraper')
 const {
@@ -113,7 +113,7 @@ async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sen
 try{
 if(!q) return reply('please give a tiktok username')
 const data = await fetchJson('https://api.maher-zubair.tech/stalk/tiktok?q=' + q)
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗧𝗧 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 𝗦𝗘𝗔𝗥𝗖𝗛👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗧𝗧 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 𝗦𝗘𝗔𝗥𝗖𝗛👨‍💻
 
 *📚 NAME:* ${data.result.name}
 *🔖 USERNAME:* ${data.result.username}
@@ -141,7 +141,7 @@ async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sen
 try{
 if(!q) return reply('please give a instagram username')
 const data = await fetchJson('https://api.maher-zubair.tech/stalk/instagram?q=' + q)
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗜𝗚 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 𝗦𝗘𝗔𝗥𝗖𝗛👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗜𝗚 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 𝗦𝗘𝗔𝗥𝗖𝗛👨‍💻
 
 *📚 NAME:* ${data.result.username}
 *🔖 USERNAME:* ${data.result.fullname}
@@ -327,7 +327,7 @@ const date = $1("span.post-date.published").text().trim()
 const image = $1("div.separator > img").attr("src")
 const desc = $1("p").text()
 
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗚𝗢𝗦𝗜𝗣𝗟𝗔𝗡𝗞𝗔👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗫𝗠𝗗 𝗚𝗢𝗦𝗜𝗣𝗟𝗔𝗡𝗞𝗔👨‍💻
 
 *📚 Title:* ${title}
 *🔖 Link:* ${link}
@@ -364,7 +364,7 @@ const $ = cheerio.load(response.data);
     const image = $1("div > div > img").attr("src")
     const desc = $1("div.elementor-element.elementor-element-02b3942.elementor-widget.elementor-widget-theme-post-content > div > p").text()
 
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗟𝗔𝗡𝗞𝗔𝗧𝗥𝗨𝗧𝗛👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗫𝗠𝗗 𝗟𝗔𝗡𝗞𝗔𝗧𝗥𝗨𝗧𝗛👨‍💻
 
 *📚 Title:* ${title}
 *🔖 Link:* ${link}
@@ -402,7 +402,7 @@ const $ = cheerio.load(response.data);
     const image = $1("div.post-image > a").attr("href")
     const desc = $1("div > #penci-post-entry-inner > p").text()
 
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗦𝗜𝗟𝗨𝗠𝗜𝗡𝗔👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗫𝗠𝗗 𝗦𝗜𝗟𝗨𝗠𝗜𝗡𝗔👨‍💻
 
 *📚 Title:* ${title}
 *🔖 Link:* ${link}
@@ -438,7 +438,7 @@ const $1 = cheerio.load(response1.data);
 const date = $1('header > span > time').text()    
 const desc = $1('div.td-post-content > p').text()
 
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗛𝗜𝗥𝗨𝗡𝗘𝗪𝗦👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗫𝗠𝗗 𝗛𝗜𝗥𝗨𝗡𝗘𝗪𝗦👨‍💻
 
 *📚 Title:* ${title}
 *🔖 Link:* ${link}
@@ -466,7 +466,7 @@ try{
 
 const data = await fetchJson(`https://vajira-api.vercel.app/news/derana`); 		    
 
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗗𝗘𝗥𝗔𝗡𝗔 𝗡𝗘𝗪𝗦👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗫𝗠𝗗 𝗗𝗘𝗥𝗔𝗡𝗔 𝗡𝗘𝗪𝗦👨‍💻
 
 *📚 Title:* ${data.result.title}
 *🔖 Link:* ${data.result.url}
@@ -504,7 +504,7 @@ const $ = cheerio.load(response.data);
         const $1 = cheerio.load(response1.data);
         const desc = $1("#article-phara2").text().trim()
 
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗛𝗜𝗥𝗨𝗡𝗘𝗪𝗦👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗫𝗠𝗗 𝗛𝗜𝗥𝗨𝗡𝗘𝗪𝗦👨‍💻
 
 *📚 Title:* ${title}
 *🔖 Link:* ${link}
@@ -539,7 +539,7 @@ const response1 = await axios.get(id);
  const $1 = cheerio.load(response1.data);
 const desc1 = $1("div.header.inner-content.p-b-20").find("p").text().trim();
 
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗟𝗔𝗡𝗞𝗔𝗗𝗘𝗘𝗣𝗔👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗫𝗠𝗗 𝗟𝗔𝗡𝗞𝗔𝗗𝗘𝗘𝗣𝗔👨‍💻
 
 *📚 Title:* ${title1}
 *🔖 Link:* ${id}
@@ -578,7 +578,7 @@ const desc1 = $1("#testId > p:nth-child(3)").text()
 const desc2 = $1("#testId > p:nth-child(4)").text()
 const image = $1("#post_img").attr("src").replace(/ /g,'%20')
 
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗡𝗘𝗪𝗦𝗙𝗜𝗥𝗦𝗧👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗫𝗠𝗗 𝗡𝗘𝗪𝗦𝗙𝗜𝗥𝗦𝗧👨‍💻
 
 *📚 Title:* ${title}
 *🔖 Link:* ${link1}
@@ -613,7 +613,7 @@ const title = $1("div.td_block_wrap.tdb_title.tdi_34.tdb-single-title.td-pb-bord
 const date = $1("#tdi_29 > div > div.vc_column.tdi_32.wpb_column.vc_column_container.tdc-column.td-pb-span6 > div > div.vc_row_inner.tdi_37.vc_row.vc_inner.wpb_row.td-pb-row > div > div > div > div.td_block_wrap.tdb_single_date.tdi_40.td-pb-border-top.td_block_template_1.tdb-post-meta > div > time").text()
 const desc = $1("div.td_block_wrap.tdb_single_content.tdi_55.td-pb-border-top.td_block_template_1.td-post-content.tagdiv-type > div > p").text()
 
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗦𝗜𝗬𝗔𝗧𝗛𝗔 𝗡𝗘𝗪𝗦👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗫𝗠𝗗 𝗦𝗜𝗬𝗔𝗧𝗛𝗔 𝗡𝗘𝗪𝗦👨‍💻
 
 *📚 Title:* ${title}
 *🔖 Link:* ${link}
@@ -650,7 +650,7 @@ const title = $1("div.single-header-content.overlay-text > h1").text()
 const date = $1("span.meta-el.meta-date > time").text()
 const desc = $1("div.e-ct-outer > div > p").text()
 
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗠𝗗 𝗜𝗧𝗡 𝗡𝗘𝗪𝗦👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗫𝗠𝗗 𝗜𝗧𝗡 𝗡𝗘𝗪𝗦👨‍💻
 
 *📚 Title:* ${title}
 *🔖 Link:* ${link}
@@ -833,7 +833,7 @@ try{
     const result = await response.json();
 
     let formattedResult = `╭══════════════•∞•══╮\n`;
-    formattedResult += `│⿻   *👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻*\n`;
+    formattedResult += `│⿻   *👨‍💻 ZANTA-XMD 👨‍💻*\n`;
     formattedResult += `│⿻   *LIVE MATCH INFO* ✨\n`;
     formattedResult += `│⿻\n`;
 
@@ -1138,9 +1138,9 @@ rows: srh
 ]
 
     const listMessage = {
-caption: `🎬 VAJIRA MD LYRICS 🎬`,
+caption: `🎬 ZANTA-XMD LYRICS 🎬`,
 image : { url: config.LOGO },	    
-footer: 'LYRICS SEARCH BY VAJIRA MD',
+footer: 'LYRICS SEARCH BY ZANTA-XMD',
 title: 'Result from Lyrics. 📲',
 buttonText: '*🔢 Reply below number*',
 sections
@@ -1171,7 +1171,7 @@ const artist = $("div.artistofsong").text().trim()
 const image = $("img.img-fluid").attr("src").trim()
 const lyrics = $("div.lyrics-content").text().trim()
 	
-let info = `👨‍💻 𝗩𝗔𝗝𝗜𝗥𝗔 𝗟𝗬𝗥𝗜𝗖𝗦 𝗦𝗘𝗔𝗥𝗖𝗛👨‍💻
+let info = `👨‍💻 𝗭𝗔𝗡𝗧𝗔 𝗟𝗬𝗥𝗜𝗖𝗦 𝗦𝗘𝗔𝗥𝗖𝗛👨‍💻
 
 *📚 TITLE:* ${title}|${etitle}
 *🔖 ARTIST:* ${artist}
@@ -1318,7 +1318,7 @@ const ISP = "ISP :"
 const MOBILE = "MOBILE :"
 const PROXY = "PROXY :"
 const r = await fetchJson('https://api.techniknews.net/ipgeo/' + q)
-const wea = `[👨‍💻 ＶＡＪＩＲＡ - ＭＤ 👨‍💻]
+const wea = `[👨‍💻 ZANTA-XMD 👨‍💻]
 
     *IP STALKER*
     
