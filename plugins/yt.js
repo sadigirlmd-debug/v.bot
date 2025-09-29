@@ -94,15 +94,15 @@ async (conn, mek, m, { reply }) => {
 > *🎧 ${style.toUpperCase()}*
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
 ❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍
-       00:00 ───●────────── ${video.timestamp}   
+         00:00 ───●────────── ${video.timestamp}   
 ❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍❍
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
 > ❑ Use headphones for best experience..🙇‍♂️🎧"🫀
 > ❑ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴢᴀɴᴛᴀ-xᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ
 > ❑ ᴢᴀɴᴛᴀ-xᴍᴅ ᴏᴡɴᴇʀ - +94760264995
 
-   ♡          ⎙          ➦ 
-ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ`;
+                          ♡          ⎙          ➦ 
+                       ʳᵉᵃᶜᵗ       ˢᵃᵛᵉ       ˢʰᵃʳᵉ`;
 
       await conn.sendMessage(targetJid, {
         image: { url: video.thumbnail },
