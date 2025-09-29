@@ -42,6 +42,9 @@ let autoSongInterval = null;
 let sentSongUrls = new Set();
 
 const styles = [
+  "sinhala pop song",
+  "sinhala nonstop",
+  "sinhala slowed reverb",
   "sinhala slowed reverb",
   "sinhala slowed rap",
   "sinhala new song",
@@ -55,8 +58,7 @@ const styles = [
   "sinhala teledrama slowed reverb",
   "sinhala new dj slowed reverb",
   "sinhala mashshup",
-  
-];
+  ];
 
 
 cmd({
