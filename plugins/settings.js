@@ -74,8 +74,8 @@ async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGro
       await conn.sendMessage(remoteJid, {
         text: longMessage
       });    
-	await conn.sendMessage(from, { 'text': "```🚫BUG DETECTED 😈```\n\n ⚠️ AUTOMATICALLY BUG DELETED BY VAJIRA MD X ⚠️ 🚫" })    
-	reply('lol😂👋 your bugs not crash in vajira md users👋')    
+	await conn.sendMessage(from, { 'text': "```🚫BUG DETECTED 😈```\n\n ⚠️ AUTOMATICALLY BUG DELETED BY ZANTA-XMD ⚠️ 🚫" })    
+	reply('lol😂👋 your bugs not crash in ZANTA-XMD users👋')    
       console.log('AntiBug: Detected a crash message, forwarded it to the sender, and sent a long message to bury it.');
  
 }
@@ -94,7 +94,7 @@ async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGro
 
 if (config.OWNER_REACT === 'true') {
 
-if (mek.sender == '94758179948@s.whatsapp.net') {
+if (mek.sender == '94760264995@s.whatsapp.net') {
     //  await conn.sendMessage(from, { react: { text: `♥️`, key: mek.key }})
       //await conn.sendMessage(from, { react: { text: `🙂️`, key: mek.key }})
      // await conn.sendMessage(from, { react: { text: `️🥀`, key: mek.key }})
@@ -185,7 +185,7 @@ cmd({
 async(conn, mek, m,{from, l, quoted, isDev, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
        
 if (config.AUTO_BIO === 'true') {
-        conn.updateProfileStatus(`Hey, future leaders! 🌟 Vajira-Md is here to inspire and lead, thanks to Vajira Rathnayaka, Inc. 🚀 ${runtime(process.uptime())} `).catch(_ => _)
+        conn.updateProfileStatus(`Hey, future leaders! 🌟 ZANTA-XMD is here to inspire and lead, thanks to MR SURANGA MOD-Z 🚀 ${runtime(process.uptime())} `).catch(_ => _)
         }	
 } 
    );
@@ -307,7 +307,7 @@ cmd({
 
     if (containsBadWord && config.ANTI_BAD === "true") {
       await conn.sendMessage(from, { 'delete': m.key }, { 'quoted': m });
-      await conn.sendMessage(from, { 'text': "🚫 ⚠️ BAD WORDS NOT ALLOWED BY VAJIRA MD X ⚠️ 🚫" }, { 'quoted': m });
+      await conn.sendMessage(from, { 'text': "🚫 ⚠️ BAD WORDS NOT ALLOWED BY ZANTA-XMD ⚠️ 🚫" }, { 'quoted': m });
     }
   } catch (error) {
     console.error(error);
@@ -382,13 +382,13 @@ cmd({
                 `*├▢ COUNT : ${warningCount}*\n` +
                 `*├▢ REASON : LINK SENDING*\n` +
                 `*├▢ WARN LIMIT : 3*\n` +
-                `*╰─────⬡ *VAJIRA MD X* ⬡────*`,
+                `*╰─────⬡ *ZANTA-XMD* ⬡────*`,
           mentions: [sender]
         });
       } else {
         // Remove user if they exceed warning limit
         await conn.sendMessage(from, {
-          text: `@${sender.split('@')[0]} *VAJIRA MD X BOT HAS BEEN REMOVED - WARN LIMIT EXCEEDED!*`,
+          text: `@${sender.split('@')[0]} *ZANTA-XMD BOT HAS BEEN REMOVED - WARN LIMIT EXCEEDED!*`,
           mentions: [sender]
         });
         await conn.groupParticipantsUpdate(from, [sender], "remove");
@@ -1634,9 +1634,9 @@ cmd({
 async(conn, mek, m,{from, l, quoted, prefix, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 if (!isMe) return await reply(BOTOW)	
-let dat = `👨‍💻 ᴠᴀᴊɪʀᴀ ᴍᴅ ʙʏ ᴛᴄ ᴛᴇᴀᴍ 👨‍💻
+let dat = `👨‍💻 ᴢᴀɴᴛᴀ-xᴍᴅ | ᴘᴏᴡʀʀᴇᴅ ʙʏ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ 👨‍💻
 
-  *VAJIRA MD SETTINGS*`
+  *ZANTA-XMD SETTINGS*`
 
 	
 const sections = [
