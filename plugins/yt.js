@@ -43,7 +43,13 @@ let sentSongUrls = new Set();
 
 const styles = [
   "sinhala rap",
+  "boot song",
+  "love song",
+  "tamil song",
   "sinhala song",
+  "hindi song",
+  "bts song",
+  "new song",
   "sinhala nonstop",
   "sinhala slowed reverb",
   "sinhala slowed reverb",
@@ -64,7 +70,7 @@ const styles = [
 
 cmd({
   pattern: "mp3",
-  desc: "Start sending YouTube songs under 8 minutes every 8 minutes (auto styles)",
+  desc: "Start sending YouTube songs under 60 minutes every 60 minutes (auto styles)",
   category: "download",
   filename: __filename,
 },
