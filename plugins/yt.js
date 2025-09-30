@@ -42,7 +42,8 @@ let autoSongInterval = null;
 let sentSongUrls = new Set();
 
 const styles = [
-  "sinhala pop song",
+  "sinhala rap",
+  "sinhala song",
   "sinhala nonstop",
   "sinhala slowed reverb",
   "sinhala slowed reverb",
@@ -155,7 +156,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 5 * 60 * 1000); // 8 minutes
+  }, 1 * 60 * 1000); // 8 minutes
 });
 
 
