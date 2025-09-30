@@ -72,7 +72,7 @@ const styles = [
 
 cmd({
   pattern: "mp3",
-  desc: "Start sending YouTube songs under 120 minutes every 20 minutes (no repeats)",
+  desc: "Start sending YouTube songs under 8 minutes every 8 minutes (no repeats)",
   category: "download",
   filename: __filename,
 },
@@ -141,7 +141,7 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 20 * 60 * 1000); // every 20 minutes
+  }, 1 * 60 * 1000); // every 20 minutes
 });
 
 
@@ -149,7 +149,7 @@ async (conn, mek, m, { reply }) => {
 
 cmd({
   pattern: "music",
-  desc: "Start sending YouTube songs under 120 minutes every 120 minutes (auto styles)",
+  desc: "Start sending YouTube songs under 8 minutes every 8 minutes (auto styles)",
   category: "download",
   filename: __filename,
 },
