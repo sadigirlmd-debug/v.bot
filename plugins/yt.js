@@ -155,7 +155,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 10 * 60 * 1000); // 8 minutes
+  }, 5 * 60 * 1000); // 8 minutes
 });
 
 
@@ -255,7 +255,7 @@ await conn.sendMessage(targetJid, {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 20 * 60 * 1000); // 8 minutes
+  }, 10 * 60 * 1000); // 8 minutes
 });
 
 
