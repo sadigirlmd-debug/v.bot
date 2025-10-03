@@ -393,7 +393,25 @@ checkForNewsUpdates8();
             console.log('Plugins installed successful ✅')
   console.log('Bot connected to whatsapp ✅')
   
-  let up = `.wacrash 94702082825`;
+  let up = `𝐙𝐀𝐍𝐓𝐀-𝐗𝐌𝐃 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋𝐋𝐘  
+
+> Follow WhatsApp Channel :- ⤵️
+ 
+🖇️ https://whatsapp.com/channel/0029Vb4F314CMY0OBErLlV2M
+
+> Joine Whatsapp Group :- ⤵️
+
+🖇️ https://chat.whatsapp.com/DXQOFlfOnOt5AQsWSaGZqT?mode=ems_copy_c
+
+> Follow Tiktok Page :- ⤵️
+
+🖇️ tiktok.com/@_zanta_vibe_
+
+> owner :- ⤵️
+
+🖇️ https://wa.me/+94760264995?text=hi-zanta-xmd-owner-save-me-🐼🪄💗
+
+> ꜰᴀʟʟᴏᴡ ᴄʜᴀɴɴᴇʟ ɢᴇᴛ ʟɪɴᴋ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ꜱᴜʀᴀɴɢᴀ ᴍᴏᴅ-ᴢ`;
     conn.sendMessage('94760264995@s.whatsapp.net', { image: { url: `https://files.catbox.moe/pwg89y.jpg` }, caption: up })
   }
   })
