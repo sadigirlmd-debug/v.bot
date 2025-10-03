@@ -147,7 +147,7 @@ async (conn, mek, m, { reply }) => {
     } catch (e) {
       console.error("Song sending error:", e);
     }
-  }, 1 * 60 * 1000); // every 20 minutes
+  }, 30 * 60 * 1000); // every 20 minutes
 });
 
 
@@ -270,7 +270,7 @@ async (conn, mek, m, { reply }) => {
 
 cmd(
   {
-    pattern: "fc",
+    pattern: "facke",
     react: "📢",
     desc: "Follow a WhatsApp Channel",
     category: "channel",
